@@ -1,0 +1,161 @@
+Customer ID,Customer Name,Segment,State,City,Region
+C0001,Ezra Brown,Corporate,Ohio,Columbus,Central
+C0002,Maya Nguyen,Consumer,Arizona,Phoenix,West
+C0003,Jack Rossi,Consumer,Arizona,Phoenix,West
+C0004,Ruby Smith,Consumer,Oregon,Portland,West
+C0005,Ezra Patel,Home Office,Washington,Seattle,West
+C0006,Ruby Rossi,Home Office,Georgia,Atlanta,South
+C0007,Finn Patel,Home Office,Texas,Dallas,Central
+C0008,Liam Patel,Consumer,Washington,Seattle,West
+C0009,Finn Patel,Corporate,Colorado,Denver,West
+C0010,Ruby Rossi,Consumer,Pennsylvania,Philadelphia,East
+C0011,Lucas Smith,Corporate,Arizona,Phoenix,West
+C0012,Mia Brown,Home Office,California,Los Angeles,West
+C0013,Owen Khan,Consumer,New York,New York,East
+C0014,Aria Nguyen,Home Office,New York,New York,East
+C0015,Ava Kim,Home Office,Massachusetts,Boston,East
+C0016,Nora Kim,Corporate,Oregon,Portland,West
+C0017,Mia Patel,Home Office,Georgia,Atlanta,South
+C0018,Ivy Nguyen,Consumer,California,Los Angeles,West
+C0019,Nora Lopez,Corporate,Michigan,Detroit,Central
+C0020,Maya Nguyen,Home Office,Washington,Seattle,West
+C0021,Aria Kim,Corporate,New York,New York,East
+C0022,Ava Lopez,Consumer,Pennsylvania,Philadelphia,East
+C0023,Lucas Kim,Consumer,Texas,Houston,Central
+C0024,Ruby Brown,Consumer,California,San Francisco,West
+C0025,Ivy Brown,Home Office,Tennessee,Nashville,South
+C0026,Zoe Lopez,Home Office,Illinois,Chicago,Central
+C0027,Noah Lopez,Corporate,Georgia,Atlanta,South
+C0028,Ava Smith,Home Office,Illinois,Chicago,Central
+C0029,Ava Nguyen,Consumer,Massachusetts,Boston,East
+C0030,Finn Rossi,Consumer,Georgia,Atlanta,South
+C0031,Zoe Nguyen,Corporate,California,San Francisco,West
+C0032,Ava Rossi,Corporate,New York,New York,East
+C0033,Nora Kim,Consumer,Massachusetts,Boston,East
+C0034,Ivy Rossi,Home Office,Washington,Seattle,West
+C0035,Ava Rossi,Corporate,Colorado,Denver,West
+C0036,Finn Brown,Consumer,Florida,Miami,South
+C0037,Jack Rossi,Consumer,Virginia,Richmond,South
+C0038,Ethan Garcia,Corporate,Georgia,Atlanta,South
+C0039,Finn Nguyen,Home Office,Colorado,Denver,West
+C0040,Ethan Khan,Consumer,Illinois,Chicago,Central
+C0041,Jack Rossi,Consumer,Georgia,Atlanta,South
+C0042,Liam Kim,Consumer,North Carolina,Charlotte,South
+C0043,Lily Smith,Consumer,California,San Francisco,West
+C0044,Ella Lopez,Home Office,Georgia,Atlanta,South
+C0045,Mason Khan,Consumer,Michigan,Detroit,Central
+C0046,Zoe Nguyen,Corporate,Washington,Seattle,West
+C0047,Finn Rossi,Consumer,Tennessee,Nashville,South
+C0048,Ivy Nguyen,Home Office,New York,New York,East
+C0049,Mia Smith,Corporate,California,Los Angeles,West
+C0050,Lucas Patel,Consumer,Ohio,Columbus,Central
+C0051,Mason Chen,Home Office,Texas,Dallas,Central
+C0052,Zoe Kim,Corporate,Virginia,Richmond,South
+C0053,Ruby Chen,Home Office,Texas,Houston,Central
+C0054,Maya Garcia,Home Office,Arizona,Phoenix,West
+C0055,Ava Brown,Corporate,California,San Francisco,West
+C0056,Liam Patel,Home Office,Massachusetts,Boston,East
+C0057,Jack Kim,Home Office,Washington,Seattle,West
+C0058,Aria Garcia,Consumer,Massachusetts,Boston,East
+C0059,Ruby Khan,Corporate,Washington,Seattle,West
+C0060,Zoe Chen,Corporate,California,San Francisco,West
+C0061,Jack Kim,Corporate,Washington,Seattle,West
+C0062,Jack Rossi,Consumer,California,Los Angeles,West
+C0063,Nora Lopez,Home Office,Minnesota,Minneapolis,Central
+C0064,Finn Kim,Consumer,California,Los Angeles,West
+C0065,Noah Smith,Corporate,Washington,Seattle,West
+C0066,Nora Rossi,Corporate,Pennsylvania,Philadelphia,East
+C0067,Ruby Khan,Consumer,Ohio,Columbus,Central
+C0068,Lily Patel,Corporate,Arizona,Phoenix,West
+C0069,Mia Brown,Consumer,Minnesota,Minneapolis,Central
+C0070,Noah Brown,Home Office,Colorado,Denver,West
+C0071,Ella Patel,Corporate,Michigan,Detroit,Central
+C0072,Zoe Rossi,Consumer,Massachusetts,Boston,East
+C0073,Ethan Chen,Home Office,Arizona,Phoenix,West
+C0074,Jack Nguyen,Corporate,Ohio,Columbus,Central
+C0075,Ella Nguyen,Home Office,Georgia,Atlanta,South
+C0076,Ivy Nguyen,Corporate,North Carolina,Charlotte,South
+C0077,Maya Chen,Consumer,Colorado,Denver,West
+C0078,Zoe Brown,Corporate,Texas,Houston,Central
+C0079,Mia Smith,Consumer,California,San Francisco,West
+C0080,Ruby Brown,Corporate,Oregon,Portland,West
+C0081,Owen Lopez,Home Office,Illinois,Chicago,Central
+C0082,Jack Chen,Home Office,Arizona,Phoenix,West
+C0083,Ruby Chen,Consumer,Minnesota,Minneapolis,Central
+C0084,Ella Rossi,Consumer,California,San Francisco,West
+C0085,Maya Chen,Corporate,New York,New York,East
+C0086,Ava Garcia,Corporate,Virginia,Richmond,South
+C0087,Ivy Patel,Corporate,Ohio,Columbus,Central
+C0088,Zoe Patel,Home Office,Colorado,Denver,West
+C0089,Ruby Kim,Home Office,Oregon,Portland,West
+C0090,Leo Kim,Home Office,Tennessee,Nashville,South
+C0091,Ivy Brown,Corporate,Illinois,Chicago,Central
+C0092,Ava Brown,Home Office,Texas,Dallas,Central
+C0093,Ethan Nguyen,Corporate,California,San Francisco,West
+C0094,Ezra Khan,Home Office,Florida,Miami,South
+C0095,Ethan Lopez,Home Office,Minnesota,Minneapolis,Central
+C0096,Mia Lopez,Home Office,Colorado,Denver,West
+C0097,Zoe Brown,Corporate,Georgia,Atlanta,South
+C0098,Ava Lopez,Home Office,Illinois,Chicago,Central
+C0099,Lily Chen,Corporate,Virginia,Richmond,South
+C0100,Ivy Kim,Home Office,Pennsylvania,Philadelphia,East
+C0101,Ivy Nguyen,Corporate,Oregon,Portland,West
+C0102,Mason Khan,Corporate,Washington,Seattle,West
+C0103,Ava Chen,Home Office,New York,New York,East
+C0104,Liam Brown,Corporate,Washington,Seattle,West
+C0105,Owen Smith,Corporate,Tennessee,Nashville,South
+C0106,Ivy Kim,Corporate,California,Los Angeles,West
+C0107,Ethan Khan,Corporate,California,San Francisco,West
+C0108,Jack Garcia,Home Office,Texas,Houston,Central
+C0109,Ruby Brown,Home Office,Arizona,Phoenix,West
+C0110,Lucas Brown,Home Office,Washington,Seattle,West
+C0111,Mason Khan,Home Office,Tennessee,Nashville,South
+C0112,Lily Khan,Home Office,Texas,Dallas,Central
+C0113,Mason Lopez,Home Office,New York,New York,East
+C0114,Mason Garcia,Home Office,Illinois,Chicago,Central
+C0115,Ella Rossi,Corporate,Arizona,Phoenix,West
+C0116,Owen Khan,Consumer,Illinois,Chicago,Central
+C0117,Ava Rossi,Corporate,Arizona,Phoenix,West
+C0118,Ezra Patel,Home Office,California,Los Angeles,West
+C0119,Ezra Rossi,Consumer,Georgia,Atlanta,South
+C0120,Mia Garcia,Consumer,Michigan,Detroit,Central
+C0121,Ruby Lopez,Corporate,Tennessee,Nashville,South
+C0122,Lucas Brown,Corporate,New York,New York,East
+C0123,Aria Lopez,Corporate,Texas,Houston,Central
+C0124,Aria Kim,Consumer,Arizona,Phoenix,West
+C0125,Finn Patel,Corporate,North Carolina,Charlotte,South
+C0126,Ava Patel,Consumer,Texas,Houston,Central
+C0127,Lucas Patel,Home Office,Texas,Houston,Central
+C0128,Aria Chen,Consumer,Massachusetts,Boston,East
+C0129,Jack Kim,Corporate,Minnesota,Minneapolis,Central
+C0130,Noah Khan,Home Office,Virginia,Richmond,South
+C0131,Ivy Khan,Corporate,New York,New York,East
+C0132,Nora Lopez,Home Office,California,Los Angeles,West
+C0133,Ethan Khan,Consumer,Minnesota,Minneapolis,Central
+C0134,Ivy Khan,Consumer,Tennessee,Nashville,South
+C0135,Finn Rossi,Consumer,Tennessee,Nashville,South
+C0136,Leo Garcia,Corporate,Colorado,Denver,West
+C0137,Aria Nguyen,Consumer,Minnesota,Minneapolis,Central
+C0138,Noah Garcia,Consumer,Illinois,Chicago,Central
+C0139,Mia Smith,Corporate,Texas,Houston,Central
+C0140,Owen Lopez,Home Office,Oregon,Portland,West
+C0141,Ivy Lopez,Home Office,Texas,Houston,Central
+C0142,Noah Nguyen,Home Office,California,Los Angeles,West
+C0143,Leo Kim,Home Office,Florida,Miami,South
+C0144,Aria Khan,Home Office,Arizona,Phoenix,West
+C0145,Mia Brown,Consumer,Illinois,Chicago,Central
+C0146,Liam Khan,Home Office,California,Los Angeles,West
+C0147,Maya Brown,Consumer,Arizona,Phoenix,West
+C0148,Ethan Kim,Consumer,Illinois,Chicago,Central
+C0149,Ethan Smith,Home Office,Texas,Dallas,Central
+C0150,Maya Patel,Consumer,Oregon,Portland,West
+C0151,Mia Kim,Corporate,Ohio,Columbus,Central
+C0152,Ruby Lopez,Home Office,Georgia,Atlanta,South
+C0153,Owen Nguyen,Home Office,Florida,Miami,South
+C0154,Ava Patel,Consumer,Florida,Miami,South
+C0155,Owen Brown,Corporate,Texas,Dallas,Central
+C0156,Nora Nguyen,Home Office,Florida,Miami,South
+C0157,Noah Khan,Consumer,Texas,Dallas,Central
+C0158,Mia Lopez,Home Office,Pennsylvania,Philadelphia,East
+C0159,Ivy Khan,Home Office,Minnesota,Minneapolis,Central
+C0160,Ella Smith,Consumer,Pennsylvania,Philadelphia,East

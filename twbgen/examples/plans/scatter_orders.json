@@ -1,0 +1,50 @@
+{
+ "name": "Order Economics",
+ "calculations": [],
+ "charts": [
+  {
+   "title": "Do bigger orders make more profit?",
+   "chart": "scatter",
+   "fields": [
+    {
+     "field": "Sales",
+     "agg": "sum",
+     "continuous_date": null,
+     "role": "x"
+    },
+    {
+     "field": "Profit",
+     "agg": "sum",
+     "continuous_date": null,
+     "role": "y"
+    },
+    {
+     "field": "Order ID",
+     "agg": "auto",
+     "continuous_date": null,
+     "role": "detail"
+    },
+    {
+     "field": "Category",
+     "agg": "auto",
+     "continuous_date": null,
+     "role": "color"
+    }
+   ],
+   "filters": [
+    {
+     "field": "Sales",
+     "agg": "sum",
+     "include": null,
+     "exclude": null,
+     "min": 50,
+     "max": null
+    }
+   ],
+   "sort": null,
+   "reference_lines": []
+  }
+ ],
+ "dashboard": null,
+ "formats": []
+}

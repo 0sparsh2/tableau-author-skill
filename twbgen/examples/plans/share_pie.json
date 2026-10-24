@@ -1,0 +1,35 @@
+{
+ "name": "Category Share",
+ "calculations": [],
+ "charts": [
+  {
+   "title": "Share of quantity by category",
+   "chart": "pie",
+   "fields": [
+    {
+     "field": "Category",
+     "agg": "auto",
+     "continuous_date": null,
+     "role": "color"
+    },
+    {
+     "field": "Quantity",
+     "agg": "sum",
+     "continuous_date": null,
+     "role": "size"
+    },
+    {
+     "field": "Quantity",
+     "agg": "sum",
+     "continuous_date": null,
+     "role": "label"
+    }
+   ],
+   "filters": [],
+   "sort": null,
+   "reference_lines": []
+  }
+ ],
+ "dashboard": null,
+ "formats": []
+}

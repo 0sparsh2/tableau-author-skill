@@ -1,0 +1,19 @@
+# environment
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# generated output
+twbgen/out/
+out/
+
+# Tableau's internal schema, extracted from a local install; never redistribute
+twbgen/xsd/desktop-local/
+
+# private research notes (reverse-engineering evidence), not published
+RESEARCH.md
+RESEARCH-INDEX.md
+evidence/
+re-tools/
+twbgen/NEXT-STEPS.md

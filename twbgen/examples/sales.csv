@@ -1,0 +1,1201 @@
+Order ID,Order Date,Region,Category,Segment,Quantity,Sales,Profit
+ORD-00001,2024-11-27,West,Furniture,Consumer,1,144.75,-7.47
+ORD-00002,2025-06-03,West,Technology,Consumer,2,653.37,100.88
+ORD-00003,2024-09-03,East,Office Supplies,Home Office,7,326.23,-38.17
+ORD-00004,2025-10-04,East,Office Supplies,Consumer,7,370.75,12.44
+ORD-00005,2024-02-17,West,Furniture,Home Office,7,1101.72,149.95
+ORD-00006,2024-07-04,East,Office Supplies,Home Office,4,258.6,56.76
+ORD-00007,2025-12-30,East,Office Supplies,Corporate,1,90.68,0.2
+ORD-00008,2025-04-21,South,Furniture,Consumer,5,707.29,44.79
+ORD-00009,2025-12-16,West,Technology,Corporate,5,1759.77,558.41
+ORD-00010,2025-09-15,East,Technology,Corporate,9,3481.94,149.43
+ORD-00011,2024-06-04,South,Furniture,Corporate,1,210.92,41.23
+ORD-00012,2024-12-14,Central,Office Supplies,Corporate,8,408.54,90.64
+ORD-00013,2024-03-11,East,Furniture,Corporate,8,2444.92,583.14
+ORD-00014,2025-10-24,South,Furniture,Corporate,7,1623.55,222.83
+ORD-00015,2024-01-24,South,Furniture,Corporate,3,503.0,-12.14
+ORD-00016,2024-05-12,West,Furniture,Corporate,7,2053.52,130.06
+ORD-00017,2024-03-23,West,Furniture,Home Office,7,1600.91,360.21
+ORD-00018,2024-10-12,South,Furniture,Consumer,7,1472.75,-130.3
+ORD-00019,2024-03-25,West,Technology,Consumer,4,1352.18,548.53
+ORD-00020,2024-09-26,Central,Technology,Corporate,3,673.31,132.73
+ORD-00021,2025-09-16,Central,Technology,Corporate,9,3378.69,234.1
+ORD-00022,2025-11-27,South,Furniture,Corporate,7,1134.69,-116.68
+ORD-00023,2025-10-11,South,Technology,Corporate,4,631.65,125.25
+ORD-00024,2025-09-07,East,Technology,Home Office,1,436.12,108.61
+ORD-00025,2024-04-13,Central,Office Supplies,Home Office,1,31.5,5.68
+ORD-00026,2024-09-15,Central,Office Supplies,Consumer,6,282.04,74.05
+ORD-00027,2025-05-14,South,Furniture,Home Office,8,1203.55,220.59
+ORD-00028,2024-09-28,South,Office Supplies,Consumer,3,127.65,39.2
+ORD-00029,2025-06-24,Central,Technology,Home Office,9,3306.99,612.33
+ORD-00030,2024-04-03,Central,Office Supplies,Corporate,6,382.06,18.79
+ORD-00031,2024-08-16,Central,Office Supplies,Consumer,4,209.39,41.53
+ORD-00032,2024-09-02,South,Office Supplies,Corporate,4,127.67,-5.92
+ORD-00033,2024-12-30,East,Technology,Corporate,5,1760.03,416.64
+ORD-00034,2025-04-02,Central,Furniture,Consumer,2,314.27,67.08
+ORD-00035,2025-04-26,West,Furniture,Consumer,4,997.96,223.57
+ORD-00036,2025-05-05,Central,Office Supplies,Consumer,2,139.96,18.86
+ORD-00037,2025-02-01,West,Furniture,Home Office,3,718.88,18.98
+ORD-00038,2025-02-09,South,Furniture,Consumer,2,417.9,8.97
+ORD-00039,2024-05-10,East,Technology,Corporate,8,3586.18,1134.48
+ORD-00040,2025-11-04,Central,Technology,Consumer,9,2579.95,924.87
+ORD-00041,2024-01-15,East,Office Supplies,Consumer,3,204.56,62.48
+ORD-00042,2024-01-29,Central,Technology,Home Office,5,1201.12,21.69
+ORD-00043,2024-11-29,Central,Office Supplies,Corporate,7,425.83,141.67
+ORD-00044,2025-11-09,South,Office Supplies,Home Office,3,148.59,33.22
+ORD-00045,2025-06-06,East,Furniture,Consumer,3,989.9,70.42
+ORD-00046,2025-04-29,East,Office Supplies,Home Office,1,71.27,5.88
+ORD-00047,2025-06-27,South,Technology,Consumer,9,1402.9,270.34
+ORD-00048,2025-06-03,South,Office Supplies,Consumer,1,58.35,10.67
+ORD-00049,2025-03-29,Central,Office Supplies,Home Office,9,538.98,97.14
+ORD-00050,2025-06-30,South,Office Supplies,Corporate,4,223.99,54.17
+ORD-00051,2025-07-26,West,Furniture,Home Office,3,708.38,-15.27
+ORD-00052,2024-09-03,South,Technology,Consumer,4,953.89,234.14
+ORD-00053,2024-06-07,Central,Technology,Consumer,5,1567.52,411.87
+ORD-00054,2025-02-11,South,Technology,Corporate,4,704.38,114.73
+ORD-00055,2025-06-11,South,Furniture,Consumer,7,937.95,-18.91
+ORD-00056,2024-12-12,South,Furniture,Home Office,1,139.75,32.77
+ORD-00057,2025-09-30,Central,Office Supplies,Consumer,2,76.21,17.18
+ORD-00058,2024-03-27,Central,Furniture,Consumer,1,233.15,4.12
+ORD-00059,2024-10-03,West,Furniture,Corporate,5,1017.23,-81.9
+ORD-00060,2025-12-18,Central,Technology,Home Office,5,891.51,131.15
+ORD-00061,2024-07-06,South,Technology,Consumer,5,1418.21,52.04
+ORD-00062,2025-09-14,West,Technology,Corporate,5,2225.63,41.39
+ORD-00063,2024-01-12,Central,Office Supplies,Home Office,7,450.69,64.42
+ORD-00064,2025-12-27,West,Technology,Consumer,3,837.85,203.37
+ORD-00065,2024-07-25,Central,Office Supplies,Home Office,5,245.97,45.67
+ORD-00066,2024-07-01,Central,Furniture,Consumer,1,245.63,45.53
+ORD-00067,2024-01-16,East,Office Supplies,Corporate,9,674.46,135.27
+ORD-00068,2024-04-18,South,Office Supplies,Corporate,8,348.34,96.3
+ORD-00069,2025-06-02,Central,Office Supplies,Home Office,4,306.02,7.73
+ORD-00070,2025-10-13,West,Furniture,Consumer,6,2103.2,524.48
+ORD-00071,2024-01-15,East,Office Supplies,Corporate,5,340.05,107.76
+ORD-00072,2025-06-02,Central,Office Supplies,Consumer,4,254.84,53.66
+ORD-00073,2025-04-15,West,Technology,Home Office,5,1650.24,254.99
+ORD-00074,2024-11-27,West,Technology,Consumer,5,1161.44,563.95
+ORD-00075,2024-01-02,Central,Furniture,Home Office,2,344.86,-7.03
+ORD-00076,2024-01-06,East,Furniture,Home Office,2,377.57,22.13
+ORD-00077,2024-02-12,South,Technology,Home Office,5,885.57,174.61
+ORD-00078,2024-06-07,South,Furniture,Home Office,8,886.51,193.57
+ORD-00079,2025-09-25,West,Technology,Consumer,9,3421.29,539.78
+ORD-00080,2025-06-20,East,Office Supplies,Consumer,4,221.27,-15.12
+ORD-00081,2024-05-16,Central,Technology,Home Office,7,2131.34,48.11
+ORD-00082,2025-06-28,West,Furniture,Consumer,5,762.35,-0.5
+ORD-00083,2025-05-30,East,Office Supplies,Consumer,9,486.5,69.28
+ORD-00084,2024-09-28,West,Office Supplies,Home Office,4,188.3,11.08
+ORD-00085,2025-04-16,South,Furniture,Home Office,2,348.25,-7.97
+ORD-00086,2025-10-09,West,Technology,Home Office,3,895.71,-6.54
+ORD-00087,2025-12-10,Central,Office Supplies,Home Office,3,101.01,24.05
+ORD-00088,2024-04-11,West,Office Supplies,Home Office,8,399.69,74.07
+ORD-00089,2024-10-19,South,Furniture,Corporate,8,1495.32,315.99
+ORD-00090,2024-03-28,South,Technology,Home Office,5,1015.54,176.32
+ORD-00091,2025-04-05,Central,Furniture,Consumer,4,1079.39,110.99
+ORD-00092,2024-05-25,Central,Furniture,Home Office,3,571.66,22.88
+ORD-00093,2025-06-04,Central,Technology,Consumer,6,1300.14,378.14
+ORD-00094,2024-06-11,East,Furniture,Home Office,8,1952.2,-44.9
+ORD-00095,2024-05-24,South,Furniture,Corporate,7,919.39,58.66
+ORD-00096,2025-02-11,East,Technology,Corporate,1,547.0,95.19
+ORD-00097,2024-09-16,Central,Technology,Corporate,7,1532.38,326.01
+ORD-00098,2024-10-08,East,Furniture,Home Office,2,338.6,8.51
+ORD-00099,2024-10-19,West,Technology,Corporate,5,1423.49,138.35
+ORD-00100,2024-01-30,South,Office Supplies,Consumer,9,288.32,97.85
+ORD-00101,2024-02-20,South,Furniture,Home Office,3,515.4,26.5
+ORD-00102,2024-05-10,West,Furniture,Corporate,7,1347.39,130.76
+ORD-00103,2024-09-18,Central,Furniture,Consumer,4,591.83,-31.05
+ORD-00104,2025-10-20,West,Technology,Corporate,4,1380.67,190.04
+ORD-00105,2025-07-17,West,Furniture,Consumer,6,2120.92,-5.47
+ORD-00106,2024-09-06,East,Technology,Corporate,6,2256.55,452.1
+ORD-00107,2024-09-01,Central,Furniture,Corporate,4,922.1,55.08
+ORD-00108,2025-06-20,West,Furniture,Consumer,5,1101.26,-70.28
+ORD-00109,2025-05-25,Central,Office Supplies,Consumer,6,232.07,-4.43
+ORD-00110,2024-04-04,Central,Technology,Corporate,7,1545.27,272.57
+ORD-00111,2025-03-18,Central,Technology,Corporate,3,518.16,60.0
+ORD-00112,2025-08-24,South,Technology,Home Office,2,441.08,-29.52
+ORD-00113,2025-04-24,South,Technology,Consumer,2,376.28,137.39
+ORD-00114,2025-12-18,South,Technology,Consumer,9,2654.91,1173.19
+ORD-00115,2024-05-08,West,Office Supplies,Corporate,1,66.98,8.65
+ORD-00116,2025-06-24,South,Office Supplies,Corporate,2,65.65,13.74
+ORD-00117,2025-06-21,West,Furniture,Corporate,5,985.27,45.31
+ORD-00118,2025-04-16,Central,Furniture,Consumer,4,793.61,39.42
+ORD-00119,2025-07-14,West,Technology,Corporate,7,2810.39,480.89
+ORD-00120,2025-11-21,South,Technology,Corporate,5,944.59,192.29
+ORD-00121,2025-01-14,West,Furniture,Corporate,1,292.63,10.97
+ORD-00122,2024-07-21,East,Furniture,Corporate,9,1553.78,-80.15
+ORD-00123,2024-07-24,Central,Technology,Consumer,4,933.21,145.83
+ORD-00124,2025-09-30,South,Office Supplies,Corporate,3,190.86,76.47
+ORD-00125,2025-03-03,East,Office Supplies,Home Office,3,332.24,58.05
+ORD-00126,2024-05-25,South,Technology,Corporate,1,156.93,29.63
+ORD-00127,2025-12-30,Central,Office Supplies,Consumer,2,154.34,38.2
+ORD-00128,2025-10-30,South,Technology,Corporate,5,1366.34,184.88
+ORD-00129,2025-01-17,Central,Furniture,Corporate,3,417.25,43.15
+ORD-00130,2024-05-06,West,Furniture,Corporate,6,1603.78,133.51
+ORD-00131,2025-03-18,East,Technology,Corporate,8,2505.77,135.13
+ORD-00132,2025-01-07,South,Technology,Home Office,7,1349.71,197.51
+ORD-00133,2025-02-18,East,Furniture,Consumer,1,294.87,21.86
+ORD-00134,2024-03-05,Central,Furniture,Home Office,5,763.82,14.86
+ORD-00135,2024-02-14,Central,Office Supplies,Home Office,6,385.74,36.14
+ORD-00136,2025-10-11,East,Technology,Home Office,4,1135.7,412.76
+ORD-00137,2025-04-21,South,Furniture,Consumer,7,1551.91,239.74
+ORD-00138,2024-11-06,West,Office Supplies,Corporate,4,206.94,52.58
+ORD-00139,2025-04-16,Central,Office Supplies,Corporate,2,111.45,10.58
+ORD-00140,2024-03-07,East,Furniture,Consumer,9,2460.81,257.35
+ORD-00141,2025-03-12,East,Technology,Home Office,5,2276.34,483.65
+ORD-00142,2025-04-02,West,Technology,Home Office,3,966.14,290.99
+ORD-00143,2025-11-21,West,Office Supplies,Corporate,9,793.38,94.23
+ORD-00144,2024-10-27,Central,Office Supplies,Home Office,5,215.61,21.05
+ORD-00145,2024-09-23,West,Furniture,Home Office,4,658.76,45.37
+ORD-00146,2024-07-11,Central,Technology,Consumer,7,1346.22,373.09
+ORD-00147,2025-06-03,West,Office Supplies,Corporate,2,154.93,31.86
+ORD-00148,2024-08-24,South,Furniture,Consumer,1,200.43,11.39
+ORD-00149,2024-05-02,East,Technology,Corporate,4,1935.56,24.8
+ORD-00150,2025-09-09,Central,Office Supplies,Home Office,1,37.79,12.21
+ORD-00151,2025-12-27,Central,Technology,Corporate,1,247.01,57.09
+ORD-00152,2024-02-09,West,Technology,Corporate,6,1668.95,405.38
+ORD-00153,2024-07-08,Central,Technology,Corporate,4,600.17,25.27
+ORD-00154,2024-04-13,South,Office Supplies,Home Office,9,273.54,42.07
+ORD-00155,2024-04-03,West,Furniture,Consumer,5,1020.61,39.42
+ORD-00156,2024-11-15,Central,Furniture,Corporate,7,757.15,121.63
+ORD-00157,2025-10-21,West,Furniture,Corporate,7,1351.16,430.02
+ORD-00158,2024-04-26,East,Furniture,Consumer,6,1534.46,106.71
+ORD-00159,2024-05-13,East,Technology,Home Office,9,2313.35,513.36
+ORD-00160,2025-09-29,Central,Office Supplies,Corporate,9,366.31,13.51
+ORD-00161,2024-10-17,West,Office Supplies,Consumer,3,241.27,62.26
+ORD-00162,2024-11-04,West,Technology,Home Office,8,2043.89,547.79
+ORD-00163,2025-10-13,South,Technology,Home Office,3,805.83,228.67
+ORD-00164,2024-07-19,South,Technology,Home Office,4,532.03,26.04
+ORD-00165,2024-06-09,South,Furniture,Consumer,2,221.63,61.38
+ORD-00166,2024-02-12,East,Office Supplies,Home Office,6,299.89,32.87
+ORD-00167,2025-04-11,Central,Office Supplies,Corporate,7,327.11,49.25
+ORD-00168,2025-04-02,South,Technology,Corporate,1,145.58,43.55
+ORD-00169,2025-04-21,West,Furniture,Consumer,8,2568.93,269.87
+ORD-00170,2024-05-11,Central,Furniture,Corporate,6,711.08,-37.47
+ORD-00171,2025-05-31,East,Technology,Home Office,3,826.91,131.02
+ORD-00172,2024-03-22,East,Office Supplies,Consumer,7,565.59,-32.22
+ORD-00173,2024-01-27,East,Office Supplies,Consumer,2,108.72,31.39
+ORD-00174,2025-12-03,West,Technology,Corporate,6,2252.9,369.49
+ORD-00175,2024-06-11,Central,Office Supplies,Corporate,5,317.77,19.55
+ORD-00176,2024-08-01,Central,Office Supplies,Corporate,9,341.25,59.67
+ORD-00177,2024-02-07,West,Technology,Corporate,7,1530.87,530.92
+ORD-00178,2024-06-21,Central,Technology,Corporate,9,1379.93,151.18
+ORD-00179,2025-04-08,East,Furniture,Corporate,9,3016.08,-328.41
+ORD-00180,2025-01-19,Central,Office Supplies,Consumer,3,147.09,41.52
+ORD-00181,2025-03-28,West,Technology,Home Office,1,288.8,22.28
+ORD-00182,2025-11-10,Central,Office Supplies,Consumer,1,66.11,9.23
+ORD-00183,2024-06-01,Central,Office Supplies,Corporate,7,313.87,39.34
+ORD-00184,2024-08-20,East,Technology,Corporate,1,216.75,45.15
+ORD-00185,2024-11-07,East,Office Supplies,Consumer,6,443.79,28.02
+ORD-00186,2024-07-28,Central,Office Supplies,Consumer,8,279.13,56.57
+ORD-00187,2024-09-06,West,Furniture,Corporate,2,286.41,48.44
+ORD-00188,2025-02-15,Central,Technology,Home Office,1,308.0,98.59
+ORD-00189,2024-12-24,South,Office Supplies,Consumer,9,448.62,68.39
+ORD-00190,2024-03-04,East,Furniture,Consumer,3,625.79,199.93
+ORD-00191,2024-04-17,East,Office Supplies,Home Office,9,729.29,138.79
+ORD-00192,2025-09-14,South,Office Supplies,Consumer,3,145.89,38.98
+ORD-00193,2024-11-03,East,Office Supplies,Home Office,8,675.26,257.48
+ORD-00194,2025-04-21,East,Office Supplies,Consumer,8,490.38,78.08
+ORD-00195,2024-09-24,West,Office Supplies,Corporate,1,41.92,15.17
+ORD-00196,2025-12-29,East,Furniture,Home Office,9,3124.19,-351.43
+ORD-00197,2025-06-19,Central,Furniture,Consumer,4,541.09,-7.1
+ORD-00198,2024-07-26,West,Office Supplies,Corporate,6,271.28,39.77
+ORD-00199,2024-12-02,West,Furniture,Consumer,9,1931.68,307.45
+ORD-00200,2025-03-23,West,Office Supplies,Corporate,5,424.82,-2.93
+ORD-00201,2025-09-29,East,Office Supplies,Consumer,3,177.77,36.65
+ORD-00202,2024-12-19,West,Office Supplies,Consumer,1,37.48,5.98
+ORD-00203,2025-12-10,East,Office Supplies,Corporate,2,196.97,58.47
+ORD-00204,2024-07-23,East,Office Supplies,Consumer,7,345.59,74.09
+ORD-00205,2024-07-27,East,Technology,Consumer,1,489.38,171.47
+ORD-00206,2025-10-08,Central,Furniture,Home Office,2,285.84,-13.28
+ORD-00207,2024-07-28,Central,Furniture,Corporate,6,991.6,150.36
+ORD-00208,2024-02-19,Central,Furniture,Corporate,9,1553.69,112.04
+ORD-00209,2025-09-25,East,Furniture,Home Office,1,288.16,21.89
+ORD-00210,2024-02-19,West,Office Supplies,Corporate,2,127.16,5.14
+ORD-00211,2024-06-23,South,Technology,Consumer,9,1439.48,295.57
+ORD-00212,2024-12-22,South,Technology,Consumer,8,1942.36,-291.96
+ORD-00213,2025-05-21,Central,Office Supplies,Home Office,5,293.22,79.01
+ORD-00214,2024-08-25,South,Technology,Consumer,2,567.41,207.32
+ORD-00215,2025-05-17,East,Office Supplies,Home Office,6,439.42,22.93
+ORD-00216,2024-03-29,South,Office Supplies,Corporate,1,37.7,8.29
+ORD-00217,2024-09-26,South,Office Supplies,Corporate,9,278.54,88.67
+ORD-00218,2024-05-09,East,Furniture,Corporate,6,1611.54,66.58
+ORD-00219,2025-11-08,Central,Technology,Consumer,8,2099.89,426.62
+ORD-00220,2024-12-08,South,Office Supplies,Corporate,4,169.04,-1.04
+ORD-00221,2024-11-04,West,Office Supplies,Corporate,3,248.37,30.46
+ORD-00222,2024-06-13,West,Furniture,Home Office,4,710.12,-71.56
+ORD-00223,2024-04-14,West,Office Supplies,Corporate,2,90.76,17.21
+ORD-00224,2024-10-31,South,Furniture,Consumer,4,423.45,48.8
+ORD-00225,2024-10-14,West,Furniture,Home Office,8,1103.78,-122.53
+ORD-00226,2024-08-15,Central,Furniture,Home Office,1,125.57,23.34
+ORD-00227,2025-02-18,East,Office Supplies,Home Office,4,439.3,3.58
+ORD-00228,2025-10-24,South,Technology,Home Office,4,1104.79,272.57
+ORD-00229,2024-05-07,South,Furniture,Consumer,6,746.45,-13.21
+ORD-00230,2025-02-13,West,Furniture,Consumer,7,1746.55,-318.73
+ORD-00231,2025-09-28,South,Office Supplies,Corporate,3,190.63,27.02
+ORD-00232,2024-04-18,East,Furniture,Home Office,9,1839.75,138.86
+ORD-00233,2024-07-23,Central,Technology,Home Office,8,1983.03,298.77
+ORD-00234,2025-01-13,Central,Furniture,Home Office,8,1243.66,-100.44
+ORD-00235,2024-07-07,South,Office Supplies,Corporate,2,99.4,2.09
+ORD-00236,2024-10-07,South,Furniture,Corporate,1,94.04,-4.91
+ORD-00237,2025-03-06,Central,Office Supplies,Home Office,5,189.72,20.86
+ORD-00238,2024-08-12,South,Furniture,Consumer,4,450.68,78.69
+ORD-00239,2025-10-11,West,Furniture,Home Office,9,2679.04,232.17
+ORD-00240,2025-10-16,South,Furniture,Home Office,5,1069.6,-2.13
+ORD-00241,2024-05-08,South,Furniture,Corporate,4,501.39,-2.69
+ORD-00242,2025-11-26,West,Furniture,Corporate,1,314.82,39.17
+ORD-00243,2025-01-01,West,Office Supplies,Consumer,5,295.41,-5.01
+ORD-00244,2025-11-06,Central,Technology,Consumer,5,1771.31,346.94
+ORD-00245,2024-03-28,Central,Technology,Consumer,9,2732.53,453.68
+ORD-00246,2024-08-02,East,Office Supplies,Consumer,5,288.01,38.74
+ORD-00247,2025-08-15,West,Technology,Corporate,3,1263.78,177.76
+ORD-00248,2025-07-01,West,Office Supplies,Home Office,2,156.6,32.38
+ORD-00249,2025-10-13,Central,Technology,Corporate,8,2548.55,-35.22
+ORD-00250,2025-11-18,East,Office Supplies,Consumer,2,134.4,15.06
+ORD-00251,2024-05-22,South,Furniture,Corporate,9,896.41,-5.02
+ORD-00252,2024-09-09,South,Technology,Home Office,9,2040.6,395.38
+ORD-00253,2024-01-07,West,Furniture,Corporate,8,2035.81,-82.85
+ORD-00254,2025-01-18,South,Furniture,Corporate,2,263.67,16.22
+ORD-00255,2025-10-13,East,Technology,Consumer,1,474.47,131.75
+ORD-00256,2025-06-06,South,Furniture,Home Office,3,333.19,5.05
+ORD-00257,2025-03-01,West,Furniture,Home Office,2,652.41,-20.07
+ORD-00258,2025-07-21,West,Furniture,Corporate,7,1547.08,249.79
+ORD-00259,2025-07-21,East,Furniture,Corporate,5,1342.13,-64.5
+ORD-00260,2025-06-02,Central,Technology,Corporate,8,2723.7,501.87
+ORD-00261,2024-07-15,Central,Office Supplies,Consumer,5,168.49,33.8
+ORD-00262,2025-02-12,South,Office Supplies,Consumer,1,44.38,6.27
+ORD-00263,2024-01-07,East,Technology,Home Office,8,3130.41,201.44
+ORD-00264,2025-09-18,South,Office Supplies,Home Office,3,159.6,-4.36
+ORD-00265,2025-12-06,East,Technology,Consumer,1,469.31,-7.72
+ORD-00266,2025-11-10,West,Technology,Home Office,7,2945.4,686.98
+ORD-00267,2024-01-14,Central,Technology,Corporate,5,1259.62,220.29
+ORD-00268,2024-02-05,Central,Technology,Home Office,7,1769.15,498.26
+ORD-00269,2024-02-25,South,Office Supplies,Home Office,9,238.71,74.14
+ORD-00270,2025-12-13,South,Furniture,Corporate,2,216.52,45.17
+ORD-00271,2025-08-31,West,Furniture,Consumer,7,1840.15,326.92
+ORD-00272,2025-10-03,East,Furniture,Home Office,1,184.43,23.52
+ORD-00273,2024-05-04,East,Technology,Consumer,2,506.29,187.38
+ORD-00274,2025-04-06,West,Technology,Home Office,6,2523.78,508.09
+ORD-00275,2025-12-12,West,Office Supplies,Home Office,2,115.16,2.09
+ORD-00276,2024-09-17,East,Office Supplies,Consumer,1,43.86,4.39
+ORD-00277,2025-10-28,East,Furniture,Corporate,5,1290.29,-237.47
+ORD-00278,2025-09-15,East,Furniture,Home Office,6,2475.57,-291.09
+ORD-00279,2025-03-25,South,Office Supplies,Home Office,3,103.74,19.03
+ORD-00280,2024-06-16,South,Furniture,Corporate,7,1317.83,-64.58
+ORD-00281,2024-10-05,Central,Furniture,Home Office,5,570.69,139.57
+ORD-00282,2024-12-06,East,Technology,Consumer,5,1921.92,287.37
+ORD-00283,2025-01-20,South,Office Supplies,Corporate,7,365.63,118.12
+ORD-00284,2025-12-06,East,Furniture,Consumer,5,1236.29,-89.38
+ORD-00285,2025-08-23,East,Furniture,Corporate,3,1137.96,187.75
+ORD-00286,2025-07-14,South,Furniture,Home Office,9,1064.81,-59.43
+ORD-00287,2025-05-11,South,Technology,Home Office,4,818.76,239.58
+ORD-00288,2024-07-30,Central,Office Supplies,Corporate,1,59.2,11.4
+ORD-00289,2025-07-07,East,Office Supplies,Corporate,6,604.97,101.01
+ORD-00290,2025-06-18,Central,Furniture,Consumer,9,1951.78,423.65
+ORD-00291,2024-08-05,West,Technology,Corporate,3,1120.22,157.95
+ORD-00292,2025-02-16,West,Technology,Corporate,1,461.64,153.59
+ORD-00293,2025-01-18,East,Furniture,Corporate,8,2987.13,448.04
+ORD-00294,2024-10-14,East,Technology,Home Office,1,274.94,86.47
+ORD-00295,2025-05-12,West,Furniture,Home Office,5,1190.06,301.6
+ORD-00296,2024-05-14,Central,Technology,Consumer,6,1095.54,123.15
+ORD-00297,2025-01-22,East,Technology,Corporate,1,259.93,13.48
+ORD-00298,2024-03-06,South,Technology,Home Office,2,338.42,107.31
+ORD-00299,2024-08-26,East,Office Supplies,Consumer,9,592.59,49.13
+ORD-00300,2024-08-15,West,Technology,Consumer,5,2029.4,411.11
+ORD-00301,2025-07-20,East,Technology,Corporate,5,2544.23,347.39
+ORD-00302,2024-02-27,East,Technology,Consumer,6,2600.55,32.36
+ORD-00303,2025-11-24,Central,Office Supplies,Corporate,8,532.71,124.51
+ORD-00304,2025-02-03,East,Furniture,Corporate,8,2194.95,275.02
+ORD-00305,2024-09-01,West,Office Supplies,Consumer,1,58.46,19.48
+ORD-00306,2024-08-13,East,Office Supplies,Consumer,6,566.34,21.41
+ORD-00307,2025-04-02,East,Furniture,Consumer,1,334.78,-14.89
+ORD-00308,2025-05-03,East,Office Supplies,Consumer,6,354.82,64.67
+ORD-00309,2024-02-28,West,Office Supplies,Corporate,8,500.5,149.71
+ORD-00310,2025-03-04,South,Technology,Home Office,3,449.43,166.97
+ORD-00311,2024-10-30,Central,Technology,Consumer,5,1191.37,86.31
+ORD-00312,2024-06-06,East,Office Supplies,Corporate,4,301.81,116.48
+ORD-00313,2024-05-02,Central,Technology,Consumer,6,1361.73,236.38
+ORD-00314,2024-04-09,South,Furniture,Consumer,7,1419.68,210.66
+ORD-00315,2024-10-27,West,Office Supplies,Corporate,1,57.22,0.38
+ORD-00316,2024-01-02,Central,Technology,Corporate,6,1365.41,236.18
+ORD-00317,2024-08-11,Central,Office Supplies,Home Office,3,102.31,24.3
+ORD-00318,2024-06-28,West,Office Supplies,Home Office,2,151.58,50.98
+ORD-00319,2025-05-22,Central,Technology,Consumer,4,783.43,77.21
+ORD-00320,2025-08-19,Central,Technology,Home Office,1,180.11,5.78
+ORD-00321,2025-06-16,South,Office Supplies,Home Office,1,49.01,4.6
+ORD-00322,2025-05-19,East,Technology,Corporate,7,3849.04,1000.08
+ORD-00323,2024-05-16,Central,Technology,Home Office,3,756.36,160.86
+ORD-00324,2025-01-15,East,Furniture,Home Office,9,3676.98,209.81
+ORD-00325,2024-03-14,East,Furniture,Home Office,4,1323.41,172.12
+ORD-00326,2025-01-25,East,Furniture,Corporate,2,827.76,-15.72
+ORD-00327,2025-04-02,East,Office Supplies,Home Office,9,527.23,80.19
+ORD-00328,2024-07-05,West,Technology,Consumer,5,1200.55,278.1
+ORD-00329,2024-01-20,East,Office Supplies,Corporate,4,233.03,55.71
+ORD-00330,2025-06-19,West,Office Supplies,Consumer,8,376.62,1.61
+ORD-00331,2024-07-02,East,Furniture,Consumer,2,513.15,-58.65
+ORD-00332,2024-05-04,East,Furniture,Consumer,3,818.36,-36.35
+ORD-00333,2024-08-20,West,Office Supplies,Home Office,8,574.69,152.33
+ORD-00334,2025-02-02,South,Office Supplies,Consumer,9,273.41,93.69
+ORD-00335,2025-01-06,Central,Furniture,Home Office,4,1028.88,10.67
+ORD-00336,2024-11-24,South,Office Supplies,Consumer,1,36.12,-2.73
+ORD-00337,2025-11-27,Central,Technology,Consumer,7,2184.12,518.75
+ORD-00338,2024-03-11,Central,Furniture,Consumer,4,706.69,45.36
+ORD-00339,2024-08-18,West,Furniture,Consumer,7,1880.75,407.72
+ORD-00340,2024-02-05,Central,Office Supplies,Consumer,5,264.62,22.33
+ORD-00341,2025-09-28,East,Furniture,Corporate,2,617.06,-129.2
+ORD-00342,2024-04-25,Central,Furniture,Home Office,3,367.65,65.89
+ORD-00343,2025-06-10,Central,Technology,Home Office,8,2367.41,704.49
+ORD-00344,2024-05-14,Central,Furniture,Home Office,5,720.97,4.61
+ORD-00345,2024-03-30,Central,Furniture,Corporate,4,788.68,92.3
+ORD-00346,2025-07-15,Central,Office Supplies,Corporate,8,430.64,142.15
+ORD-00347,2024-02-01,West,Furniture,Corporate,4,660.92,-161.32
+ORD-00348,2024-01-13,Central,Technology,Corporate,4,824.8,74.03
+ORD-00349,2025-05-18,Central,Furniture,Consumer,4,677.15,47.25
+ORD-00350,2025-09-12,Central,Furniture,Corporate,1,205.15,-2.02
+ORD-00351,2024-12-28,East,Office Supplies,Corporate,4,400.74,10.89
+ORD-00352,2024-12-11,Central,Technology,Corporate,4,1049.32,-74.86
+ORD-00353,2025-06-14,East,Office Supplies,Home Office,8,539.82,18.54
+ORD-00354,2024-05-10,South,Technology,Home Office,1,194.95,10.88
+ORD-00355,2025-08-22,East,Furniture,Corporate,7,2911.94,-152.28
+ORD-00356,2025-09-28,East,Furniture,Corporate,8,2803.11,15.31
+ORD-00357,2024-12-27,Central,Furniture,Consumer,7,1257.75,-104.65
+ORD-00358,2025-05-26,South,Furniture,Corporate,5,661.8,-25.07
+ORD-00359,2024-05-28,South,Office Supplies,Corporate,7,313.19,118.91
+ORD-00360,2025-09-14,West,Furniture,Consumer,4,1394.23,281.07
+ORD-00361,2024-01-27,East,Furniture,Home Office,8,1773.77,-73.0
+ORD-00362,2025-03-23,South,Furniture,Home Office,8,1255.53,45.73
+ORD-00363,2025-11-23,Central,Furniture,Corporate,1,230.98,1.36
+ORD-00364,2025-05-27,South,Office Supplies,Consumer,9,583.68,82.5
+ORD-00365,2024-07-11,South,Furniture,Corporate,7,1026.4,-229.38
+ORD-00366,2025-12-09,East,Technology,Consumer,6,2122.48,-216.65
+ORD-00367,2024-11-14,West,Technology,Corporate,5,1727.86,581.66
+ORD-00368,2025-10-08,West,Office Supplies,Consumer,5,432.26,-77.75
+ORD-00369,2025-06-01,West,Furniture,Home Office,3,491.94,3.79
+ORD-00370,2025-10-08,East,Office Supplies,Consumer,7,352.74,44.93
+ORD-00371,2024-11-10,East,Furniture,Consumer,7,2353.85,-218.25
+ORD-00372,2024-06-28,South,Office Supplies,Home Office,5,272.35,15.83
+ORD-00373,2025-06-10,West,Office Supplies,Home Office,4,256.37,51.44
+ORD-00374,2024-04-19,East,Technology,Home Office,2,530.23,121.13
+ORD-00375,2025-05-17,South,Office Supplies,Home Office,7,421.03,70.56
+ORD-00376,2024-11-26,West,Office Supplies,Consumer,4,211.94,33.33
+ORD-00377,2024-02-03,Central,Office Supplies,Consumer,2,123.6,23.61
+ORD-00378,2025-04-05,South,Technology,Corporate,1,187.41,31.12
+ORD-00379,2025-08-19,East,Furniture,Home Office,1,332.79,20.02
+ORD-00380,2024-06-26,Central,Technology,Home Office,8,1618.45,349.57
+ORD-00381,2024-09-15,South,Technology,Corporate,4,959.13,103.28
+ORD-00382,2024-11-12,South,Office Supplies,Consumer,8,207.63,1.72
+ORD-00383,2024-03-30,West,Technology,Corporate,6,1625.77,695.75
+ORD-00384,2025-07-29,Central,Technology,Corporate,6,1700.71,326.36
+ORD-00385,2024-12-09,South,Office Supplies,Home Office,2,114.99,-9.68
+ORD-00386,2024-09-07,South,Technology,Consumer,8,1389.14,422.88
+ORD-00387,2025-03-22,East,Furniture,Consumer,1,265.08,43.64
+ORD-00388,2024-07-20,Central,Office Supplies,Corporate,3,150.33,45.98
+ORD-00389,2024-09-02,West,Furniture,Home Office,6,1020.6,-81.57
+ORD-00390,2024-08-01,Central,Furniture,Corporate,9,1209.47,187.34
+ORD-00391,2025-11-22,West,Office Supplies,Home Office,5,371.48,-70.14
+ORD-00392,2024-09-09,South,Office Supplies,Consumer,9,291.07,82.46
+ORD-00393,2025-11-25,East,Office Supplies,Home Office,5,492.14,75.15
+ORD-00394,2025-08-04,West,Furniture,Consumer,1,230.72,7.19
+ORD-00395,2025-12-12,West,Technology,Corporate,6,1553.85,334.01
+ORD-00396,2025-05-27,Central,Technology,Consumer,2,648.59,98.3
+ORD-00397,2024-08-19,Central,Technology,Home Office,7,1387.5,-49.6
+ORD-00398,2025-10-05,West,Furniture,Home Office,3,473.36,99.34
+ORD-00399,2025-11-10,Central,Furniture,Corporate,1,228.16,7.2
+ORD-00400,2024-12-26,East,Technology,Home Office,5,1245.93,116.97
+ORD-00401,2024-08-12,East,Furniture,Consumer,1,286.92,-35.29
+ORD-00402,2025-01-24,East,Office Supplies,Consumer,5,456.88,107.43
+ORD-00403,2025-08-01,West,Office Supplies,Home Office,8,647.67,94.69
+ORD-00404,2025-08-12,Central,Technology,Home Office,2,699.62,215.59
+ORD-00405,2024-10-20,East,Office Supplies,Corporate,1,99.31,13.52
+ORD-00406,2024-08-03,Central,Office Supplies,Home Office,2,89.64,10.76
+ORD-00407,2025-02-07,West,Furniture,Corporate,9,1530.02,273.8
+ORD-00408,2025-12-09,South,Office Supplies,Consumer,1,55.12,5.97
+ORD-00409,2025-03-14,West,Furniture,Corporate,4,642.57,-2.29
+ORD-00410,2024-06-27,West,Office Supplies,Consumer,4,248.43,-14.34
+ORD-00411,2024-03-01,West,Furniture,Consumer,6,1226.69,111.76
+ORD-00412,2025-12-03,South,Office Supplies,Consumer,8,305.37,75.95
+ORD-00413,2024-01-07,South,Technology,Home Office,6,1459.63,446.48
+ORD-00414,2025-07-30,West,Furniture,Consumer,2,525.54,105.07
+ORD-00415,2025-11-24,West,Office Supplies,Home Office,8,701.92,57.71
+ORD-00416,2024-10-23,East,Furniture,Consumer,8,1615.99,170.3
+ORD-00417,2024-10-14,Central,Technology,Corporate,2,557.42,69.31
+ORD-00418,2025-03-31,South,Office Supplies,Home Office,6,241.0,40.69
+ORD-00419,2024-03-14,East,Technology,Home Office,8,4013.86,723.06
+ORD-00420,2024-12-05,Central,Technology,Corporate,8,2621.54,340.12
+ORD-00421,2024-07-13,Central,Technology,Home Office,6,1923.33,146.54
+ORD-00422,2025-10-30,Central,Office Supplies,Home Office,4,146.28,2.49
+ORD-00423,2024-01-29,East,Furniture,Home Office,3,662.95,84.34
+ORD-00424,2024-06-21,East,Office Supplies,Corporate,5,429.79,132.09
+ORD-00425,2025-01-23,West,Office Supplies,Corporate,6,354.44,16.68
+ORD-00426,2024-09-16,West,Technology,Home Office,1,205.74,60.01
+ORD-00427,2025-12-23,South,Technology,Corporate,4,961.66,105.54
+ORD-00428,2025-09-09,East,Technology,Corporate,4,1210.39,218.12
+ORD-00429,2025-10-14,South,Technology,Corporate,1,309.25,29.84
+ORD-00430,2024-01-03,East,Office Supplies,Corporate,9,609.35,98.03
+ORD-00431,2024-03-14,East,Office Supplies,Consumer,7,661.5,108.97
+ORD-00432,2024-06-17,South,Furniture,Home Office,1,147.0,9.72
+ORD-00433,2025-11-22,Central,Office Supplies,Corporate,4,215.3,2.25
+ORD-00434,2025-07-01,West,Furniture,Consumer,2,631.95,13.66
+ORD-00435,2025-11-23,Central,Office Supplies,Home Office,5,290.36,14.16
+ORD-00436,2025-10-24,West,Furniture,Home Office,6,1554.92,178.38
+ORD-00437,2024-01-29,West,Technology,Home Office,8,2767.41,761.71
+ORD-00438,2025-08-17,South,Furniture,Corporate,9,1262.67,234.72
+ORD-00439,2025-02-09,Central,Technology,Consumer,4,821.82,243.7
+ORD-00440,2024-08-14,Central,Office Supplies,Home Office,2,72.0,3.86
+ORD-00441,2024-09-14,South,Technology,Home Office,9,1826.73,1.49
+ORD-00442,2025-06-09,East,Furniture,Consumer,2,753.09,9.43
+ORD-00443,2025-05-30,East,Office Supplies,Consumer,9,507.98,105.56
+ORD-00444,2024-07-15,South,Technology,Home Office,3,566.18,42.57
+ORD-00445,2024-02-28,South,Technology,Consumer,1,188.55,64.19
+ORD-00446,2025-04-15,Central,Technology,Consumer,3,778.97,152.17
+ORD-00447,2025-09-28,West,Office Supplies,Home Office,2,184.09,36.83
+ORD-00448,2024-12-15,East,Furniture,Home Office,2,417.88,3.0
+ORD-00449,2025-06-21,Central,Office Supplies,Home Office,8,280.33,29.8
+ORD-00450,2024-12-01,East,Technology,Consumer,4,1157.3,169.7
+ORD-00451,2025-12-11,South,Technology,Corporate,8,1334.74,317.06
+ORD-00452,2024-07-08,West,Office Supplies,Home Office,5,389.7,61.43
+ORD-00453,2025-01-24,West,Office Supplies,Corporate,5,355.61,24.58
+ORD-00454,2024-01-15,East,Furniture,Corporate,3,783.87,-111.71
+ORD-00455,2024-02-02,East,Technology,Corporate,3,1184.04,94.94
+ORD-00456,2024-06-11,South,Furniture,Home Office,4,799.82,-54.51
+ORD-00457,2025-06-13,East,Furniture,Home Office,6,1862.78,67.31
+ORD-00458,2024-02-14,West,Technology,Corporate,6,2127.23,508.24
+ORD-00459,2025-08-13,South,Furniture,Consumer,6,904.79,-9.58
+ORD-00460,2024-01-22,West,Furniture,Home Office,1,243.03,43.38
+ORD-00461,2025-11-18,West,Furniture,Home Office,7,1449.87,-48.65
+ORD-00462,2025-08-10,West,Office Supplies,Consumer,1,91.91,13.79
+ORD-00463,2024-07-23,South,Office Supplies,Consumer,2,74.79,8.07
+ORD-00464,2025-11-28,East,Furniture,Home Office,6,2170.67,585.09
+ORD-00465,2025-10-12,West,Furniture,Home Office,9,2669.9,-92.82
+ORD-00466,2024-11-26,South,Office Supplies,Consumer,6,331.47,103.27
+ORD-00467,2024-12-23,West,Technology,Corporate,4,726.94,196.88
+ORD-00468,2025-02-09,Central,Technology,Home Office,2,394.71,33.33
+ORD-00469,2024-11-11,Central,Office Supplies,Consumer,9,486.9,95.34
+ORD-00470,2025-08-20,East,Office Supplies,Corporate,3,209.5,29.33
+ORD-00471,2025-04-24,Central,Office Supplies,Corporate,7,454.78,160.16
+ORD-00472,2024-06-28,Central,Furniture,Consumer,9,979.64,-46.96
+ORD-00473,2025-10-03,Central,Technology,Home Office,1,213.8,24.63
+ORD-00474,2024-10-16,East,Technology,Consumer,4,1709.44,388.62
+ORD-00475,2025-09-07,East,Technology,Consumer,2,1032.99,266.27
+ORD-00476,2024-01-06,West,Furniture,Consumer,9,2205.7,-38.08
+ORD-00477,2025-10-17,Central,Technology,Corporate,4,946.39,188.29
+ORD-00478,2025-02-19,Central,Technology,Consumer,1,356.22,56.72
+ORD-00479,2024-03-30,Central,Furniture,Corporate,7,992.52,40.36
+ORD-00480,2025-07-31,Central,Technology,Home Office,7,2108.15,389.02
+ORD-00481,2024-12-03,West,Technology,Consumer,1,217.49,66.97
+ORD-00482,2025-01-01,Central,Furniture,Home Office,6,1251.96,275.46
+ORD-00483,2025-07-22,West,Office Supplies,Corporate,6,324.58,-3.75
+ORD-00484,2024-02-02,Central,Office Supplies,Corporate,9,596.98,0.48
+ORD-00485,2025-07-26,Central,Furniture,Home Office,9,1864.79,86.29
+ORD-00486,2025-05-02,East,Office Supplies,Home Office,6,357.93,86.12
+ORD-00487,2024-08-21,South,Technology,Consumer,1,230.94,66.53
+ORD-00488,2025-07-22,West,Furniture,Consumer,6,1806.54,296.92
+ORD-00489,2024-06-14,East,Furniture,Corporate,4,1006.63,113.64
+ORD-00490,2025-02-02,South,Technology,Consumer,6,1784.96,206.92
+ORD-00491,2024-04-20,East,Technology,Corporate,7,2871.21,370.22
+ORD-00492,2025-02-23,South,Office Supplies,Consumer,4,120.67,26.5
+ORD-00493,2024-09-25,South,Technology,Corporate,4,742.09,90.46
+ORD-00494,2024-11-01,South,Technology,Corporate,3,618.6,180.76
+ORD-00495,2024-05-19,Central,Furniture,Consumer,2,304.56,-58.35
+ORD-00496,2024-11-23,South,Technology,Consumer,1,274.32,55.66
+ORD-00497,2025-01-04,East,Furniture,Home Office,3,863.3,206.96
+ORD-00498,2024-01-26,East,Technology,Corporate,1,254.41,100.92
+ORD-00499,2024-06-03,Central,Technology,Home Office,3,699.54,56.6
+ORD-00500,2025-11-12,South,Furniture,Consumer,1,189.18,25.49
+ORD-00501,2025-10-04,East,Technology,Consumer,3,1246.75,242.7
+ORD-00502,2024-01-21,East,Furniture,Consumer,2,687.91,128.29
+ORD-00503,2025-05-14,West,Office Supplies,Home Office,7,290.79,50.72
+ORD-00504,2025-07-12,East,Office Supplies,Consumer,6,631.76,188.03
+ORD-00505,2024-12-23,West,Technology,Consumer,2,491.03,108.78
+ORD-00506,2024-02-14,West,Office Supplies,Home Office,1,55.59,13.03
+ORD-00507,2025-01-06,Central,Technology,Home Office,6,1905.25,179.11
+ORD-00508,2024-12-04,South,Office Supplies,Corporate,5,193.08,5.14
+ORD-00509,2025-07-06,South,Furniture,Consumer,3,483.3,-15.79
+ORD-00510,2025-10-12,East,Technology,Corporate,9,4996.67,1305.51
+ORD-00511,2025-12-11,South,Technology,Consumer,4,1092.3,352.67
+ORD-00512,2024-02-20,South,Office Supplies,Home Office,9,324.89,76.9
+ORD-00513,2025-03-29,Central,Furniture,Corporate,1,198.1,-4.24
+ORD-00514,2025-08-29,South,Technology,Consumer,7,1494.68,107.4
+ORD-00515,2025-02-06,Central,Office Supplies,Home Office,6,217.8,43.98
+ORD-00516,2024-09-28,Central,Furniture,Corporate,6,1074.62,-117.68
+ORD-00517,2025-08-07,West,Technology,Home Office,2,925.89,33.5
+ORD-00518,2024-06-22,Central,Technology,Home Office,3,519.82,79.91
+ORD-00519,2025-04-16,West,Office Supplies,Corporate,1,59.17,-0.28
+ORD-00520,2024-05-05,South,Technology,Corporate,5,945.12,342.95
+ORD-00521,2024-12-31,Central,Furniture,Consumer,2,288.64,7.84
+ORD-00522,2025-04-05,South,Office Supplies,Consumer,3,174.9,48.32
+ORD-00523,2024-01-07,West,Furniture,Corporate,8,1789.14,123.4
+ORD-00524,2025-01-25,Central,Technology,Home Office,9,1889.53,557.71
+ORD-00525,2024-09-22,East,Office Supplies,Corporate,3,182.57,-19.57
+ORD-00526,2024-09-04,Central,Furniture,Corporate,2,359.09,-5.07
+ORD-00527,2024-03-31,West,Technology,Consumer,7,2870.06,365.67
+ORD-00528,2025-03-29,South,Furniture,Corporate,1,207.21,54.38
+ORD-00529,2025-02-21,South,Office Supplies,Home Office,5,212.97,6.69
+ORD-00530,2024-07-15,Central,Technology,Consumer,4,829.02,235.51
+ORD-00531,2024-03-22,South,Furniture,Consumer,7,1100.26,-218.07
+ORD-00532,2024-04-20,South,Furniture,Corporate,7,1004.6,65.82
+ORD-00533,2024-06-29,East,Furniture,Home Office,7,1835.09,-299.69
+ORD-00534,2024-08-25,West,Furniture,Home Office,9,1252.29,54.38
+ORD-00535,2024-10-28,Central,Furniture,Consumer,8,977.85,67.28
+ORD-00536,2024-04-14,South,Technology,Consumer,4,883.29,200.75
+ORD-00537,2025-11-28,West,Office Supplies,Corporate,6,408.3,131.93
+ORD-00538,2025-08-20,West,Furniture,Consumer,1,328.28,40.07
+ORD-00539,2024-11-24,Central,Technology,Home Office,9,2993.29,713.33
+ORD-00540,2024-09-25,East,Furniture,Corporate,7,1485.83,293.39
+ORD-00541,2025-07-23,South,Office Supplies,Corporate,7,387.07,45.78
+ORD-00542,2025-03-22,Central,Furniture,Consumer,4,571.09,82.8
+ORD-00543,2025-07-03,Central,Furniture,Corporate,8,1891.06,444.2
+ORD-00544,2024-07-24,South,Office Supplies,Home Office,9,427.56,156.02
+ORD-00545,2024-11-17,East,Office Supplies,Corporate,2,133.51,7.02
+ORD-00546,2024-08-12,South,Furniture,Home Office,4,719.76,12.89
+ORD-00547,2025-09-17,South,Furniture,Home Office,8,1081.14,88.56
+ORD-00548,2024-05-07,East,Technology,Corporate,2,901.03,227.41
+ORD-00549,2024-07-03,East,Office Supplies,Home Office,9,770.96,149.22
+ORD-00550,2025-11-22,Central,Technology,Consumer,9,3156.28,797.67
+ORD-00551,2024-07-30,East,Furniture,Consumer,2,401.97,37.12
+ORD-00552,2025-11-05,Central,Office Supplies,Consumer,8,507.28,86.73
+ORD-00553,2024-02-28,West,Technology,Home Office,3,1142.01,178.56
+ORD-00554,2024-11-22,West,Furniture,Consumer,5,945.47,136.22
+ORD-00555,2024-06-04,West,Furniture,Home Office,1,189.66,21.89
+ORD-00556,2025-07-12,East,Technology,Consumer,8,2381.78,625.61
+ORD-00557,2025-03-16,Central,Office Supplies,Consumer,7,267.19,47.83
+ORD-00558,2025-11-02,East,Furniture,Corporate,8,2133.36,12.91
+ORD-00559,2024-04-05,West,Furniture,Consumer,5,1420.31,-88.52
+ORD-00560,2024-07-25,West,Furniture,Consumer,5,1335.64,-35.11
+ORD-00561,2025-08-15,Central,Technology,Home Office,2,758.38,14.34
+ORD-00562,2024-11-03,East,Technology,Corporate,6,1901.2,797.19
+ORD-00563,2024-09-10,Central,Office Supplies,Consumer,6,214.01,37.18
+ORD-00564,2025-07-26,South,Technology,Consumer,9,1500.5,122.79
+ORD-00565,2025-09-01,South,Furniture,Home Office,1,111.04,0.66
+ORD-00566,2025-12-14,West,Furniture,Home Office,6,1003.38,55.64
+ORD-00567,2025-11-10,West,Furniture,Home Office,3,857.82,60.13
+ORD-00568,2025-05-06,Central,Technology,Consumer,5,931.79,173.69
+ORD-00569,2024-04-29,West,Furniture,Consumer,5,1131.67,180.66
+ORD-00570,2025-08-05,East,Office Supplies,Consumer,5,369.92,89.06
+ORD-00571,2024-10-17,South,Office Supplies,Home Office,4,233.59,72.91
+ORD-00572,2025-05-28,West,Technology,Consumer,1,236.19,17.67
+ORD-00573,2025-05-15,West,Office Supplies,Consumer,4,184.82,47.92
+ORD-00574,2025-03-10,South,Office Supplies,Home Office,9,298.94,105.4
+ORD-00575,2024-05-03,East,Office Supplies,Home Office,4,226.69,-5.34
+ORD-00576,2024-03-04,West,Technology,Consumer,6,2495.45,153.7
+ORD-00577,2024-08-08,West,Furniture,Consumer,6,880.71,60.98
+ORD-00578,2024-01-12,Central,Furniture,Consumer,7,770.97,-77.4
+ORD-00579,2024-05-31,West,Technology,Home Office,6,2189.05,565.34
+ORD-00580,2024-12-05,East,Technology,Home Office,8,1814.93,801.48
+ORD-00581,2024-12-03,East,Office Supplies,Corporate,2,109.33,-1.52
+ORD-00582,2024-04-04,Central,Office Supplies,Corporate,3,178.95,-2.54
+ORD-00583,2025-11-19,South,Technology,Home Office,5,1524.76,640.71
+ORD-00584,2025-04-22,West,Furniture,Home Office,7,2231.71,-89.59
+ORD-00585,2024-11-02,East,Technology,Home Office,5,2161.03,499.46
+ORD-00586,2025-04-13,West,Furniture,Corporate,1,231.14,-2.95
+ORD-00587,2025-10-03,Central,Furniture,Corporate,7,1924.71,162.25
+ORD-00588,2025-11-10,South,Furniture,Home Office,1,148.83,35.35
+ORD-00589,2024-01-17,East,Furniture,Home Office,7,1716.14,67.61
+ORD-00590,2024-08-06,East,Furniture,Home Office,7,2357.36,292.67
+ORD-00591,2024-02-03,Central,Furniture,Corporate,2,490.68,76.89
+ORD-00592,2025-11-07,West,Technology,Consumer,4,1581.98,652.72
+ORD-00593,2025-01-19,West,Furniture,Corporate,5,1095.65,112.15
+ORD-00594,2025-09-16,South,Furniture,Home Office,8,1211.07,144.13
+ORD-00595,2025-09-13,West,Technology,Consumer,7,2467.54,628.02
+ORD-00596,2025-04-10,Central,Office Supplies,Home Office,6,377.9,56.75
+ORD-00597,2025-06-10,South,Technology,Corporate,5,1368.15,450.28
+ORD-00598,2024-09-29,Central,Furniture,Home Office,5,993.46,136.15
+ORD-00599,2025-12-03,South,Office Supplies,Consumer,1,64.03,2.3
+ORD-00600,2024-02-28,East,Office Supplies,Home Office,7,482.93,73.09
+ORD-00601,2024-06-04,South,Technology,Corporate,6,1242.33,573.38
+ORD-00602,2024-05-27,West,Office Supplies,Corporate,9,344.16,55.93
+ORD-00603,2024-06-26,Central,Office Supplies,Corporate,4,159.92,4.71
+ORD-00604,2025-10-26,East,Office Supplies,Home Office,7,576.35,66.6
+ORD-00605,2025-01-03,Central,Furniture,Home Office,3,769.2,17.11
+ORD-00606,2024-12-21,West,Technology,Consumer,9,3364.07,608.92
+ORD-00607,2024-06-15,Central,Office Supplies,Corporate,9,318.19,42.92
+ORD-00608,2025-01-27,Central,Office Supplies,Corporate,3,135.44,25.3
+ORD-00609,2024-07-21,Central,Furniture,Corporate,7,846.07,44.25
+ORD-00610,2025-04-28,Central,Technology,Home Office,4,1480.07,443.8
+ORD-00611,2025-04-06,South,Office Supplies,Home Office,3,177.2,21.75
+ORD-00612,2025-04-26,South,Technology,Home Office,5,1102.83,268.32
+ORD-00613,2025-02-09,Central,Office Supplies,Home Office,2,89.18,13.79
+ORD-00614,2025-08-03,Central,Furniture,Consumer,6,986.6,25.11
+ORD-00615,2024-03-12,East,Office Supplies,Consumer,7,638.83,53.78
+ORD-00616,2025-10-22,West,Office Supplies,Corporate,2,168.32,-20.0
+ORD-00617,2024-12-15,South,Furniture,Consumer,8,1533.33,22.84
+ORD-00618,2025-06-28,South,Office Supplies,Corporate,5,170.7,36.24
+ORD-00619,2025-11-29,East,Furniture,Home Office,2,608.24,101.25
+ORD-00620,2025-03-18,South,Technology,Home Office,5,1483.01,55.1
+ORD-00621,2024-05-15,West,Technology,Home Office,4,1200.55,463.67
+ORD-00622,2025-10-26,South,Furniture,Home Office,3,593.97,-55.32
+ORD-00623,2025-01-28,Central,Office Supplies,Home Office,2,134.38,4.95
+ORD-00624,2024-08-06,West,Furniture,Home Office,2,390.63,-10.79
+ORD-00625,2024-03-21,Central,Technology,Consumer,9,1420.73,335.62
+ORD-00626,2025-04-13,West,Furniture,Corporate,5,1268.41,-38.5
+ORD-00627,2025-08-27,East,Technology,Home Office,9,4701.89,1155.45
+ORD-00628,2024-12-14,Central,Office Supplies,Consumer,4,148.66,30.44
+ORD-00629,2024-10-15,East,Technology,Consumer,3,672.51,36.33
+ORD-00630,2025-10-07,Central,Office Supplies,Corporate,2,117.9,17.25
+ORD-00631,2025-02-03,South,Technology,Corporate,1,300.27,85.32
+ORD-00632,2024-03-14,South,Office Supplies,Home Office,3,119.08,14.79
+ORD-00633,2025-12-26,South,Technology,Consumer,6,1583.1,372.16
+ORD-00634,2024-03-19,East,Furniture,Home Office,4,1301.19,138.81
+ORD-00635,2024-07-20,Central,Technology,Consumer,9,2601.58,605.7
+ORD-00636,2025-09-19,East,Technology,Consumer,6,1899.05,179.27
+ORD-00637,2025-10-18,Central,Office Supplies,Corporate,6,365.0,19.77
+ORD-00638,2024-11-09,East,Technology,Corporate,3,1245.3,172.18
+ORD-00639,2024-01-31,South,Technology,Corporate,6,863.55,257.46
+ORD-00640,2025-05-12,East,Furniture,Consumer,6,1786.98,413.2
+ORD-00641,2024-04-21,Central,Office Supplies,Consumer,7,257.86,38.6
+ORD-00642,2025-12-28,Central,Office Supplies,Home Office,7,471.23,82.4
+ORD-00643,2025-01-28,West,Furniture,Home Office,3,539.39,112.35
+ORD-00644,2025-01-23,East,Technology,Consumer,2,803.96,244.78
+ORD-00645,2024-07-27,East,Furniture,Home Office,6,1741.87,285.33
+ORD-00646,2024-07-29,East,Technology,Corporate,4,1907.48,169.47
+ORD-00647,2024-04-16,East,Office Supplies,Home Office,3,292.87,1.35
+ORD-00648,2025-12-02,South,Technology,Consumer,1,311.38,73.96
+ORD-00649,2025-02-13,West,Office Supplies,Corporate,8,636.8,53.93
+ORD-00650,2025-09-05,South,Technology,Consumer,4,1197.82,229.66
+ORD-00651,2024-01-06,South,Office Supplies,Consumer,4,186.0,27.57
+ORD-00652,2024-07-23,East,Technology,Consumer,8,1840.16,269.61
+ORD-00653,2024-08-12,East,Office Supplies,Consumer,7,408.42,66.62
+ORD-00654,2025-12-28,East,Technology,Consumer,3,1547.1,307.72
+ORD-00655,2025-09-22,Central,Technology,Consumer,9,3054.23,1177.74
+ORD-00656,2024-03-14,East,Office Supplies,Home Office,2,144.29,-3.0
+ORD-00657,2025-09-19,East,Office Supplies,Home Office,1,93.49,4.73
+ORD-00658,2024-01-08,West,Technology,Corporate,3,1137.36,104.91
+ORD-00659,2024-08-01,East,Office Supplies,Consumer,4,327.57,102.98
+ORD-00660,2025-07-13,Central,Office Supplies,Consumer,2,74.0,9.82
+ORD-00661,2024-04-13,East,Furniture,Home Office,5,1111.68,72.58
+ORD-00662,2025-08-13,Central,Technology,Consumer,1,183.01,20.56
+ORD-00663,2024-04-26,West,Office Supplies,Home Office,7,405.09,4.95
+ORD-00664,2024-08-03,East,Technology,Consumer,1,422.4,114.31
+ORD-00665,2025-11-17,West,Furniture,Home Office,1,188.19,34.11
+ORD-00666,2024-05-17,Central,Furniture,Corporate,6,657.55,9.46
+ORD-00667,2024-04-06,West,Furniture,Home Office,3,913.9,-89.47
+ORD-00668,2024-11-29,Central,Technology,Consumer,1,223.18,-11.0
+ORD-00669,2024-12-14,West,Office Supplies,Consumer,6,481.22,25.16
+ORD-00670,2024-12-16,East,Office Supplies,Corporate,3,147.72,48.92
+ORD-00671,2025-03-11,Central,Furniture,Home Office,2,416.87,53.98
+ORD-00672,2024-02-24,West,Furniture,Home Office,9,2280.64,102.09
+ORD-00673,2024-04-01,West,Technology,Corporate,5,1806.09,583.38
+ORD-00674,2024-05-01,West,Office Supplies,Consumer,8,523.88,13.09
+ORD-00675,2025-12-08,Central,Furniture,Consumer,4,707.1,78.52
+ORD-00676,2025-10-18,Central,Office Supplies,Home Office,3,186.28,25.54
+ORD-00677,2024-03-10,South,Furniture,Corporate,2,200.56,15.79
+ORD-00678,2024-03-17,West,Office Supplies,Home Office,2,141.35,22.39
+ORD-00679,2025-06-06,Central,Furniture,Home Office,3,801.45,45.1
+ORD-00680,2025-12-07,West,Furniture,Corporate,2,652.26,117.54
+ORD-00681,2024-12-16,Central,Technology,Consumer,1,218.49,42.01
+ORD-00682,2024-12-25,Central,Furniture,Consumer,1,224.67,0.98
+ORD-00683,2024-04-01,West,Office Supplies,Consumer,5,338.69,60.36
+ORD-00684,2024-02-28,South,Furniture,Consumer,2,325.15,39.21
+ORD-00685,2024-03-04,East,Furniture,Corporate,1,215.07,67.79
+ORD-00686,2025-01-07,West,Technology,Corporate,6,2546.89,156.27
+ORD-00687,2025-01-14,Central,Technology,Consumer,9,2808.28,1018.94
+ORD-00688,2024-10-19,South,Technology,Consumer,4,939.87,-8.35
+ORD-00689,2025-01-28,Central,Technology,Corporate,8,1789.22,420.3
+ORD-00690,2025-01-13,West,Furniture,Corporate,1,247.45,15.49
+ORD-00691,2024-04-28,East,Furniture,Corporate,9,2778.06,305.45
+ORD-00692,2024-06-26,West,Furniture,Consumer,8,1141.49,106.58
+ORD-00693,2024-03-10,Central,Furniture,Consumer,8,1373.27,275.62
+ORD-00694,2025-06-05,West,Furniture,Corporate,4,1062.9,0.82
+ORD-00695,2024-04-22,East,Furniture,Corporate,9,1531.99,-125.81
+ORD-00696,2024-08-05,East,Technology,Corporate,8,2339.26,375.79
+ORD-00697,2024-05-14,East,Furniture,Consumer,6,1074.5,20.96
+ORD-00698,2024-05-02,South,Furniture,Consumer,5,572.86,153.41
+ORD-00699,2025-10-04,East,Office Supplies,Corporate,8,761.45,243.64
+ORD-00700,2025-11-11,West,Office Supplies,Corporate,6,296.44,54.81
+ORD-00701,2024-02-12,Central,Office Supplies,Home Office,3,167.01,47.14
+ORD-00702,2024-03-24,South,Technology,Consumer,1,173.91,33.57
+ORD-00703,2024-07-15,Central,Office Supplies,Home Office,6,307.19,80.79
+ORD-00704,2024-06-18,East,Furniture,Corporate,8,1661.05,24.6
+ORD-00705,2025-01-17,South,Office Supplies,Consumer,4,211.94,41.9
+ORD-00706,2024-11-13,South,Furniture,Corporate,4,850.05,240.0
+ORD-00707,2024-02-02,South,Technology,Consumer,6,1172.36,164.47
+ORD-00708,2024-09-01,East,Technology,Corporate,5,1953.58,57.73
+ORD-00709,2025-07-29,South,Technology,Consumer,5,956.76,384.1
+ORD-00710,2024-05-20,West,Office Supplies,Consumer,6,471.32,169.38
+ORD-00711,2024-06-20,West,Furniture,Corporate,3,438.36,65.56
+ORD-00712,2025-08-06,West,Technology,Home Office,5,2370.5,-28.85
+ORD-00713,2025-02-21,East,Technology,Corporate,7,3859.62,763.81
+ORD-00714,2024-03-13,Central,Technology,Home Office,3,673.97,130.56
+ORD-00715,2025-01-20,Central,Office Supplies,Home Office,9,529.82,8.88
+ORD-00716,2025-08-23,Central,Office Supplies,Consumer,9,374.66,73.72
+ORD-00717,2025-08-29,Central,Office Supplies,Consumer,7,287.95,33.74
+ORD-00718,2025-02-25,Central,Office Supplies,Consumer,5,315.17,20.11
+ORD-00719,2025-12-18,East,Office Supplies,Corporate,8,509.96,11.65
+ORD-00720,2025-05-01,Central,Office Supplies,Corporate,3,161.03,62.47
+ORD-00721,2024-08-26,South,Technology,Home Office,4,868.59,110.91
+ORD-00722,2024-08-26,Central,Office Supplies,Corporate,6,260.37,48.81
+ORD-00723,2025-01-08,West,Technology,Corporate,4,1798.32,519.04
+ORD-00724,2025-09-22,South,Office Supplies,Corporate,2,94.25,22.95
+ORD-00725,2024-12-06,Central,Furniture,Home Office,7,1049.17,135.73
+ORD-00726,2025-11-23,West,Furniture,Home Office,6,1053.06,-116.79
+ORD-00727,2024-10-26,West,Office Supplies,Corporate,4,279.34,63.57
+ORD-00728,2025-10-26,Central,Technology,Home Office,2,596.66,97.46
+ORD-00729,2025-08-25,East,Technology,Consumer,1,445.63,21.79
+ORD-00730,2024-03-12,East,Technology,Consumer,2,832.83,217.05
+ORD-00731,2024-06-26,West,Technology,Consumer,5,1980.74,394.93
+ORD-00732,2024-04-26,East,Technology,Corporate,4,1035.21,97.34
+ORD-00733,2024-03-16,Central,Furniture,Consumer,5,821.84,-26.29
+ORD-00734,2024-03-26,Central,Technology,Home Office,5,807.74,155.33
+ORD-00735,2024-02-23,Central,Technology,Home Office,6,1257.64,128.99
+ORD-00736,2024-02-22,West,Office Supplies,Home Office,7,381.44,58.74
+ORD-00737,2024-01-18,West,Furniture,Consumer,2,546.3,105.05
+ORD-00738,2025-12-25,South,Furniture,Home Office,4,777.79,115.85
+ORD-00739,2025-04-28,South,Technology,Home Office,1,182.13,23.71
+ORD-00740,2025-04-13,West,Furniture,Home Office,9,2137.6,67.53
+ORD-00741,2024-12-05,East,Technology,Home Office,4,1698.46,336.36
+ORD-00742,2025-12-08,South,Office Supplies,Consumer,4,255.31,63.27
+ORD-00743,2024-11-14,Central,Technology,Home Office,3,467.72,34.51
+ORD-00744,2025-11-28,Central,Furniture,Corporate,6,1236.66,105.36
+ORD-00745,2024-02-26,Central,Technology,Home Office,5,767.11,85.56
+ORD-00746,2024-09-08,South,Technology,Home Office,4,719.43,125.23
+ORD-00747,2025-06-17,Central,Office Supplies,Consumer,8,451.94,71.88
+ORD-00748,2025-09-30,South,Furniture,Home Office,8,925.69,3.57
+ORD-00749,2025-06-09,West,Furniture,Home Office,6,1945.82,341.67
+ORD-00750,2025-01-15,South,Office Supplies,Consumer,6,317.33,32.56
+ORD-00751,2025-04-11,East,Office Supplies,Home Office,5,292.47,96.75
+ORD-00752,2024-05-12,East,Furniture,Consumer,1,221.76,-36.29
+ORD-00753,2025-11-07,Central,Furniture,Home Office,9,1217.85,22.04
+ORD-00754,2024-02-22,East,Furniture,Home Office,3,811.03,75.42
+ORD-00755,2024-03-13,Central,Technology,Corporate,9,2339.13,248.21
+ORD-00756,2025-03-12,Central,Furniture,Corporate,2,531.46,58.09
+ORD-00757,2025-07-19,East,Technology,Corporate,5,2803.53,1003.59
+ORD-00758,2025-04-29,West,Technology,Corporate,5,2082.09,227.46
+ORD-00759,2024-07-25,West,Office Supplies,Home Office,4,319.78,-29.05
+ORD-00760,2024-12-12,West,Technology,Home Office,5,1515.39,293.33
+ORD-00761,2024-06-01,Central,Furniture,Home Office,3,624.89,103.5
+ORD-00762,2025-03-04,East,Technology,Consumer,4,1755.22,56.21
+ORD-00763,2024-09-17,East,Technology,Corporate,6,1689.85,131.25
+ORD-00764,2024-11-04,Central,Office Supplies,Corporate,6,263.67,99.02
+ORD-00765,2024-04-22,West,Technology,Consumer,7,2530.57,504.09
+ORD-00766,2025-10-21,East,Office Supplies,Corporate,3,299.04,-1.22
+ORD-00767,2024-09-16,Central,Furniture,Corporate,7,1566.81,250.32
+ORD-00768,2025-11-17,East,Furniture,Consumer,3,1164.28,199.28
+ORD-00769,2025-11-24,East,Office Supplies,Home Office,8,898.83,16.86
+ORD-00770,2024-08-07,Central,Furniture,Consumer,4,458.45,38.9
+ORD-00771,2024-11-30,East,Technology,Consumer,4,1290.27,95.97
+ORD-00772,2024-07-22,South,Office Supplies,Corporate,7,249.58,14.18
+ORD-00773,2025-01-22,Central,Office Supplies,Home Office,8,377.49,7.99
+ORD-00774,2024-12-26,East,Office Supplies,Corporate,9,424.28,144.12
+ORD-00775,2025-03-02,East,Office Supplies,Home Office,4,253.81,19.3
+ORD-00776,2025-12-13,East,Office Supplies,Home Office,1,80.25,19.0
+ORD-00777,2025-03-18,East,Office Supplies,Home Office,3,234.35,63.8
+ORD-00778,2024-12-31,East,Technology,Home Office,1,279.07,72.59
+ORD-00779,2025-03-19,West,Furniture,Corporate,2,679.97,61.46
+ORD-00780,2025-06-11,West,Furniture,Consumer,9,2736.37,429.79
+ORD-00781,2025-11-15,West,Office Supplies,Consumer,7,676.18,-32.56
+ORD-00782,2024-01-18,East,Office Supplies,Consumer,6,277.66,19.43
+ORD-00783,2024-07-31,East,Office Supplies,Consumer,4,290.49,84.3
+ORD-00784,2024-06-05,South,Technology,Home Office,7,1042.23,121.77
+ORD-00785,2024-09-22,Central,Technology,Consumer,7,1298.89,197.83
+ORD-00786,2024-12-14,West,Office Supplies,Consumer,4,247.4,29.95
+ORD-00787,2025-06-13,West,Technology,Home Office,3,1369.63,311.33
+ORD-00788,2024-04-22,South,Office Supplies,Corporate,4,137.43,41.51
+ORD-00789,2025-06-07,East,Furniture,Home Office,1,289.66,28.69
+ORD-00790,2025-11-24,South,Technology,Home Office,6,1402.6,285.48
+ORD-00791,2024-08-09,Central,Furniture,Corporate,4,983.64,92.31
+ORD-00792,2025-09-25,South,Furniture,Consumer,5,646.01,193.61
+ORD-00793,2025-04-01,East,Technology,Corporate,4,1774.88,446.12
+ORD-00794,2025-05-06,South,Office Supplies,Corporate,8,378.07,83.5
+ORD-00795,2025-04-27,West,Furniture,Home Office,9,1629.7,134.88
+ORD-00796,2025-01-27,East,Furniture,Corporate,2,536.32,54.12
+ORD-00797,2024-12-09,Central,Office Supplies,Home Office,7,375.11,-27.1
+ORD-00798,2024-01-07,East,Office Supplies,Home Office,8,508.94,101.41
+ORD-00799,2025-12-30,South,Furniture,Consumer,5,642.14,-34.96
+ORD-00800,2025-12-03,West,Office Supplies,Corporate,6,472.9,-5.96
+ORD-00801,2024-11-30,West,Furniture,Consumer,3,686.08,-1.59
+ORD-00802,2024-05-19,East,Office Supplies,Corporate,6,537.94,104.24
+ORD-00803,2025-05-22,Central,Furniture,Corporate,9,2397.44,-64.24
+ORD-00804,2025-10-16,South,Technology,Home Office,6,1164.47,349.01
+ORD-00805,2025-09-15,Central,Technology,Home Office,6,2053.46,779.54
+ORD-00806,2025-07-05,East,Furniture,Corporate,6,1512.57,226.39
+ORD-00807,2024-06-13,South,Technology,Consumer,2,316.9,121.12
+ORD-00808,2024-11-14,West,Technology,Consumer,1,284.79,73.84
+ORD-00809,2024-04-19,West,Office Supplies,Corporate,9,722.28,275.22
+ORD-00810,2024-07-16,East,Office Supplies,Corporate,8,741.25,219.26
+ORD-00811,2025-03-08,East,Office Supplies,Consumer,3,267.67,49.01
+ORD-00812,2024-06-13,East,Technology,Home Office,1,310.41,54.37
+ORD-00813,2025-10-07,West,Technology,Home Office,8,2013.76,501.79
+ORD-00814,2024-07-21,Central,Technology,Corporate,7,1445.19,475.84
+ORD-00815,2024-09-16,South,Technology,Consumer,8,2317.88,852.14
+ORD-00816,2024-06-18,West,Technology,Home Office,6,1981.49,344.73
+ORD-00817,2024-03-01,South,Office Supplies,Consumer,1,51.52,-4.55
+ORD-00818,2025-04-07,South,Technology,Home Office,6,1634.69,174.84
+ORD-00819,2024-05-31,East,Office Supplies,Home Office,9,462.66,94.17
+ORD-00820,2025-10-23,East,Office Supplies,Corporate,9,1006.74,256.87
+ORD-00821,2025-02-28,West,Office Supplies,Home Office,7,571.25,-60.42
+ORD-00822,2025-09-21,West,Furniture,Consumer,7,1333.01,300.02
+ORD-00823,2025-11-11,East,Office Supplies,Home Office,6,424.57,65.57
+ORD-00824,2024-12-10,West,Office Supplies,Corporate,9,535.14,30.24
+ORD-00825,2024-03-25,South,Technology,Corporate,3,593.76,170.87
+ORD-00826,2025-08-23,South,Office Supplies,Consumer,1,32.35,6.84
+ORD-00827,2024-04-15,South,Furniture,Corporate,2,334.15,-56.2
+ORD-00828,2024-03-24,South,Office Supplies,Corporate,6,170.87,42.4
+ORD-00829,2024-11-02,West,Technology,Home Office,5,1233.48,-6.45
+ORD-00830,2025-06-23,South,Office Supplies,Corporate,5,233.04,80.63
+ORD-00831,2025-02-14,South,Technology,Consumer,1,289.63,84.3
+ORD-00832,2025-09-08,West,Furniture,Corporate,7,2278.08,462.4
+ORD-00833,2025-06-02,East,Furniture,Consumer,8,1506.96,369.1
+ORD-00834,2024-08-08,South,Office Supplies,Consumer,8,437.09,111.19
+ORD-00835,2024-10-24,Central,Office Supplies,Home Office,3,196.62,5.18
+ORD-00836,2024-07-09,Central,Furniture,Consumer,3,385.99,-38.54
+ORD-00837,2025-04-30,West,Furniture,Home Office,5,1682.56,180.17
+ORD-00838,2024-11-05,East,Office Supplies,Corporate,7,517.29,210.5
+ORD-00839,2024-08-05,East,Furniture,Consumer,8,2628.34,-58.29
+ORD-00840,2025-10-30,South,Furniture,Corporate,9,2183.0,-263.0
+ORD-00841,2024-06-13,East,Office Supplies,Corporate,6,399.22,72.74
+ORD-00842,2025-04-25,South,Furniture,Corporate,6,721.64,84.18
+ORD-00843,2025-08-26,Central,Technology,Consumer,6,2167.48,-54.16
+ORD-00844,2025-05-25,Central,Furniture,Consumer,7,1504.93,428.57
+ORD-00845,2024-11-17,East,Furniture,Corporate,4,1020.77,191.31
+ORD-00846,2025-07-30,Central,Furniture,Home Office,4,837.6,20.53
+ORD-00847,2025-11-16,West,Furniture,Consumer,4,1096.86,-42.1
+ORD-00848,2025-12-27,East,Furniture,Consumer,1,233.08,84.14
+ORD-00849,2024-07-29,East,Technology,Home Office,2,826.12,425.06
+ORD-00850,2025-08-17,East,Furniture,Consumer,1,418.95,-44.43
+ORD-00851,2024-10-14,Central,Office Supplies,Home Office,1,48.58,1.89
+ORD-00852,2024-07-04,East,Office Supplies,Consumer,4,400.48,121.25
+ORD-00853,2024-04-14,West,Technology,Home Office,5,1602.57,257.23
+ORD-00854,2025-01-28,South,Office Supplies,Home Office,1,31.58,-4.73
+ORD-00855,2025-03-10,East,Office Supplies,Consumer,5,418.77,-28.57
+ORD-00856,2024-01-28,East,Furniture,Consumer,9,2667.65,443.83
+ORD-00857,2025-01-15,Central,Office Supplies,Consumer,3,146.92,32.99
+ORD-00858,2024-06-15,West,Technology,Consumer,3,619.49,78.0
+ORD-00859,2024-06-12,Central,Office Supplies,Consumer,2,100.64,2.19
+ORD-00860,2024-02-29,West,Furniture,Consumer,3,521.01,72.09
+ORD-00861,2024-09-04,Central,Technology,Corporate,2,608.58,43.97
+ORD-00862,2024-02-12,West,Office Supplies,Home Office,1,57.73,4.77
+ORD-00863,2024-09-01,East,Office Supplies,Consumer,3,163.85,22.49
+ORD-00864,2024-12-12,East,Furniture,Corporate,5,870.34,232.0
+ORD-00865,2024-09-07,West,Technology,Home Office,5,1418.34,328.59
+ORD-00866,2025-03-15,West,Office Supplies,Home Office,1,68.88,8.7
+ORD-00867,2025-10-25,West,Office Supplies,Home Office,1,57.13,10.65
+ORD-00868,2024-07-14,South,Technology,Corporate,4,953.97,180.54
+ORD-00869,2024-09-22,South,Technology,Corporate,4,1110.55,294.48
+ORD-00870,2024-04-13,West,Furniture,Corporate,2,452.73,28.03
+ORD-00871,2025-01-08,Central,Technology,Corporate,5,1558.22,255.39
+ORD-00872,2025-12-05,South,Technology,Consumer,3,483.87,101.23
+ORD-00873,2025-07-10,West,Furniture,Consumer,2,458.41,9.72
+ORD-00874,2025-11-16,South,Office Supplies,Home Office,8,322.09,21.57
+ORD-00875,2025-04-29,West,Technology,Home Office,2,680.99,209.35
+ORD-00876,2024-07-08,East,Office Supplies,Corporate,2,99.4,27.91
+ORD-00877,2024-09-02,East,Technology,Home Office,5,1581.08,223.67
+ORD-00878,2024-10-10,West,Furniture,Consumer,8,1308.95,-62.88
+ORD-00879,2024-04-03,South,Technology,Corporate,3,710.15,124.98
+ORD-00880,2024-04-04,West,Technology,Corporate,3,570.47,136.76
+ORD-00881,2024-03-27,Central,Office Supplies,Home Office,6,367.89,54.8
+ORD-00882,2025-03-28,West,Furniture,Home Office,9,1738.12,-162.62
+ORD-00883,2024-12-11,West,Furniture,Corporate,6,1331.08,-16.57
+ORD-00884,2025-11-06,West,Office Supplies,Home Office,1,64.52,6.79
+ORD-00885,2025-09-04,West,Technology,Corporate,9,2591.2,787.41
+ORD-00886,2025-01-18,South,Technology,Home Office,9,2247.46,662.39
+ORD-00887,2024-10-24,Central,Furniture,Consumer,1,220.85,-29.45
+ORD-00888,2025-04-07,Central,Office Supplies,Consumer,5,266.07,45.56
+ORD-00889,2025-01-04,West,Technology,Home Office,7,2713.67,281.54
+ORD-00890,2024-01-18,Central,Office Supplies,Corporate,1,41.92,-0.1
+ORD-00891,2024-02-03,South,Office Supplies,Consumer,9,495.93,108.79
+ORD-00892,2024-12-14,Central,Furniture,Home Office,2,413.85,-6.39
+ORD-00893,2024-07-09,South,Technology,Consumer,6,954.61,198.91
+ORD-00894,2024-12-13,South,Furniture,Corporate,5,721.48,27.69
+ORD-00895,2024-06-06,West,Office Supplies,Consumer,3,158.72,50.3
+ORD-00896,2024-12-05,East,Technology,Consumer,1,339.04,83.71
+ORD-00897,2024-06-04,Central,Office Supplies,Home Office,2,66.15,8.64
+ORD-00898,2024-09-18,East,Furniture,Consumer,7,1383.56,279.64
+ORD-00899,2025-01-15,East,Furniture,Consumer,6,1277.66,314.23
+ORD-00900,2024-01-21,West,Furniture,Consumer,2,334.47,34.0
+ORD-00901,2024-08-26,South,Office Supplies,Home Office,6,175.65,3.48
+ORD-00902,2024-04-02,South,Technology,Corporate,4,647.01,75.77
+ORD-00903,2025-03-02,Central,Technology,Corporate,4,764.85,205.48
+ORD-00904,2024-09-06,Central,Office Supplies,Consumer,4,173.14,24.66
+ORD-00905,2025-06-16,Central,Furniture,Consumer,8,1976.94,-574.58
+ORD-00906,2025-11-10,South,Furniture,Consumer,4,764.52,81.19
+ORD-00907,2025-09-05,South,Office Supplies,Home Office,7,246.08,115.86
+ORD-00908,2025-03-26,East,Furniture,Home Office,8,3150.03,-96.56
+ORD-00909,2024-01-03,East,Technology,Corporate,2,537.88,163.13
+ORD-00910,2024-10-23,Central,Office Supplies,Consumer,6,399.01,61.34
+ORD-00911,2024-04-12,South,Technology,Corporate,6,1048.57,102.87
+ORD-00912,2025-01-01,Central,Office Supplies,Corporate,9,521.98,67.02
+ORD-00913,2024-03-27,Central,Technology,Corporate,6,1620.29,121.92
+ORD-00914,2025-11-21,East,Furniture,Corporate,3,850.62,32.88
+ORD-00915,2024-08-15,South,Technology,Corporate,3,881.22,200.64
+ORD-00916,2025-02-19,Central,Technology,Corporate,3,1020.07,326.29
+ORD-00917,2024-06-17,Central,Office Supplies,Home Office,1,29.9,6.21
+ORD-00918,2025-02-15,East,Furniture,Consumer,9,2671.94,961.02
+ORD-00919,2025-07-08,West,Technology,Consumer,3,1195.5,203.9
+ORD-00920,2025-12-19,West,Office Supplies,Corporate,9,804.65,259.37
+ORD-00921,2025-07-17,West,Office Supplies,Corporate,8,654.77,146.32
+ORD-00922,2025-11-25,West,Office Supplies,Home Office,4,313.95,66.48
+ORD-00923,2024-11-23,West,Furniture,Home Office,8,1687.45,470.81
+ORD-00924,2024-04-19,East,Office Supplies,Home Office,1,77.3,8.34
+ORD-00925,2025-06-08,West,Furniture,Consumer,2,375.33,48.19
+ORD-00926,2025-09-25,West,Furniture,Home Office,2,639.66,-43.79
+ORD-00927,2025-04-09,West,Technology,Consumer,4,1174.69,84.06
+ORD-00928,2024-12-10,Central,Technology,Home Office,2,296.63,17.23
+ORD-00929,2024-05-03,East,Technology,Consumer,5,2047.08,243.17
+ORD-00930,2024-07-28,South,Office Supplies,Consumer,5,218.91,73.46
+ORD-00931,2024-03-01,Central,Technology,Home Office,5,807.83,254.92
+ORD-00932,2025-09-07,West,Furniture,Corporate,9,2211.42,-19.9
+ORD-00933,2024-07-20,West,Furniture,Home Office,5,1315.47,137.12
+ORD-00934,2024-11-08,South,Technology,Corporate,4,567.82,57.34
+ORD-00935,2025-01-12,South,Office Supplies,Home Office,6,290.09,100.97
+ORD-00936,2025-12-25,Central,Furniture,Corporate,4,589.36,55.03
+ORD-00937,2025-11-04,South,Technology,Home Office,9,2633.19,294.09
+ORD-00938,2024-08-02,West,Office Supplies,Consumer,4,211.83,39.14
+ORD-00939,2024-09-27,Central,Furniture,Consumer,2,347.04,-18.35
+ORD-00940,2024-11-19,South,Technology,Consumer,5,843.3,244.75
+ORD-00941,2025-07-19,West,Office Supplies,Home Office,3,172.56,49.56
+ORD-00942,2025-03-21,South,Furniture,Consumer,7,931.36,-93.22
+ORD-00943,2024-06-08,South,Technology,Corporate,9,2490.06,270.76
+ORD-00944,2025-02-01,Central,Technology,Home Office,2,411.99,138.91
+ORD-00945,2024-07-13,West,Furniture,Consumer,9,1493.91,-36.34
+ORD-00946,2024-01-18,West,Furniture,Home Office,1,288.56,-14.38
+ORD-00947,2025-08-06,East,Office Supplies,Home Office,7,448.67,76.24
+ORD-00948,2025-08-31,West,Office Supplies,Corporate,3,231.55,11.42
+ORD-00949,2024-04-16,South,Technology,Home Office,3,726.4,193.65
+ORD-00950,2024-04-13,East,Office Supplies,Consumer,1,54.57,14.99
+ORD-00951,2024-03-27,Central,Furniture,Corporate,2,285.23,17.38
+ORD-00952,2024-08-16,Central,Technology,Consumer,7,1161.32,211.46
+ORD-00953,2024-01-09,East,Furniture,Consumer,2,507.83,17.33
+ORD-00954,2024-08-02,Central,Technology,Corporate,6,1735.97,315.21
+ORD-00955,2025-10-29,South,Technology,Home Office,5,1128.21,22.43
+ORD-00956,2025-03-27,South,Office Supplies,Corporate,9,549.75,1.12
+ORD-00957,2024-10-08,West,Furniture,Home Office,7,1184.07,165.42
+ORD-00958,2024-09-07,East,Technology,Corporate,6,2849.81,585.35
+ORD-00959,2024-01-10,East,Furniture,Consumer,8,2335.1,314.43
+ORD-00960,2024-11-03,South,Office Supplies,Corporate,4,119.98,4.47
+ORD-00961,2025-11-03,East,Office Supplies,Home Office,5,255.65,12.96
+ORD-00962,2024-08-25,Central,Technology,Consumer,3,459.96,100.34
+ORD-00963,2024-10-20,East,Furniture,Consumer,5,1632.05,53.94
+ORD-00964,2025-10-19,East,Furniture,Corporate,1,371.42,-2.29
+ORD-00965,2025-12-22,West,Office Supplies,Consumer,7,535.81,71.79
+ORD-00966,2025-06-19,South,Furniture,Corporate,8,1946.39,-378.27
+ORD-00967,2024-04-19,South,Technology,Corporate,7,2021.31,211.44
+ORD-00968,2025-02-06,Central,Technology,Corporate,1,309.49,103.9
+ORD-00969,2024-07-26,West,Furniture,Home Office,7,1863.8,90.76
+ORD-00970,2024-06-24,South,Technology,Consumer,5,1383.8,343.37
+ORD-00971,2024-05-05,East,Furniture,Corporate,2,331.1,-63.14
+ORD-00972,2025-08-23,South,Office Supplies,Consumer,2,65.87,15.9
+ORD-00973,2025-02-18,Central,Office Supplies,Consumer,1,68.92,0.61
+ORD-00974,2024-01-17,East,Technology,Consumer,9,2520.6,861.82
+ORD-00975,2024-04-02,West,Office Supplies,Corporate,9,354.45,25.56
+ORD-00976,2024-09-14,West,Furniture,Consumer,1,231.14,84.68
+ORD-00977,2025-07-10,South,Furniture,Home Office,1,228.57,21.77
+ORD-00978,2024-08-08,Central,Office Supplies,Home Office,8,319.3,56.12
+ORD-00979,2025-03-23,East,Furniture,Home Office,8,2595.28,79.95
+ORD-00980,2025-06-05,East,Technology,Consumer,9,3713.35,1008.78
+ORD-00981,2025-01-12,East,Furniture,Consumer,9,3459.25,116.22
+ORD-00982,2025-02-26,Central,Office Supplies,Corporate,4,307.39,76.71
+ORD-00983,2024-09-20,West,Technology,Consumer,9,3018.98,713.0
+ORD-00984,2024-09-20,West,Furniture,Consumer,5,1267.07,-104.77
+ORD-00985,2025-02-12,South,Technology,Home Office,2,405.86,82.86
+ORD-00986,2025-10-27,South,Technology,Corporate,4,1319.99,141.61
+ORD-00987,2025-02-04,South,Technology,Corporate,6,1642.08,-203.04
+ORD-00988,2025-02-16,South,Office Supplies,Consumer,7,253.69,6.56
+ORD-00989,2025-06-08,Central,Office Supplies,Consumer,8,277.9,85.74
+ORD-00990,2025-07-25,West,Furniture,Corporate,5,1661.82,247.99
+ORD-00991,2025-05-01,Central,Furniture,Home Office,6,1684.5,200.52
+ORD-00992,2025-11-16,West,Technology,Home Office,2,499.93,65.65
+ORD-00993,2025-06-26,West,Furniture,Home Office,6,1961.05,-11.77
+ORD-00994,2024-08-17,Central,Furniture,Consumer,5,585.83,29.12
+ORD-00995,2025-02-08,East,Furniture,Corporate,4,1097.72,326.98
+ORD-00996,2024-01-01,East,Technology,Consumer,7,2022.03,402.24
+ORD-00997,2025-08-30,East,Furniture,Corporate,7,2264.62,-68.36
+ORD-00998,2024-08-06,East,Furniture,Consumer,1,345.67,19.95
+ORD-00999,2025-08-28,East,Office Supplies,Home Office,8,688.78,121.73
+ORD-01000,2025-04-18,Central,Furniture,Consumer,7,1032.27,-4.28
+ORD-01001,2025-12-26,Central,Office Supplies,Corporate,7,516.82,108.2
+ORD-01002,2024-02-18,Central,Office Supplies,Corporate,2,60.53,0.4
+ORD-01003,2025-12-24,Central,Office Supplies,Corporate,5,372.56,64.34
+ORD-01004,2025-04-23,Central,Technology,Consumer,3,1032.66,53.37
+ORD-01005,2025-12-01,West,Technology,Corporate,3,794.13,112.45
+ORD-01006,2025-04-01,South,Technology,Consumer,3,906.25,102.16
+ORD-01007,2024-06-27,South,Technology,Corporate,2,404.06,127.89
+ORD-01008,2025-05-31,East,Furniture,Consumer,4,1554.21,117.13
+ORD-01009,2025-08-23,South,Technology,Home Office,6,1222.77,73.19
+ORD-01010,2025-06-01,East,Furniture,Corporate,1,329.54,21.89
+ORD-01011,2024-07-26,West,Furniture,Corporate,1,136.72,25.81
+ORD-01012,2025-12-15,South,Furniture,Home Office,2,378.53,-51.73
+ORD-01013,2024-11-19,East,Furniture,Home Office,5,1224.29,240.58
+ORD-01014,2025-01-19,East,Furniture,Consumer,2,560.76,13.34
+ORD-01015,2025-05-24,South,Office Supplies,Corporate,1,33.45,-1.58
+ORD-01016,2024-02-16,South,Office Supplies,Consumer,5,238.29,1.98
+ORD-01017,2025-04-30,West,Furniture,Home Office,8,1827.89,3.93
+ORD-01018,2024-02-23,Central,Furniture,Home Office,9,1248.01,317.85
+ORD-01019,2025-02-13,East,Furniture,Consumer,8,3172.51,-142.59
+ORD-01020,2025-09-30,South,Furniture,Corporate,9,1013.88,-59.09
+ORD-01021,2025-11-13,East,Technology,Consumer,6,2900.72,343.26
+ORD-01022,2024-02-01,West,Furniture,Consumer,4,1043.86,-140.66
+ORD-01023,2025-12-22,Central,Office Supplies,Consumer,3,225.81,46.04
+ORD-01024,2025-03-25,South,Furniture,Consumer,3,660.26,-152.2
+ORD-01025,2025-07-25,Central,Furniture,Consumer,1,206.91,14.74
+ORD-01026,2024-06-16,East,Furniture,Home Office,9,2721.15,60.58
+ORD-01027,2024-03-06,Central,Furniture,Home Office,2,255.07,32.67
+ORD-01028,2024-02-11,East,Furniture,Corporate,9,2852.93,388.17
+ORD-01029,2024-05-03,West,Technology,Corporate,5,1174.94,494.87
+ORD-01030,2024-04-09,West,Furniture,Corporate,9,2506.69,154.2
+ORD-01031,2024-05-12,West,Furniture,Corporate,7,1767.14,265.64
+ORD-01032,2024-09-14,West,Technology,Consumer,6,2360.46,126.87
+ORD-01033,2025-12-12,East,Office Supplies,Corporate,2,126.08,18.32
+ORD-01034,2024-04-10,Central,Office Supplies,Home Office,8,478.12,77.77
+ORD-01035,2024-06-12,South,Technology,Consumer,2,369.27,85.65
+ORD-01036,2024-01-07,East,Office Supplies,Consumer,7,336.05,33.99
+ORD-01037,2025-04-09,East,Furniture,Home Office,8,1684.05,-6.94
+ORD-01038,2025-03-22,Central,Furniture,Consumer,9,1620.69,175.9
+ORD-01039,2025-01-29,East,Furniture,Corporate,7,1754.89,95.37
+ORD-01040,2025-03-31,Central,Technology,Home Office,8,1861.23,180.32
+ORD-01041,2024-04-01,East,Furniture,Corporate,2,556.23,66.74
+ORD-01042,2025-02-08,East,Technology,Home Office,9,4324.88,474.72
+ORD-01043,2024-06-09,South,Technology,Corporate,1,206.84,2.14
+ORD-01044,2025-01-20,East,Office Supplies,Home Office,2,221.67,67.52
+ORD-01045,2024-06-08,Central,Furniture,Corporate,9,1112.93,-46.73
+ORD-01046,2025-08-26,South,Office Supplies,Corporate,3,107.03,37.65
+ORD-01047,2025-10-17,East,Furniture,Consumer,1,248.86,-19.17
+ORD-01048,2025-03-13,East,Furniture,Home Office,7,2513.59,70.97
+ORD-01049,2025-11-29,East,Technology,Home Office,4,1404.51,300.3
+ORD-01050,2025-12-03,South,Office Supplies,Consumer,7,301.74,78.64
+ORD-01051,2024-08-19,East,Furniture,Corporate,9,1643.94,97.14
+ORD-01052,2025-11-08,Central,Office Supplies,Consumer,7,427.43,-22.55
+ORD-01053,2025-10-03,South,Furniture,Consumer,5,804.4,204.76
+ORD-01054,2025-05-26,West,Office Supplies,Consumer,1,86.29,12.89
+ORD-01055,2024-12-20,Central,Technology,Home Office,4,757.55,154.93
+ORD-01056,2025-02-23,East,Technology,Consumer,2,611.27,32.27
+ORD-01057,2025-12-06,East,Furniture,Consumer,3,1216.14,125.62
+ORD-01058,2024-05-25,Central,Office Supplies,Consumer,7,261.91,15.17
+ORD-01059,2024-03-21,South,Furniture,Corporate,1,198.5,-19.56
+ORD-01060,2025-04-01,West,Furniture,Consumer,3,739.41,126.18
+ORD-01061,2025-04-09,Central,Technology,Corporate,7,2337.76,639.76
+ORD-01062,2025-11-19,Central,Office Supplies,Consumer,4,245.31,46.76
+ORD-01063,2025-07-22,Central,Furniture,Home Office,4,886.97,47.04
+ORD-01064,2025-03-17,Central,Furniture,Home Office,8,1272.43,95.5
+ORD-01065,2024-08-13,Central,Technology,Home Office,6,1510.33,103.47
+ORD-01066,2025-01-22,East,Technology,Home Office,1,443.54,86.82
+ORD-01067,2025-02-01,Central,Furniture,Consumer,4,767.68,-27.85
+ORD-01068,2025-05-16,East,Furniture,Consumer,4,1045.54,-73.51
+ORD-01069,2025-12-12,Central,Furniture,Home Office,3,673.48,-82.62
+ORD-01070,2024-07-29,Central,Office Supplies,Home Office,8,414.06,90.3
+ORD-01071,2024-07-21,Central,Furniture,Consumer,6,652.56,-11.28
+ORD-01072,2025-08-14,West,Technology,Consumer,7,2862.56,1245.99
+ORD-01073,2025-01-17,West,Technology,Corporate,5,1382.39,117.79
+ORD-01074,2024-10-17,Central,Furniture,Consumer,1,136.89,6.99
+ORD-01075,2024-11-24,West,Furniture,Corporate,5,1450.41,414.14
+ORD-01076,2024-10-15,East,Office Supplies,Corporate,5,255.55,47.05
+ORD-01077,2024-04-29,Central,Furniture,Corporate,2,354.3,5.01
+ORD-01078,2025-05-25,Central,Furniture,Home Office,9,1846.83,152.49
+ORD-01079,2024-02-13,Central,Furniture,Consumer,5,923.48,-42.52
+ORD-01080,2024-09-07,Central,Office Supplies,Consumer,2,75.69,12.6
+ORD-01081,2024-09-09,East,Technology,Corporate,9,2561.41,-107.13
+ORD-01082,2025-05-25,Central,Office Supplies,Home Office,1,41.61,4.14
+ORD-01083,2024-08-24,South,Office Supplies,Corporate,8,252.05,35.68
+ORD-01084,2024-12-23,East,Furniture,Consumer,3,800.31,21.0
+ORD-01085,2025-10-08,East,Office Supplies,Corporate,3,320.14,66.86
+ORD-01086,2025-04-26,East,Furniture,Consumer,6,2237.31,268.49
+ORD-01087,2024-12-18,East,Furniture,Consumer,8,1605.61,-343.51
+ORD-01088,2025-12-06,South,Office Supplies,Consumer,4,208.78,14.39
+ORD-01089,2024-12-11,West,Technology,Home Office,4,1472.22,239.15
+ORD-01090,2024-03-21,South,Technology,Home Office,9,1199.55,91.9
+ORD-01091,2025-01-28,South,Furniture,Consumer,5,1106.77,13.75
+ORD-01092,2024-07-11,South,Technology,Corporate,2,320.63,103.53
+ORD-01093,2025-11-24,South,Technology,Home Office,2,659.48,226.0
+ORD-01094,2024-02-14,West,Technology,Corporate,9,3615.56,986.09
+ORD-01095,2025-09-01,Central,Furniture,Corporate,1,187.91,-14.05
+ORD-01096,2024-05-19,South,Technology,Consumer,4,667.37,80.8
+ORD-01097,2025-10-13,Central,Technology,Corporate,8,2054.88,388.74
+ORD-01098,2025-12-15,East,Office Supplies,Home Office,2,165.39,24.28
+ORD-01099,2024-02-13,South,Office Supplies,Home Office,3,125.29,10.38
+ORD-01100,2025-02-17,West,Office Supplies,Consumer,7,397.22,61.05
+ORD-01101,2024-09-01,East,Furniture,Home Office,6,1672.52,285.49
+ORD-01102,2024-07-06,West,Technology,Consumer,1,202.15,17.88
+ORD-01103,2024-11-16,West,Technology,Corporate,1,280.36,124.45
+ORD-01104,2025-11-03,West,Furniture,Home Office,5,1518.57,179.73
+ORD-01105,2024-07-30,West,Office Supplies,Consumer,8,585.81,119.77
+ORD-01106,2024-12-08,East,Office Supplies,Consumer,4,274.38,67.45
+ORD-01107,2024-12-08,West,Office Supplies,Corporate,1,67.49,2.1
+ORD-01108,2025-08-09,East,Technology,Corporate,6,2336.67,247.37
+ORD-01109,2024-03-09,South,Technology,Corporate,9,1919.25,216.17
+ORD-01110,2025-01-15,Central,Office Supplies,Corporate,2,105.15,15.0
+ORD-01111,2024-04-26,South,Furniture,Home Office,8,911.68,76.58
+ORD-01112,2024-01-16,West,Technology,Home Office,5,1944.21,393.73
+ORD-01113,2024-11-27,East,Technology,Corporate,4,1380.46,402.84
+ORD-01114,2025-03-30,South,Technology,Corporate,4,723.5,-27.21
+ORD-01115,2024-04-27,Central,Office Supplies,Consumer,8,511.47,139.96
+ORD-01116,2024-03-11,South,Office Supplies,Home Office,8,413.47,51.64
+ORD-01117,2024-05-13,East,Office Supplies,Home Office,1,67.45,10.17
+ORD-01118,2024-05-04,West,Furniture,Corporate,6,1021.54,342.99
+ORD-01119,2024-04-02,South,Office Supplies,Home Office,3,148.99,-24.02
+ORD-01120,2024-03-07,Central,Office Supplies,Corporate,1,33.05,3.8
+ORD-01121,2025-09-30,West,Office Supplies,Home Office,9,542.79,114.21
+ORD-01122,2024-07-29,West,Furniture,Home Office,9,2167.52,158.38
+ORD-01123,2024-09-30,Central,Office Supplies,Home Office,5,229.76,30.98
+ORD-01124,2025-03-25,West,Office Supplies,Corporate,3,221.48,11.34
+ORD-01125,2024-05-14,West,Office Supplies,Corporate,6,265.95,51.27
+ORD-01126,2025-02-09,West,Furniture,Home Office,1,237.92,-7.85
+ORD-01127,2024-09-13,West,Office Supplies,Consumer,6,412.4,32.92
+ORD-01128,2024-05-11,Central,Office Supplies,Home Office,8,387.94,83.33
+ORD-01129,2024-07-30,West,Technology,Home Office,6,2498.08,478.95
+ORD-01130,2025-12-28,South,Technology,Consumer,2,661.5,57.24
+ORD-01131,2024-08-04,East,Furniture,Corporate,9,2374.8,-535.06
+ORD-01132,2024-12-20,East,Office Supplies,Consumer,2,152.37,-8.0
+ORD-01133,2024-06-17,Central,Office Supplies,Consumer,2,120.73,4.93
+ORD-01134,2025-05-15,Central,Furniture,Corporate,1,258.84,-1.36
+ORD-01135,2024-09-19,East,Furniture,Home Office,6,1941.82,-229.61
+ORD-01136,2024-07-22,Central,Furniture,Consumer,5,719.82,-1.21
+ORD-01137,2024-08-27,East,Technology,Corporate,7,2217.45,509.43
+ORD-01138,2024-09-10,West,Office Supplies,Consumer,9,544.6,146.17
+ORD-01139,2025-08-14,East,Office Supplies,Consumer,3,155.14,8.19
+ORD-01140,2025-07-20,South,Office Supplies,Corporate,8,282.97,72.57
+ORD-01141,2024-03-29,East,Office Supplies,Consumer,6,548.36,105.1
+ORD-01142,2024-05-11,Central,Furniture,Consumer,2,353.83,23.63
+ORD-01143,2025-02-22,West,Office Supplies,Corporate,5,295.1,58.44
+ORD-01144,2024-07-03,West,Furniture,Corporate,7,1090.96,123.98
+ORD-01145,2025-07-19,West,Furniture,Corporate,6,1882.52,285.04
+ORD-01146,2024-04-06,East,Office Supplies,Consumer,5,391.53,80.77
+ORD-01147,2024-12-02,Central,Furniture,Corporate,1,181.38,38.32
+ORD-01148,2024-09-23,Central,Technology,Corporate,3,863.0,251.3
+ORD-01149,2025-12-10,East,Furniture,Corporate,6,1593.25,301.04
+ORD-01150,2025-10-30,East,Furniture,Home Office,5,1300.85,320.46
+ORD-01151,2024-04-13,Central,Technology,Corporate,6,1683.33,2.16
+ORD-01152,2025-07-21,Central,Furniture,Consumer,5,718.9,18.1
+ORD-01153,2024-11-08,East,Office Supplies,Home Office,4,324.14,38.52
+ORD-01154,2024-10-16,West,Furniture,Consumer,9,2040.93,152.11
+ORD-01155,2024-09-12,East,Office Supplies,Home Office,3,294.4,-1.97
+ORD-01156,2024-01-02,West,Technology,Consumer,4,730.22,175.01
+ORD-01157,2024-06-05,South,Office Supplies,Home Office,3,91.35,-9.51
+ORD-01158,2025-08-12,South,Furniture,Consumer,5,534.61,8.38
+ORD-01159,2025-11-27,Central,Furniture,Corporate,9,2159.44,-332.47
+ORD-01160,2025-03-22,West,Office Supplies,Home Office,8,388.26,65.17
+ORD-01161,2025-11-07,Central,Office Supplies,Home Office,1,64.56,21.58
+ORD-01162,2025-07-17,West,Technology,Corporate,6,2033.71,294.99
+ORD-01163,2025-01-16,East,Office Supplies,Home Office,8,421.45,77.63
+ORD-01164,2025-02-13,Central,Technology,Home Office,5,1551.01,331.02
+ORD-01165,2024-03-21,South,Office Supplies,Home Office,9,508.57,10.55
+ORD-01166,2024-12-21,South,Office Supplies,Consumer,4,211.81,16.71
+ORD-01167,2025-02-27,East,Office Supplies,Home Office,6,581.16,-63.88
+ORD-01168,2024-08-01,West,Technology,Consumer,4,932.95,101.99
+ORD-01169,2025-02-14,Central,Furniture,Home Office,1,123.9,-21.66
+ORD-01170,2025-02-02,Central,Office Supplies,Corporate,3,161.77,45.61
+ORD-01171,2024-10-19,South,Technology,Home Office,2,408.58,50.1
+ORD-01172,2024-01-29,South,Technology,Home Office,4,686.2,88.27
+ORD-01173,2025-09-17,East,Furniture,Consumer,1,323.51,52.49
+ORD-01174,2024-12-12,Central,Office Supplies,Consumer,6,360.8,32.3
+ORD-01175,2024-06-29,East,Office Supplies,Consumer,2,139.59,35.39
+ORD-01176,2025-05-28,East,Technology,Corporate,6,1919.0,324.14
+ORD-01177,2025-07-01,Central,Furniture,Home Office,5,1040.29,199.73
+ORD-01178,2025-07-28,Central,Technology,Corporate,9,3346.09,827.45
+ORD-01179,2025-08-12,Central,Technology,Corporate,6,1545.22,411.61
+ORD-01180,2024-02-20,East,Technology,Home Office,9,3780.17,560.86
+ORD-01181,2025-04-14,East,Office Supplies,Consumer,6,326.5,37.02
+ORD-01182,2024-03-20,South,Furniture,Home Office,4,847.52,-38.02
+ORD-01183,2025-06-29,Central,Office Supplies,Corporate,6,458.74,58.67
+ORD-01184,2025-02-22,West,Technology,Home Office,1,356.75,0.98
+ORD-01185,2024-02-28,West,Furniture,Corporate,6,987.43,-75.44
+ORD-01186,2024-07-16,East,Office Supplies,Home Office,2,181.35,42.56
+ORD-01187,2024-05-15,West,Furniture,Consumer,8,2193.01,482.34
+ORD-01188,2024-01-06,East,Office Supplies,Consumer,6,369.79,-14.56
+ORD-01189,2025-03-17,Central,Technology,Consumer,4,1181.69,309.18
+ORD-01190,2025-10-16,West,Technology,Corporate,4,1074.14,182.63
+ORD-01191,2025-08-21,East,Furniture,Corporate,7,1812.13,-19.13
+ORD-01192,2025-04-27,West,Furniture,Consumer,7,2190.89,155.77
+ORD-01193,2025-07-02,East,Office Supplies,Home Office,2,159.36,31.75
+ORD-01194,2024-09-03,Central,Technology,Corporate,2,522.96,79.58
+ORD-01195,2025-04-28,South,Furniture,Corporate,3,577.79,-4.76
+ORD-01196,2024-10-21,East,Office Supplies,Corporate,9,471.62,87.57
+ORD-01197,2024-08-16,West,Technology,Corporate,8,2765.49,828.57
+ORD-01198,2025-03-23,West,Technology,Corporate,4,1209.46,216.99
+ORD-01199,2024-03-07,East,Furniture,Home Office,2,518.07,28.24
+ORD-01200,2025-04-24,East,Furniture,Home Office,2,645.89,-70.57

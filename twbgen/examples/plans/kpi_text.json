@@ -1,0 +1,35 @@
+{
+ "name": "Yearly KPIs",
+ "calculations": [],
+ "charts": [
+  {
+   "title": "Sales and profit by year",
+   "chart": "text",
+   "fields": [
+    {
+     "field": "Order Date",
+     "agg": "year",
+     "continuous_date": false,
+     "role": "x"
+    },
+    {
+     "field": "Sales",
+     "agg": "sum",
+     "continuous_date": null,
+     "role": "label"
+    },
+    {
+     "field": "Profit",
+     "agg": "sum",
+     "continuous_date": null,
+     "role": "label"
+    }
+   ],
+   "filters": [],
+   "sort": null,
+   "reference_lines": []
+  }
+ ],
+ "dashboard": null,
+ "formats": []
+}

@@ -1,0 +1,122 @@
+{
+ "name": "Regional Sales Overview",
+ "calculations": [
+  {
+   "name": "Profit Ratio",
+   "formula": "SUM([Profit]) / SUM([Sales])",
+   "datatype": "real"
+  }
+ ],
+ "charts": [
+  {
+   "title": "How are sales trending?",
+   "chart": "line",
+   "fields": [
+    {
+     "field": "Order Date",
+     "agg": "month",
+     "continuous_date": true,
+     "role": "x"
+    },
+    {
+     "field": "Sales",
+     "agg": "sum",
+     "continuous_date": null,
+     "role": "y"
+    },
+    {
+     "field": "Region",
+     "agg": "auto",
+     "continuous_date": null,
+     "role": "color"
+    }
+   ],
+   "filters": [],
+   "sort": null,
+   "reference_lines": []
+  },
+  {
+   "title": "Which regions lead in sales?",
+   "chart": "bar",
+   "fields": [
+    {
+     "field": "Region",
+     "agg": "auto",
+     "continuous_date": null,
+     "role": "y"
+    },
+    {
+     "field": "Sales",
+     "agg": "sum",
+     "continuous_date": null,
+     "role": "x"
+    },
+    {
+     "field": "Profit Ratio",
+     "agg": "auto",
+     "continuous_date": null,
+     "role": "color"
+    },
+    {
+     "field": "Profit",
+     "agg": "sum",
+     "continuous_date": null,
+     "role": "tooltip"
+    }
+   ],
+   "filters": [],
+   "sort": {
+    "field": "Region",
+    "by_field": "Sales",
+    "by_agg": "sum",
+    "direction": "desc"
+   },
+   "reference_lines": []
+  },
+  {
+   "title": "How profitable is each category?",
+   "chart": "highlight",
+   "fields": [
+    {
+     "field": "Category",
+     "agg": "auto",
+     "continuous_date": null,
+     "role": "y"
+    },
+    {
+     "field": "Segment",
+     "agg": "auto",
+     "continuous_date": null,
+     "role": "x"
+    },
+    {
+     "field": "Profit Ratio",
+     "agg": "auto",
+     "continuous_date": null,
+     "role": "color"
+    },
+    {
+     "field": "Profit",
+     "agg": "sum",
+     "continuous_date": null,
+     "role": "label"
+    }
+   ],
+   "filters": [],
+   "sort": null,
+   "reference_lines": []
+  }
+ ],
+ "dashboard": {
+  "name": "Overview",
+  "charts": [
+   "How are sales trending?",
+   "Which regions lead in sales?",
+   "How profitable is each category?"
+  ],
+  "orientation": "vertical",
+  "title": null,
+  "filters": []
+ },
+ "formats": []
+}

@@ -1,0 +1,147 @@
+{
+ "name": "Sales Performance",
+ "calculations": [
+  {
+   "name": "Profit Ratio",
+   "formula": "SUM([Profit]) / SUM([Sales])",
+   "datatype": "real"
+  }
+ ],
+ "formats": [
+  {
+   "field": "Sales",
+   "format": "currency"
+  },
+  {
+   "field": "Profit",
+   "format": "currency"
+  },
+  {
+   "field": "Profit Ratio",
+   "format": "percent"
+  }
+ ],
+ "charts": [
+  {
+   "title": "Sales and profit over time",
+   "chart": "combo",
+   "fields": [
+    {
+     "field": "Order Date",
+     "agg": "month",
+     "continuous_date": true,
+     "role": "x"
+    },
+    {
+     "field": "Sales",
+     "agg": "sum",
+     "continuous_date": null,
+     "role": "y"
+    },
+    {
+     "field": "Profit",
+     "agg": "sum",
+     "continuous_date": null,
+     "role": "y"
+    }
+   ],
+   "filters": [],
+   "sort": null,
+   "reference_lines": []
+  },
+  {
+   "title": "Which regions beat the average?",
+   "chart": "bar",
+   "fields": [
+    {
+     "field": "Region",
+     "agg": "auto",
+     "continuous_date": null,
+     "role": "y"
+    },
+    {
+     "field": "Sales",
+     "agg": "sum",
+     "continuous_date": null,
+     "role": "x"
+    },
+    {
+     "field": "Profit Ratio",
+     "agg": "auto",
+     "continuous_date": null,
+     "role": "color"
+    }
+   ],
+   "filters": [],
+   "sort": {
+    "field": "Region",
+    "by_field": "Sales",
+    "by_agg": "sum",
+    "direction": "desc"
+   },
+   "reference_lines": [
+    {
+     "field": "Sales",
+     "agg": "sum",
+     "formula": "average"
+    }
+   ]
+  },
+  {
+   "title": "How big are orders?",
+   "chart": "histogram",
+   "fields": [
+    {
+     "field": "Sales",
+     "agg": "auto",
+     "continuous_date": null,
+     "role": "x"
+    }
+   ],
+   "filters": [],
+   "sort": null,
+   "reference_lines": []
+  },
+  {
+   "title": "Sales vs quantity trend",
+   "chart": "dualline",
+   "fields": [
+    {
+     "field": "Order Date",
+     "agg": "quarter",
+     "continuous_date": true,
+     "role": "x"
+    },
+    {
+     "field": "Sales",
+     "agg": "sum",
+     "continuous_date": null,
+     "role": "y"
+    },
+    {
+     "field": "Quantity",
+     "agg": "sum",
+     "continuous_date": null,
+     "role": "y"
+    }
+   ],
+   "filters": [],
+   "sort": null,
+   "reference_lines": []
+  }
+ ],
+ "dashboard": {
+  "name": "Performance",
+  "title": "Sales Performance 2024-2025",
+  "charts": [
+   "Sales and profit over time",
+   "Which regions beat the average?",
+   "How big are orders?"
+  ],
+  "filters": [
+   "Region",
+   "Category"
+  ],
+  "orientation": "vertical"
+ }
+}

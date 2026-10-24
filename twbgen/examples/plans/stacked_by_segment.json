@@ -1,0 +1,52 @@
+{
+ "name": "Category Mix",
+ "calculations": [],
+ "charts": [
+  {
+   "title": "Sales by category and segment",
+   "chart": "stackedbar",
+   "fields": [
+    {
+     "field": "Category",
+     "agg": "auto",
+     "continuous_date": null,
+     "role": "y"
+    },
+    {
+     "field": "Sales",
+     "agg": "sum",
+     "continuous_date": null,
+     "role": "x"
+    },
+    {
+     "field": "Segment",
+     "agg": "auto",
+     "continuous_date": null,
+     "role": "color"
+    }
+   ],
+   "filters": [
+    {
+     "field": "Region",
+     "agg": "auto",
+     "include": [
+      "East",
+      "West"
+     ],
+     "exclude": null,
+     "min": null,
+     "max": null
+    }
+   ],
+   "sort": {
+    "field": "Category",
+    "by_field": "Sales",
+    "by_agg": "sum",
+    "direction": "desc"
+   },
+   "reference_lines": []
+  }
+ ],
+ "dashboard": null,
+ "formats": []
+}

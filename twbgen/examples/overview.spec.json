@@ -1,0 +1,27 @@
+{
+  "name": "Sales Overview",
+  "datasource": { "caption": "Sales", "csv": "sales.csv" },
+  "calculations": [
+    { "name": "Profit Ratio", "formula": "SUM([Profit]) / SUM([Sales])", "datatype": "real" }
+  ],
+  "worksheets": [
+    { "name": "Sales by Region", "mark": "Bar",
+      "rows": ["Region"], "cols": ["SUM(Sales)"],
+      "color": "Profit Ratio", "label": "SUM(Sales)", "tooltip": ["SUM(Profit)"] },
+    { "name": "Monthly Sales Trend", "mark": "Line",
+      "cols": ["MONTH_TRUNC(Order Date)"], "rows": ["SUM(Sales)", "SUM(Profit)"],
+      "color": "Category" },
+    { "name": "Category x Segment", "mark": "Square",
+      "rows": ["Category"], "cols": ["Segment"],
+      "color": "SUM(Profit)", "label": "SUM(Sales)",
+      "filters": [ { "field": "Region", "include": ["East", "West"] } ] },
+    { "name": "Profit vs Sales", "mark": "Circle",
+      "cols": ["SUM(Sales)"], "rows": ["SUM(Profit)"],
+      "detail": ["Order ID"], "color": "Category",
+      "filters": [ { "field": "SUM(Sales)", "min": 100 } ] }
+  ],
+  "dashboards": [
+    { "name": "Overview", "width": 1200, "height": 900, "orientation": "vertical",
+      "worksheets": ["Sales by Region", "Monthly Sales Trend"] }
+  ]
+}

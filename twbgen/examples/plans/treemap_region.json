@@ -1,0 +1,41 @@
+{
+ "name": "Profit Treemap",
+ "calculations": [],
+ "charts": [
+  {
+   "title": "Profit by region and segment",
+   "chart": "treemap",
+   "fields": [
+    {
+     "field": "Sales",
+     "agg": "sum",
+     "continuous_date": null,
+     "role": "size"
+    },
+    {
+     "field": "Profit",
+     "agg": "sum",
+     "continuous_date": null,
+     "role": "color"
+    },
+    {
+     "field": "Region",
+     "agg": "auto",
+     "continuous_date": null,
+     "role": "label"
+    },
+    {
+     "field": "Segment",
+     "agg": "auto",
+     "continuous_date": null,
+     "role": "label"
+    }
+   ],
+   "filters": [],
+   "sort": null,
+   "reference_lines": []
+  }
+ ],
+ "dashboard": null,
+ "formats": []
+}

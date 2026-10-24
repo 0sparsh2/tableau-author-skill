@@ -1,0 +1,284 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rea-tableau.local/vizspec-v0.schema.json",
+  "title": "VizSpec v0",
+  "description": "LLM-facing intermediate representation compiled to Tableau TWB by spec_to_twb.py. Pills: 'Field', 'AGG(Field)' with AGG in SUM AVG MIN MAX MEDIAN COUNT COUNTD ATTR STDEV VAR, discrete date parts YEAR QUARTER MONTH WEEK DAY, continuous dates YEAR_TRUNC QUARTER_TRUNC MONTH_TRUNC WEEK_TRUNC DAY_TRUNC, or a calculation name. On one shelf use only discrete pills (nested) or only continuous pills (concatenated).",
+  "type": "object",
+  "required": [
+    "name",
+    "datasource",
+    "worksheets"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "pill": {
+      "type": "string",
+      "minLength": 1
+    },
+    "pills": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/pill"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/pill"
+          }
+        }
+      ]
+    },
+    "filter": {
+      "type": "object",
+      "required": [
+        "field"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "field": {
+          "$ref": "#/$defs/pill"
+        },
+        "include": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "number",
+              "boolean"
+            ]
+          }
+        },
+        "exclude": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "number",
+              "boolean"
+            ]
+          }
+        },
+        "min": {
+          "type": "number"
+        },
+        "max": {
+          "type": "number"
+        }
+      }
+    }
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "datasource": {
+      "type": "object",
+      "required": [
+        "csv"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "caption": {
+          "type": "string"
+        },
+        "csv": {
+          "type": "string",
+          "description": "Path relative to the spec file."
+        },
+        "separator": {
+          "type": "string",
+          "default": ","
+        },
+        "fields": {
+          "type": "object",
+          "description": "Optional per-column overrides of inferred datatype/role.",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "datatype": {
+                "enum": [
+                  "integer",
+                  "real",
+                  "string",
+                  "date",
+                  "datetime",
+                  "boolean"
+                ]
+              },
+              "role": {
+                "enum": [
+                  "dimension",
+                  "measure"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "calculations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "formula"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "formula": {
+            "type": "string",
+            "description": "Tableau calculation syntax, fields as [Field Name]."
+          },
+          "datatype": {
+            "enum": [
+              "integer",
+              "real",
+              "string",
+              "date",
+              "datetime",
+              "boolean"
+            ],
+            "default": "real"
+          },
+          "role": {
+            "enum": [
+              "dimension",
+              "measure"
+            ]
+          }
+        }
+      }
+    },
+    "worksheets": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "mark": {
+            "enum": [
+              "Automatic",
+              "Text",
+              "Shape",
+              "Square",
+              "Circle",
+              "Bar",
+              "GanttBar",
+              "Line",
+              "Area",
+              "Pie",
+              "Polygon",
+              "Heatmap"
+            ]
+          },
+          "rows": {
+            "$ref": "#/$defs/pills"
+          },
+          "cols": {
+            "$ref": "#/$defs/pills"
+          },
+          "color": {
+            "$ref": "#/$defs/pills"
+          },
+          "size": {
+            "$ref": "#/$defs/pills"
+          },
+          "label": {
+            "$ref": "#/$defs/pills"
+          },
+          "shape": {
+            "$ref": "#/$defs/pills"
+          },
+          "detail": {
+            "$ref": "#/$defs/pills"
+          },
+          "tooltip": {
+            "$ref": "#/$defs/pills"
+          },
+          "angle": {
+            "$ref": "#/$defs/pills"
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/filter"
+            }
+          },
+          "sort": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "field",
+              "by"
+            ],
+            "description": "Computed sort: order a discrete pill used in the view by a continuous pill used in the view.",
+            "properties": {
+              "field": {
+                "$ref": "#/$defs/pill"
+              },
+              "by": {
+                "$ref": "#/$defs/pill"
+              },
+              "direction": {
+                "enum": [
+                  "asc",
+                  "desc"
+                ],
+                "default": "desc"
+              }
+            }
+          }
+        }
+      }
+    },
+    "dashboards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "worksheets"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "width": {
+            "type": "integer",
+            "default": 1200
+          },
+          "height": {
+            "type": "integer",
+            "default": 800
+          },
+          "orientation": {
+            "enum": [
+              "vertical",
+              "horizontal"
+            ],
+            "default": "vertical"
+          },
+          "worksheets": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          }
+        }
+      }
+    }
+  }
+}

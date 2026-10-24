@@ -1,0 +1,28 @@
+{
+  "name": "Feature Coverage",
+  "datasource": { "caption": "Sales", "csv": "sales.csv" },
+  "calculations": [
+    { "name": "Profit Ratio", "formula": "SUM([Profit]) / SUM([Sales])", "datatype": "real" },
+    { "name": "Number of Records", "formula": "1", "datatype": "integer" }
+  ],
+  "bins": [ { "field": "Sales", "size": 250 } ],
+  "formats": { "Sales": "currency", "Profit": "currency", "Profit Ratio": "percent" },
+  "worksheets": [
+    { "name": "Sales vs Profit (combo)", "mark": "Automatic",
+      "cols": ["MONTH_TRUNC(Order Date)"], "rows": ["SUM(Sales)", "SUM(Profit)"],
+      "marks": ["Bar", "Line"], "dual_axis": true },
+    { "name": "Sales by Region with average", "mark": "Bar",
+      "rows": ["Region"], "cols": ["SUM(Sales)"], "label": "SUM(Sales)",
+      "reference_lines": [ { "measure": "SUM(Sales)", "formula": "average" } ],
+      "sort": { "field": "Region", "by": "SUM(Sales)", "direction": "desc" } },
+    { "name": "Order size distribution", "mark": "Bar",
+      "cols": ["Sales (bin)"], "rows": ["SUM(Number of Records)"] },
+    { "name": "Margin by Category", "mark": "Bar",
+      "rows": ["Category"], "cols": ["Profit Ratio"], "label": "Profit Ratio" }
+  ],
+  "dashboards": [
+    { "name": "Overview", "title": "Sales Overview", "filters": ["Region", "Segment"],
+      "width": 1200, "height": 900,
+      "worksheets": ["Sales vs Profit (combo)", "Sales by Region with average", "Margin by Category"] }
+  ]
+}

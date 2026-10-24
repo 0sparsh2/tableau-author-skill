@@ -1,0 +1,35 @@
+{
+ "name": "Quarterly Volume",
+ "calculations": [],
+ "charts": [
+  {
+   "title": "Quarterly quantity by category",
+   "chart": "area",
+   "fields": [
+    {
+     "field": "Order Date",
+     "agg": "quarter",
+     "continuous_date": true,
+     "role": "x"
+    },
+    {
+     "field": "Quantity",
+     "agg": "sum",
+     "continuous_date": null,
+     "role": "y"
+    },
+    {
+     "field": "Category",
+     "agg": "auto",
+     "continuous_date": null,
+     "role": "color"
+    }
+   ],
+   "filters": [],
+   "sort": null,
+   "reference_lines": []
+  }
+ ],
+ "dashboard": null,
+ "formats": []
+}

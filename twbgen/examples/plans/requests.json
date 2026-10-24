@@ -1,0 +1,10 @@
+{
+ "regional_overview": "Give me an overview: how are sales trending, which regions lead, and how profitable is each category?",
+ "stacked_by_segment": "Sales by category split by segment, East and West only",
+ "scatter_orders": "Do bigger orders make more profit?",
+ "kpi_text": "What are total sales and profit by year?",
+ "share_pie": "What share of quantity does each category have?",
+ "treemap_region": "Show profit by region and segment as a treemap",
+ "area_quarterly": "Quarterly quantity trend by category",
+ "feature_tour": "Build a sales performance dashboard: sales and profit over time, which regions beat the average, how big orders are, with region and category filters. Show money as dollars and margin as percent."
+}
