@@ -1,0 +1,4 @@
+{ "name": "Store Network", "datasource": { "csv": "stores.csv" }, "formats": { "Annual Sales": "currency" },
+  "worksheets": [ { "name": "Stores by annual sales", "map": "points", "mark": "Circle",
+                    "rows": ["AVG(Latitude)"], "cols": ["AVG(Longitude)"], "detail": ["Store"],
+                    "size": "SUM(Annual Sales)", "color": "SUM(Staff)" } ] }

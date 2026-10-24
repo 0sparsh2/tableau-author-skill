@@ -1,0 +1,13 @@
+{
+  "name": "Sales Geography",
+  "datasource": { "caption": "Orders + Customers", "tables": ["orders.csv", "customers.csv"],
+                  "relationships": [ { "left": "orders.csv", "right": "customers.csv", "on": [["Customer ID", "Customer ID"]] } ] },
+  "formats": { "Sales": "currency", "Profit": "currency" },
+  "worksheets": [
+    { "name": "Sales by State", "map": "filled", "geo": "State", "color": "SUM(Sales)", "tooltip": ["SUM(Profit)"] },
+    { "name": "Sales by City", "map": "symbol", "mark": "Circle", "geo": ["State", "City"],
+      "size": "SUM(Sales)", "color": "SUM(Profit)", "tooltip": ["Region"] }
+  ],
+  "dashboards": [ { "name": "Geography", "title": "Where Sales Come From", "filters": ["Segment"],
+                    "orientation": "horizontal", "worksheets": ["Sales by State", "Sales by City"] } ]
+}

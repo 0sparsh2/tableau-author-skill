@@ -63,6 +63,7 @@ FORMATS = {"currency": 'c"$"#,##0;("$"#,##0)', "currency2": 'c"$"#,##0.00;("$"#,
            "percent": "p0.0%", "number": "n#,##0", "decimal": "n#,##0.00"}
 REFLINE_FORMULAS = {"average", "median", "min", "max"}
 MEASURE_NAMES = "[:Measure Names]"
+MAP_MODES = {"filled", "symbol", "points"}
 # Geographic roles, keyed by normalized column name; values are Tableau semantic roles.
 GEO_ALIASES = {"country": "country", "nation": "country", "state": "state", "province": "state",
                "state/province": "state", "city": "city", "county": "county", "zip": "zip", "zip code": "zip",
@@ -525,9 +526,32 @@ class Compiler:
         if mark not in MARKS:
             raise SpecError(f"{name}: mark {mark!r} not in {sorted(MARKS)}")
         used: list[Instance] = []
+        map_mode = ws.get("map")
+        if map_mode and map_mode not in MAP_MODES:
+            raise SpecError(f"{name}: map {map_mode!r} not in {sorted(MAP_MODES)}")
+        if map_mode in ("filled", "symbol") and (ws.get("rows") or ws.get("cols")):
+            raise SpecError(f"{name}: a {map_mode} map places Tableau's generated latitude/longitude itself; "
+                            "leave rows and cols empty")
         rows = self.shelf(ws.get("rows"), used, f"{name}.rows")
         cols = self.shelf(ws.get("cols"), used, f"{name}.cols")
         enc: list[tuple[str, Instance]] = []
+        geo_val = ws.get("geo")
+        for p in ([geo_val] if isinstance(geo_val, str) else (geo_val or [])):
+            inst = self.pill(p)
+            if map_mode in ("filled", "symbol") and (not inst.field.semantic_role or inst.field.geo in ("latitude", "longitude")):
+                raise SpecError(f"{name}: geo field {p!r} has no geographic role (country, state, city, county or zip)")
+            used.append(inst)
+            enc.append(("lod", inst))
+        if map_mode in ("filled", "symbol") and not geo_val:
+            raise SpecError(f"{name}: a {map_mode} map needs 'geo' with a geographic field")
+        if map_mode in ("filled", "symbol"):
+            rows = f"{bracket(self.ds_name)}.[Latitude (generated)]"
+            cols = f"{bracket(self.ds_name)}.[Longitude (generated)]"
+        if map_mode == "points":
+            lat = [i for i in used if i.field.geo == "latitude"]
+            lon = [i for i in used if i.field.geo == "longitude"]
+            if not (lat and lon) or len(ws.get("rows") or []) != 1 or len(ws.get("cols") or []) != 1:
+                raise SpecError(f"{name}: a points map needs a latitude measure on rows and a longitude measure on cols")
         for key, tag in ENCODINGS.items():
             val = ws.get(key)
             for p in ([val] if isinstance(val, str) else (val or [])):
@@ -539,6 +563,8 @@ class Compiler:
         table = ET.SubElement(sheet, "table")
         view = ET.SubElement(table, "view")
         ET.SubElement(ET.SubElement(view, "datasources"), "datasource", caption=self.caption, name=self.ds_name)
+        if map_mode:
+            ET.SubElement(ET.SubElement(view, "mapsources"), "mapsource", name="Tableau")
         deps = ET.SubElement(view, "datasource-dependencies", datasource=self.ds_name)
         sliced_holder = ET.Element("tmp")
         sliced = self.filters(sliced_holder, ws, used)
@@ -596,6 +622,8 @@ class Compiler:
         if dual and len(row_measures) != 2:
             raise SpecError(f"{name}: dual_axis needs exactly two measures on rows")
         enc_cols = [(tag, self.qualified(inst)) for tag, inst in enc]
+        if map_mode == "filled":
+            enc_cols.append(("geometry", f"{bracket(self.ds_name)}.[Geometry (generated)]"))
         if (marks or dual) and not any(tag == "color" for tag, _ in enc_cols):
             enc_cols.insert(0, ("color", f"{bracket(self.ds_name)}.{MEASURE_NAMES}"))
         reflines = []
@@ -609,6 +637,8 @@ class Compiler:
             reflines.append((f"refline{i}", self.qualified(inst), formula))
 
         style = ET.SubElement(table, "style")
+        if map_mode:
+            ET.SubElement(ET.SubElement(style, "style-rule", element="map"), "format", attr="washout", value="0.0")
         if dual:
             rule = ET.SubElement(style, "style-rule", element="axis")
             ET.SubElement(rule, "encoding", {"attr": "space", "class": "0", "field": self.qualified(row_measures[1]),
@@ -713,13 +743,16 @@ class Compiler:
         ET.register_namespace("user", USER_NS)
         wb = ET.Element("workbook", {"original-version": VERSION, "source-build": "0.0.0 (0000.0.0.0)",
                                      "source-platform": "mac", "version": VERSION})
+        has_map = any(ws.get("map") for ws in self.spec.get("worksheets") or [])
         manifest = ET.SubElement(wb, "document-format-change-manifest")
-        for flag in MANIFEST_FLAGS:
+        for flag in sorted(MANIFEST_FLAGS + (("MapboxVectorStylesAndLayers",) if has_map else ())):
             ET.SubElement(manifest, flag)
         prefs = ET.SubElement(wb, "preferences")
         ET.SubElement(prefs, "preference", name="ui.encoding.shelf.height", value="24")
         ET.SubElement(prefs, "preference", name="ui.shelf.height", value="26")
         self.datasource(ET.SubElement(wb, "datasources"), directory)
+        if has_map:
+            ET.SubElement(ET.SubElement(wb, "mapsources"), "mapsource", name="Tableau")
         sheets = self.spec.get("worksheets") or []
         if not sheets:
             raise SpecError("at least one worksheet is required")
