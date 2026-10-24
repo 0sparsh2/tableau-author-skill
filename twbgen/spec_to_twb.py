@@ -64,6 +64,7 @@ FORMATS = {"currency": 'c"$"#,##0;("$"#,##0)', "currency2": 'c"$"#,##0.00;("$"#,
 REFLINE_FORMULAS = {"average", "median", "min", "max"}
 MEASURE_NAMES = "[:Measure Names]"
 MAP_MODES = {"filled", "symbol", "points"}
+ACTION_TYPES = {"filter", "highlight", "parameter"}
 PARAM_TYPES = {"integer": "quantitative", "real": "quantitative", "string": "nominal", "boolean": "nominal",
                "date": "ordinal"}
 
@@ -550,6 +551,11 @@ class Compiler:
                               name=f"[__tableau_internal_object_id__].[{t.object_id}]")
         for f in self.fields:
             self.column_element(ds, f)
+        for caption, inst in getattr(self, "action_groups", {}).items():  # filter actions' selection groups
+            group = ET.SubElement(ds, "group", {"caption": caption, "hidden": "true", "name": bracket(caption),
+                                                "name-style": "unqualified", f"{{{USER_NS}}}auto-column": "sheet_link"})
+            ET.SubElement(ET.SubElement(group, "groupfilter", function="crossjoin"), "groupfilter",
+                          function="level-members", level=inst.field.internal)
         ET.SubElement(ds, "layout", {"dim-ordering": "alphabetic", "measure-ordering": "alphabetic",
                                      "show-structure": "true"})
         graph = ET.SubElement(ds, "object-graph")
@@ -681,6 +687,15 @@ class Compiler:
         sliced_holder = ET.Element("tmp")
         params_used: set[str] = set()
         sliced = self.filters(sliced_holder, ws, used, params_used)
+        for caption, inst, action in getattr(self, "action_filters", {}).get(name, []):
+            q = f"{bracket(self.ds_name)}.{bracket(caption)}"
+            el = ET.SubElement(sliced_holder, "filter", {"class": "categorical", "column": q})
+            ET.SubElement(el, "groupfilter", {"function": "level-members", "level": inst.field.internal,
+                                              f"{{{USER_NS}}}ui-action-filter": action,
+                                              f"{{{USER_NS}}}ui-enumeration": "all",
+                                              f"{{{USER_NS}}}ui-marker": "enumerate"})
+            if q not in sliced:
+                sliced.append(q)
         for pill, group in shared:  # dashboard quick filters: all values, linked across sheets by filter-group
             inst = self.pill(pill)
             if not inst.discrete:
@@ -874,14 +889,95 @@ class Compiler:
             ET.SubElement(style, "format", attr=attr, value=value)
         ET.SubElement(el, "simple-id", uuid=stable_uuid("db", db["name"]))
 
+    # --------------------------------------------------------------- actions
+    def prepare_actions(self, dbs: list[dict], sheets: dict[str, dict]) -> None:
+        """Validate dashboard actions; record datasource groups and target-sheet filters they need."""
+        self.action_groups: dict[str, Instance] = {}            # group caption -> source field
+        self.action_filters: dict[str, list[tuple[str, Instance, str]]] = {}  # sheet -> (group, field, action)
+        self.actions: list[tuple[str, dict, dict, Instance, str]] = []        # (name, action, dashboard, field, ...)
+        n = 0
+        for db in dbs:
+            for a in db.get("actions") or []:
+                n += 1
+                where = f"dashboard {db['name']!r} action {n}"
+                kind = a.get("type")
+                if kind not in ACTION_TYPES:
+                    raise SpecError(f"{where}: type must be one of {sorted(ACTION_TYPES)}")
+                src = a.get("source")
+                if src not in db["worksheets"]:
+                    raise SpecError(f"{where}: source {src!r} must be a sheet on the dashboard")
+                spec = sheets[src]
+                pills = [p for key in ("rows", "cols", "color", "detail", "label", "shape", "geo")
+                         for p in ([spec.get(key)] if isinstance(spec.get(key), str) else spec.get(key) or [])]
+                dims = [i for i in (self.pill(p) for p in pills) if i.discrete and i.derivation == "None"]
+                if a.get("field"):
+                    inst = self.pill(a["field"])
+                    if inst.local not in {d.local for d in dims}:
+                        raise SpecError(f"{where}: field {a['field']!r} must be a dimension shown on {src!r}")
+                elif dims:
+                    inst = dims[0]
+                else:
+                    raise SpecError(f"{where}: {src!r} shows no plain dimension to act on; give 'field'")
+                name = f"[Action{n}_{stable_id('action', db['name'], src, kind, str(n), length=32).upper()}]"
+                targets = a.get("targets") or [s for s in db["worksheets"] if s != src]
+                bad = [t for t in targets if t not in db["worksheets"] or t == src]
+                if bad:
+                    raise SpecError(f"{where}: targets {bad} must be other sheets on the dashboard")
+                if kind == "parameter":
+                    prm = self.param(a.get("parameter") or "", where)
+                    if prm.datatype != inst.field.datatype:
+                        raise SpecError(f"{where}: parameter {prm.caption!r} is {prm.datatype} but "
+                                        f"{inst.field.caption or inst.field.name!r} is {inst.field.datatype}")
+                    a = {**a, "_param": prm}
+                if kind == "filter":
+                    caption = f"Action ({inst.field.caption or inst.field.name})"
+                    self.action_groups.setdefault(caption, inst)
+                    for t in targets:
+                        self.action_filters.setdefault(t, []).append((caption, inst, name))
+                self.actions.append((name, a, db, inst, ",".join([src] + [s for s in db["worksheets"]
+                                                                        if s not in targets and s != src])))
+
+    def action_elements(self, parent: ET.Element) -> None:
+        for name, a, db, inst, exclude in self.actions:
+            caption = a.get("caption") or f"{a['type'].title()} on {inst.field.caption or inst.field.name}"
+            src = {"dashboard": db["name"], "type": "sheet", "worksheet": a["source"]}
+            if a["type"] == "parameter":
+                el = ET.SubElement(parent, "edit-parameter-action", caption=caption, name=name)
+                ET.SubElement(el, "activation", type="on-select")
+                ET.SubElement(el, "source", src)
+                ET.SubElement(el, "agg-type", type="attr")
+                ET.SubElement(el, "clear-option", type="do-nothing", value="s:LROOT:")
+                params = ET.SubElement(el, "params")
+                ET.SubElement(params, "param", name="source-field", value=self.qualified(inst))
+                ET.SubElement(params, "param", name="target-parameter", value=a["_param"].qualified)
+                continue
+            el = ET.SubElement(parent, "action", caption=caption, name=name)
+            ET.SubElement(el, "activation", {"auto-clear": "true",
+                                             "type": "on-hover" if a.get("on") == "hover" else "on-select"})
+            ET.SubElement(el, "source", src)
+            cmd = ET.SubElement(el, "command", command="tsc:tsl-filter" if a["type"] == "filter" else "tsc:brush")
+            ET.SubElement(cmd, "param", name="exclude", value=exclude)
+            if a["type"] == "filter":
+                ET.SubElement(cmd, "param", name="special-fields", value="all")
+            else:
+                ET.SubElement(cmd, "param", name="field-captions", value=inst.field.caption or inst.field.name)
+            ET.SubElement(cmd, "param", name="target", value=db["name"])
+
     # ------------------------------------------------------------------ build
     def build(self, directory: str | None) -> ET.ElementTree:
         ET.register_namespace("user", USER_NS)
         wb = ET.Element("workbook", {"original-version": VERSION, "source-build": "0.0.0 (0000.0.0.0)",
                                      "source-platform": "mac", "version": VERSION})
+        self.prepare_actions(self.spec.get("dashboards") or [],
+                             {ws["name"]: ws for ws in self.spec.get("worksheets") or []})
         has_map = any(ws.get("map") for ws in self.spec.get("worksheets") or [])
+        flags = set(MANIFEST_FLAGS)
+        if has_map:
+            flags.add("MapboxVectorStylesAndLayers")
+        if any(a["type"] == "parameter" for _, a, _, _, _ in self.actions):
+            flags |= {"ParameterAction", "ParameterActionClearSelection"}
         manifest = ET.SubElement(wb, "document-format-change-manifest")
-        for flag in sorted(MANIFEST_FLAGS + (("MapboxVectorStylesAndLayers",) if has_map else ())):
+        for flag in sorted(flags):
             ET.SubElement(manifest, flag)
         prefs = ET.SubElement(wb, "preferences")
         ET.SubElement(prefs, "preference", name="ui.encoding.shelf.height", value="24")
@@ -903,6 +999,8 @@ class Compiler:
                 group += 1
                 for sheet in db["worksheets"]:
                     shared.setdefault(sheet, []).append((f, group))
+        if self.actions:
+            self.action_elements(ET.SubElement(wb, "actions"))
         wss = ET.SubElement(wb, "worksheets")
         for ws in sheets:
             self.worksheet(wss, ws, shared.get(ws["name"], []))

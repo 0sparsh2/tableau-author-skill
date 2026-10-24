@@ -134,6 +134,31 @@ def check(root: ET.Element) -> list[str]:
                     if local not in known.get(ds, set()):
                         issues.append(f"{where}: filter card field {local} isn't declared by the dashboard")
 
+    params = {c.get("name") for c in root.findall("datasources/datasource[@name='Parameters']/column")}
+    for act in list(root.findall("actions/action")) + list(root.findall("actions/edit-parameter-action")):
+        where = f"action {act.get('caption')!r}"
+        src = act.find("source")
+        if src is not None:
+            if src.get("worksheet") and src.get("worksheet") not in worksheets:
+                issues.append(f"{where}: source sheet {src.get('worksheet')!r} doesn't exist")
+            if src.get("dashboard") and src.get("dashboard") not in dashboards:
+                issues.append(f"{where}: source dashboard {src.get('dashboard')!r} doesn't exist")
+        for prm in act.iter("param"):
+            name, value = prm.get("name"), prm.get("value") or ""
+            if name == "target" and value not in dashboards and value not in worksheets:
+                issues.append(f"{where}: target {value!r} doesn't exist")
+            if name == "exclude":
+                for sheet in filter(None, value.split(",")):
+                    if sheet not in worksheets:
+                        issues.append(f"{where}: excluded sheet {sheet!r} doesn't exist")
+            if name == "target-parameter":
+                if not value.startswith("[Parameters].") or value[len("[Parameters]."):] not in params:
+                    issues.append(f"{where}: target parameter {value} doesn't exist")
+            if name == "source-field":
+                for ds, local in _refs(value):
+                    if ds not in datasources:
+                        issues.append(f"{where}: source field {value} uses an undefined datasource")
+
     windows = {(w.get("class"), w.get("name")) for w in root.findall("windows/window")}
     for name in worksheets:
         if ("worksheet", name) not in windows:

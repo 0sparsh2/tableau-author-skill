@@ -1,0 +1,21 @@
+{
+  "name": "Interactive Sales",
+  "datasource": { "caption": "Sales", "csv": "sales.csv" },
+  "parameters": [ { "name": "Selected Region", "datatype": "string", "value": "East",
+                    "list": ["Central", "East", "South", "West"] } ],
+  "calculations": [ { "name": "Is Selected Region", "formula": "IF [Region] = [Selected Region] THEN \"Selected\" ELSE \"Other\" END",
+                      "datatype": "string", "role": "dimension" } ],
+  "formats": { "Sales": "currency" },
+  "worksheets": [
+    { "name": "Sales by Region", "mark": "Bar", "rows": ["Region"], "cols": ["SUM(Sales)"], "color": "Is Selected Region" },
+    { "name": "Monthly Sales", "mark": "Line", "cols": ["MONTH_TRUNC(Order Date)"], "rows": ["SUM(Sales)"], "color": "Category" },
+    { "name": "Sales by Category", "mark": "Bar", "rows": ["Category"], "cols": ["SUM(Sales)"] }
+  ],
+  "dashboards": [ { "name": "Interactive", "title": "Click a region to filter; hover a category to highlight",
+                    "parameters": ["Selected Region"],
+                    "worksheets": ["Sales by Region", "Monthly Sales", "Sales by Category"],
+                    "actions": [
+                      { "type": "filter", "source": "Sales by Region", "targets": ["Monthly Sales"] },
+                      { "type": "highlight", "source": "Sales by Category", "field": "Category", "on": "hover" },
+                      { "type": "parameter", "source": "Sales by Region", "field": "Region", "parameter": "Selected Region" } ] } ]
+}
