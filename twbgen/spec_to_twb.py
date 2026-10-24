@@ -64,6 +64,35 @@ FORMATS = {"currency": 'c"$"#,##0;("$"#,##0)', "currency2": 'c"$"#,##0.00;("$"#,
 REFLINE_FORMULAS = {"average", "median", "min", "max"}
 MEASURE_NAMES = "[:Measure Names]"
 MAP_MODES = {"filled", "symbol", "points"}
+PARAM_TYPES = {"integer": "quantitative", "real": "quantitative", "string": "nominal", "boolean": "nominal",
+               "date": "ordinal"}
+
+
+@dataclass
+class Param:
+    caption: str
+    internal: str          # "[Parameter N]"
+    datatype: str
+    value: object
+    members: list | None = None
+    range: dict | None = None
+
+    @property
+    def qualified(self) -> str:
+        return f"[Parameters].{self.internal}"
+
+    def literal(self, v) -> str:
+        if self.datatype == "string":
+            return '"' + str(v).replace('"', '""') + '"'
+        if self.datatype == "boolean":
+            return "true" if v in (True, "true", "True", 1) else "false"
+        if self.datatype == "date":
+            return f"#{v}#"
+        return str(v)
+
+    @property
+    def domain(self) -> str:
+        return "list" if self.members else "range" if self.range else "any"
 # Geographic roles, keyed by normalized column name; values are Tableau semantic roles.
 GEO_ALIASES = {"country": "country", "nation": "country", "state": "state", "province": "state",
                "state/province": "state", "city": "city", "county": "county", "zip": "zip", "zip code": "zip",
@@ -110,6 +139,7 @@ class Field:
     bin_size: float | None = None
     default_format: str | None = None
     aggregate: bool | None = None     # set for calcs that build on aggregate calcs
+    params: set = dc_field(default_factory=set)  # parameters a calculation reads (transitively)
     table: str | None = None          # source CSV file name, for physical columns
     remote: str | None = None         # column name inside that CSV
     geo: str | None = None            # key of SEMANTIC_ROLES
@@ -263,6 +293,17 @@ class Compiler:
         self.caption = ds.get("caption") or (self.csv_path.stem + ("+" if len(self.tables) > 1 else ""))
         self.fields = [f for t in self.tables for f in t.fields]
         self.by_name = {f.name.lower(): f for f in self.fields}
+        self.params: list[Param] = []
+        for i, p in enumerate(spec.get("parameters") or []):
+            dt = p.get("datatype", "real")
+            if dt not in PARAM_TYPES:
+                raise SpecError(f"parameter {p['name']!r}: datatype must be one of {sorted(PARAM_TYPES)}")
+            if p["name"].lower() in self.by_name:
+                raise SpecError(f"parameter {p['name']!r} collides with a field name")
+            if p.get("list") and p.get("range"):
+                raise SpecError(f"parameter {p['name']!r}: give 'list' or 'range', not both")
+            self.params.append(Param(p["name"], f"[Parameter {i + 1}]", dt, p["value"], p.get("list"), p.get("range")))
+        self.param_by_name = {p.caption.lower(): p for p in self.params}
         for calc in spec.get("calculations", []):
             calc_id = "Calculation_" + str(int(hashlib.sha256(calc["name"].encode()).hexdigest(), 16))[:19]
             agg = bool(AGG_IN_FORMULA.search(calc["formula"]))
@@ -271,8 +312,21 @@ class Compiler:
                       "quantitative" if role == "measure" else "nominal", calc["formula"], calc["name"])
             self.fields.append(f)
             self.by_name[calc["name"].lower()] = f
-        # Formulas may name other calculations by caption; Tableau stores internal names in the XML.
+        # Formulas may name parameters as [Parameters].[Name] or [Name]; Tableau stores [Parameters].[Parameter N].
         calc_fields = [f for f in self.fields if f.formula is not None]
+        for f in calc_fields:
+            def param_ref(m: re.Match) -> str:
+                p = self.param_by_name.get(m.group(2).replace("]]", "]").lower())
+                if p is None:
+                    if m.group(1):
+                        raise SpecError(f"calculation {f.caption!r}: unknown parameter [{m.group(2)}]")
+                    return m.group(0)
+                if not m.group(1) and m.group(2).lower() in self.by_name:
+                    return m.group(0)  # a field of that name wins over a bare parameter reference
+                f.params.add(p.internal)
+                return p.qualified
+            f.formula = re.sub(r"(\[Parameters\]\.)?\[((?:[^\]]|\]\])+)\]", param_ref, f.formula)
+        # Formulas may name other calculations by caption; Tableau stores internal names in the XML.
         by_caption = {f.caption: f.internal for f in calc_fields if f.caption}
         for f in calc_fields:
             f.formula = re.sub(r"\[((?:[^\]]|\]\])+)\]",
@@ -284,6 +338,10 @@ class Compiler:
             for f in calc_fields:
                 if not f.is_aggregate_calc and any(n in f.formula for n in agg_names):
                     f.aggregate, changed = True, True
+                for g in calc_fields:  # parameters used by a referenced calc are used here too
+                    if g is not f and g.internal in f.formula and not g.params <= f.params:
+                        f.params |= g.params
+                        changed = True
         for b in spec.get("bins", []):
             src = self.field(b["field"])
             if src.datatype not in ("integer", "real"):
@@ -382,6 +440,35 @@ class Compiler:
         op = " / " if discrete else " + "
         exprs = [self.qualified(i) for i in insts]
         return exprs[0] if len(exprs) == 1 else "(" + op.join(exprs) + ")"
+
+    # ------------------------------------------------------------ parameters
+    def param_column(self, parent: ET.Element, p: Param, full: bool = True) -> None:
+        col = ET.SubElement(parent, "column", {"caption": p.caption, "datatype": p.datatype, "name": p.internal,
+                                               "param-domain-type": p.domain, "role": "measure",
+                                               "type": PARAM_TYPES[p.datatype], "value": p.literal(p.value)})
+        ET.SubElement(col, "calculation", {"class": "tableau", "formula": p.literal(p.value)})
+        if full and p.members:
+            members = ET.SubElement(col, "members")
+            for m in p.members:
+                ET.SubElement(members, "member", value=p.literal(m))
+        if full and p.range:
+            attrs = {k: p.literal(p.range[k]) for k in ("min", "max") if k in p.range}
+            if "step" in p.range:
+                attrs["granularity"] = p.literal(p.range["step"])
+            ET.SubElement(col, "range", attrs)
+
+    def parameters_datasource(self, parent: ET.Element) -> None:
+        ds = ET.SubElement(parent, "datasource", {"hasconnection": "false", "inline": "true", "name": "Parameters",
+                                                  "version": VERSION})
+        ET.SubElement(ds, "aliases", enabled="yes")
+        for p in self.params:
+            self.param_column(ds, p)
+
+    def param(self, name: str, where: str) -> Param:
+        p = self.param_by_name.get(name.strip().lower())
+        if p is None:
+            raise SpecError(f"{where}: unknown parameter {name!r}; parameters: {[x.caption for x in self.params]}")
+        return p
 
     # ------------------------------------------------------------ datasource
     def table_relation(self, t: Table) -> ET.Element:
@@ -487,7 +574,7 @@ class Compiler:
             self.relation(ET.SubElement(obj, "properties", context=""))
 
     # ------------------------------------------------------------- worksheets
-    def filters(self, view: ET.Element, ws: dict, used: list[Instance]) -> list[str]:
+    def filters(self, view: ET.Element, ws: dict, used: list[Instance], params_used: set) -> list[str]:
         sliced = []
         for flt in ws.get("filters", []):
             inst = self.pill(flt["field"])
@@ -508,6 +595,31 @@ class Compiler:
                 for v in values:
                     member = json.dumps(v) if isinstance(v, str) else str(v)
                     ET.SubElement(target, "groupfilter", {"function": "member", "level": inst.local, "member": member})
+            elif "top" in flt:
+                if not inst.discrete:
+                    raise SpecError(f"top-N filter on {flt['field']!r}: needs a dimension")
+                by = self.pill(flt["by"])
+                used.append(by)
+                if by.discrete:
+                    raise SpecError(f"top-N filter: 'by' must be a measure, got {flt['by']!r}")
+                count = flt["top"]
+                if isinstance(count, str):
+                    p = self.param(count, f"top-N filter on {flt['field']!r}")
+                    if p.datatype != "integer":
+                        raise SpecError(f"top-N parameter {count!r} must be an integer parameter")
+                    count = p.qualified
+                    params_used.add(p.internal)
+                expression = by.field.internal if by.derivation == "User" else \
+                    f"{next(k for k, v in MEASURE_FUNCS.items() if v[0] == by.derivation)}({by.field.internal})"
+                el = ET.SubElement(view, "filter", {"class": "categorical", "column": q})
+                end = ET.SubElement(el, "groupfilter", {"count": str(count), "end": "top", "function": "end",
+                                                        "units": "records", f"{{{USER_NS}}}ui-marker": "end",
+                                                        f"{{{USER_NS}}}ui-top-by-field": "true"})
+                order = ET.SubElement(end, "groupfilter", {"direction": "DESC", "expression": expression,
+                                                           "function": "order", f"{{{USER_NS}}}ui-marker": "order"})
+                ET.SubElement(order, "groupfilter", {"function": "level-members", "level": inst.local,
+                                                     f"{{{USER_NS}}}ui-enumeration": "all",
+                                                     f"{{{USER_NS}}}ui-marker": "enumerate"})
             elif "min" in flt or "max" in flt:
                 el = ET.SubElement(view, "filter", {"class": "quantitative", "column": q,
                                                     "included-values": "in-range"})
@@ -516,7 +628,7 @@ class Compiler:
                 if "max" in flt:
                     ET.SubElement(el, "max").text = str(flt["max"])
             else:
-                raise SpecError(f"filter on {flt['field']!r} needs include/exclude or min/max")
+                raise SpecError(f"filter on {flt['field']!r} needs include/exclude, min/max, or top + by")
             sliced.append(q)
         return sliced
 
@@ -567,7 +679,8 @@ class Compiler:
             ET.SubElement(ET.SubElement(view, "mapsources"), "mapsource", name="Tableau")
         deps = ET.SubElement(view, "datasource-dependencies", datasource=self.ds_name)
         sliced_holder = ET.Element("tmp")
-        sliced = self.filters(sliced_holder, ws, used)
+        params_used: set[str] = set()
+        sliced = self.filters(sliced_holder, ws, used, params_used)
         for pill, group in shared:  # dashboard quick filters: all values, linked across sheets by filter-group
             inst = self.pill(pill)
             if not inst.discrete:
@@ -608,6 +721,15 @@ class Compiler:
             for q in sliced:
                 ET.SubElement(slices, "column").text = q
         ET.SubElement(view, "aggregation", value="true")
+        for inst in used:
+            params_used |= inst.field.params
+        if params_used:  # the sheet reads parameters: declare them before the main datasource's dependencies
+            ET.SubElement(view.find("datasources"), "datasource", name="Parameters")
+            pdeps = ET.Element("datasource-dependencies", datasource="Parameters")
+            for prm in self.params:
+                if prm.internal in params_used:
+                    self.param_column(pdeps, prm, full=False)
+            view.insert(list(view).index(deps), pdeps)
 
         # Panes: one default pane, plus one per row measure when marks differ per measure (combo / dual axis).
         row_measures = [self.pill(p) for p in (ws.get("rows") or [])]
@@ -685,11 +807,20 @@ class Compiler:
         if missing:
             raise SpecError(f"dashboard {db['name']!r} references unknown worksheets {missing}")
         filters = [self.pill(f) for f in db.get("filters") or []]
+        controls = [self.param(p, f"dashboard {db['name']!r}") for p in db.get("parameters") or []]
         el = ET.SubElement(parent, "dashboard", name=db["name"])
         ET.SubElement(el, "style")
         ET.SubElement(el, "size", maxheight=str(h), maxwidth=str(w), minheight=str(h), minwidth=str(w))
-        if filters:  # a dashboard showing filter cards declares the fields it uses
-            ET.SubElement(ET.SubElement(el, "datasources"), "datasource", caption=self.caption, name=self.ds_name)
+        if filters or controls:  # filter cards and parameter controls are declared by the dashboard
+            sources = ET.SubElement(el, "datasources")
+            if filters:
+                ET.SubElement(sources, "datasource", caption=self.caption, name=self.ds_name)
+            if controls:
+                ET.SubElement(sources, "datasource", name="Parameters")
+                pdeps = ET.SubElement(el, "datasource-dependencies", datasource="Parameters")
+                for prm in controls:
+                    self.param_column(pdeps, prm)
+        if filters:
             deps = ET.SubElement(el, "datasource-dependencies", datasource=self.ds_name)
             for inst in filters:
                 self.column_element(deps, inst.field)
@@ -710,14 +841,19 @@ class Compiler:
             run = ET.SubElement(ET.SubElement(zone, "formatted-text"), "run", bold="true", fontsize="16")
             run.text = title
             y += 6000
-        if filters:
+        if filters or controls:
             row = ET.SubElement(outer, "zone", {"h": "7000", "id": str(next(ids)), "param": "horz",
                                                 "type-v2": "layout-flow", "w": str(width), "x": str(left), "y": str(y)})
-            fw = width // len(filters)
+            fw = width // (len(filters) + len(controls))
             for i, inst in enumerate(filters):
                 ET.SubElement(row, "zone", {"h": "7000", "id": str(next(ids)), "mode": "checkdropdown",
                                             "name": sheets[0], "param": self.qualified(inst), "type-v2": "filter",
                                             "values": "relevant", "w": str(fw), "x": str(left + i * fw), "y": str(y)})
+            for j, prm in enumerate(controls):
+                mode = {"list": "compact", "range": "slider", "any": "type_in"}[prm.domain]
+                ET.SubElement(row, "zone", {"h": "7000", "id": str(next(ids)), "mode": mode, "param": prm.qualified,
+                                            "type-v2": "paramctrl", "w": str(fw),
+                                            "x": str(left + (len(filters) + j) * fw), "y": str(y)})
             y += 7000
         vertical = db.get("orientation", "vertical") == "vertical"
         body_h = 99000 - y
@@ -750,7 +886,10 @@ class Compiler:
         prefs = ET.SubElement(wb, "preferences")
         ET.SubElement(prefs, "preference", name="ui.encoding.shelf.height", value="24")
         ET.SubElement(prefs, "preference", name="ui.shelf.height", value="26")
-        self.datasource(ET.SubElement(wb, "datasources"), directory)
+        datasources = ET.SubElement(wb, "datasources")
+        if self.params:
+            self.parameters_datasource(datasources)
+        self.datasource(datasources, directory)
         if has_map:
             ET.SubElement(ET.SubElement(wb, "mapsources"), "mapsource", name="Tableau")
         sheets = self.spec.get("worksheets") or []

@@ -1,0 +1,24 @@
+{
+  "name": "Parameter Playground",
+  "datasource": { "caption": "Orders + Customers", "tables": ["orders.csv", "customers.csv"],
+                  "relationships": [ { "left": "orders.csv", "right": "customers.csv", "on": [["Customer ID", "Customer ID"]] } ] },
+  "parameters": [
+    { "name": "Top N", "datatype": "integer", "value": 10, "range": { "min": 3, "max": 25, "step": 1 } },
+    { "name": "Metric", "datatype": "string", "value": "Sales", "list": ["Sales", "Profit", "Quantity"] },
+    { "name": "Margin Target", "datatype": "real", "value": 0.12 }
+  ],
+  "calculations": [
+    { "name": "Selected Metric", "formula": "CASE [Metric] WHEN \"Sales\" THEN SUM([Sales]) WHEN \"Profit\" THEN SUM([Profit]) ELSE SUM([Quantity]) END" },
+    { "name": "Above Target", "formula": "IF SUM([Profit]) / SUM([Sales]) >= [Parameters].[Margin Target] THEN \"Above\" ELSE \"Below\" END",
+      "datatype": "string", "role": "dimension" }
+  ],
+  "formats": { "Sales": "currency" },
+  "worksheets": [
+    { "name": "Top customers", "mark": "Bar", "rows": ["Customer Name"], "cols": ["SUM(Sales)"], "color": "Above Target",
+      "filters": [ { "field": "Customer Name", "top": "Top N", "by": "SUM(Sales)" } ],
+      "sort": { "field": "Customer Name", "by": "SUM(Sales)", "direction": "desc" } },
+    { "name": "Selected metric by category", "mark": "Bar", "rows": ["Category"], "cols": ["Selected Metric"] }
+  ],
+  "dashboards": [ { "name": "Explorer", "title": "Customer Explorer", "parameters": ["Top N", "Metric", "Margin Target"],
+                    "filters": ["Region"], "worksheets": ["Top customers", "Selected metric by category"] } ]
+}
