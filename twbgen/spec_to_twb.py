@@ -28,7 +28,7 @@ import re
 import sys
 import uuid
 import zipfile
-from dataclasses import dataclass
+from dataclasses import dataclass, field as dc_field
 from datetime import datetime
 from pathlib import Path
 import xml.etree.ElementTree as ET
@@ -63,6 +63,14 @@ FORMATS = {"currency": 'c"$"#,##0;("$"#,##0)', "currency2": 'c"$"#,##0.00;("$"#,
            "percent": "p0.0%", "number": "n#,##0", "decimal": "n#,##0.00"}
 REFLINE_FORMULAS = {"average", "median", "min", "max"}
 MEASURE_NAMES = "[:Measure Names]"
+# Geographic roles, keyed by normalized column name; values are Tableau semantic roles.
+GEO_ALIASES = {"country": "country", "nation": "country", "state": "state", "province": "state",
+               "state/province": "state", "city": "city", "county": "county", "zip": "zip", "zip code": "zip",
+               "zipcode": "zip", "postal code": "zip", "postcode": "zip", "latitude": "latitude", "lat": "latitude",
+               "longitude": "longitude", "lon": "longitude", "lng": "longitude", "long": "longitude"}
+SEMANTIC_ROLES = {"country": "[Country].[ISO3166_2]", "state": "[State].[Name]", "city": "[City].[Name]",
+                  "county": "[County].[Name]", "zip": "[ZipCode].[Name]",
+                  "latitude": "[Geographical].[Latitude]", "longitude": "[Geographical].[Longitude]"}
 
 
 class SpecError(ValueError):
@@ -101,6 +109,13 @@ class Field:
     bin_size: float | None = None
     default_format: str | None = None
     aggregate: bool | None = None     # set for calcs that build on aggregate calcs
+    table: str | None = None          # source CSV file name, for physical columns
+    remote: str | None = None         # column name inside that CSV
+    geo: str | None = None            # key of SEMANTIC_ROLES
+
+    @property
+    def semantic_role(self) -> str | None:
+        return SEMANTIC_ROLES.get(self.geo) if self.geo else None
 
     @property
     def internal(self) -> str:
@@ -153,6 +168,60 @@ def load_fields(csv_path: Path, separator: str, overrides: dict) -> list[Field]:
     return fields
 
 
+@dataclass
+class Table:
+    path: Path
+    fields: list = dc_field(default_factory=list)
+    conn: str = ""
+    object_id: str = ""
+
+    @property
+    def name(self) -> str:
+        return self.path.name
+
+    @property
+    def ref(self) -> str:
+        return f"[{self.path.stem}#{self.path.suffix.lstrip('.')}]"
+
+    def column(self, remote: str) -> "Field | None":
+        return next((f for f in self.fields if f.remote.lower() == remote.strip().lower()), None)
+
+
+def geo_kind(field: Field, override: str | None) -> str | None:
+    kind = override or GEO_ALIASES.get(re.sub(r"[_\s]+", " ", (field.remote or field.name).strip().lower()))
+    if not kind:
+        return None
+    if kind not in SEMANTIC_ROLES:
+        raise SpecError(f"geo role {kind!r} for {field.name!r}: use one of {sorted(SEMANTIC_ROLES)}")
+    numeric = field.datatype in ("integer", "real")
+    if kind in ("latitude", "longitude") and not numeric:
+        return None
+    if kind not in ("latitude", "longitude") and numeric and kind != "zip":
+        return None
+    return kind
+
+
+def load_model(paths: list[Path], separator: str = ",", overrides: dict | None = None) -> list[Table]:
+    """Load CSVs as tables. Columns whose name an earlier table already uses get
+    Tableau's local name "<column> (<file>.csv)"."""
+    overrides = overrides or {}
+    tables, used = [], set()
+    for path in paths:
+        table = Table(path)
+        for f in load_fields(path, separator, overrides):
+            f.remote, f.table = f.name, path.name
+            if f.name.lower() in used:
+                f.name = f"{f.name} ({path.name})"
+            used.add(f.name.lower())
+            ov = overrides.get(f.name) or overrides.get(f.remote) or {}
+            f.geo = geo_kind(f, ov.get("geo"))
+            if f.geo in ("latitude", "longitude"):
+                f.role, f.type = "measure", "quantitative"
+            table.fields.append(f)
+        tables.append(table)
+    return tables
+
+
 # ------------------------------------------------------------- pill compiler
 @dataclass(frozen=True)
 class Instance:
@@ -179,12 +248,19 @@ class Compiler:
         self.spec = spec
         self.base_dir = base_dir
         ds = spec.get("datasource") or {}
-        if "csv" not in ds:
-            raise SpecError("datasource.csv is required")
-        self.csv_path = (base_dir / ds["csv"]).resolve()
+        if "csv" in ds:
+            entries = [ds["csv"]]
+        elif ds.get("tables"):
+            entries = [t if isinstance(t, str) else t["csv"] for t in ds["tables"]]
+        else:
+            raise SpecError("datasource needs 'csv' or 'tables'")
         self.separator = ds.get("separator", ",")
-        self.caption = ds.get("caption") or self.csv_path.stem
-        self.fields = load_fields(self.csv_path, self.separator, ds.get("fields", {}))
+        self.tables = load_model([(base_dir / e).resolve() for e in entries], self.separator, ds.get("fields", {}))
+        self.csv_path = self.tables[0].path
+        self.links, self.joins = ds.get("relationships") or [], ds.get("joins") or []
+        self.check_model()
+        self.caption = ds.get("caption") or (self.csv_path.stem + ("+" if len(self.tables) > 1 else ""))
+        self.fields = [f for t in self.tables for f in t.fields]
         self.by_name = {f.name.lower(): f for f in self.fields}
         for calc in spec.get("calculations", []):
             calc_id = "Calculation_" + str(int(hashlib.sha256(calc["name"].encode()).hexdigest(), 16))[:19]
@@ -219,9 +295,48 @@ class Compiler:
             if kind not in FORMATS:
                 raise SpecError(f"format {kind!r} for {fname!r}: use one of {sorted(FORMATS)}")
             self.field(fname).default_format = FORMATS[kind]
-        self.ds_name = "federated." + stable_id("ds", str(self.csv_path))
-        self.conn_name = "textscan." + stable_id("conn", str(self.csv_path))
-        self.object_id = self.csv_path.name + "_" + stable_id("obj", str(self.csv_path), length=32).upper()
+        self.ds_name = "federated." + stable_id("ds", *(str(t.path) for t in self.tables))
+        for t in self.tables:
+            t.conn = "textscan." + stable_id("conn", str(t.path.parent))
+            t.object_id = t.name + "_" + stable_id("obj", str(t.path), length=32).upper()
+
+    def table(self, name: str, where: str) -> Table:
+        key = name.strip().lower()
+        t = next((t for t in self.tables if key in (t.name.lower(), t.path.stem.lower())), None)
+        if t is None:
+            raise SpecError(f"{where}: unknown table {name!r}; tables: {[t.name for t in self.tables]}")
+        return t
+
+    def check_model(self) -> None:
+        """Validate relationships/joins: one key pair each, and every table connected."""
+        if len(self.tables) == 1:
+            if self.links or self.joins:
+                raise SpecError("relationships/joins need two or more tables")
+            return
+        if self.links and self.joins:
+            raise SpecError("use either relationships or joins, not both")
+        if not (self.links or self.joins):
+            raise SpecError("two or more tables need 'relationships' (recommended) or 'joins'")
+        connected = {self.tables[0].name}
+        for kind, items in (("relationship", self.links), ("join", self.joins)):
+            for i, link in enumerate(items):
+                where = f"{kind} {i + 1}"
+                left, right = self.table(link["left"], where), self.table(link["right"], where)
+                on = link.get("on") or []
+                if len(on) != 1:
+                    raise SpecError(f"{where}: give exactly one key pair in 'on' (multi-key links aren't supported yet)")
+                lcol, rcol = on[0]
+                if left.column(lcol) is None or right.column(rcol) is None:
+                    raise SpecError(f"{where}: key {lcol!r}/{rcol!r} must be columns of {left.name}/{right.name}")
+                if kind == "join" and link.get("type", "inner") not in ("inner", "left"):
+                    raise SpecError(f"{where}: join type must be 'inner' or 'left'")
+                if left.name not in connected or right.name in connected:
+                    raise SpecError(f"{where}: link a table already in the model ({sorted(connected)}) "
+                                    f"to a new one; got {left.name} -> {right.name}")
+                connected.add(right.name)
+        missing = [t.name for t in self.tables if t.name not in connected]
+        if missing:
+            raise SpecError(f"tables {missing} aren't linked to the model")
 
     def field(self, name: str) -> Field:
         f = self.by_name.get(name.strip().lower())
@@ -268,13 +383,34 @@ class Compiler:
         return exprs[0] if len(exprs) == 1 else "(" + op.join(exprs) + ")"
 
     # ------------------------------------------------------------ datasource
-    def relation(self, parent: ET.Element) -> None:
-        rel = ET.SubElement(parent, "relation", connection=self.conn_name, name=self.csv_path.name,
-                            table=f"[{self.csv_path.stem}#{self.csv_path.suffix.lstrip('.')}]", type="table")
+    def table_relation(self, t: Table) -> ET.Element:
+        rel = ET.Element("relation", connection=t.conn, name=t.name, table=t.ref, type="table")
         cols = ET.SubElement(rel, "columns", {"character-set": "UTF-8", "header": "yes", "locale": "en_US",
                                               "separator": self.separator})
-        for i, f in enumerate(x for x in self.fields if x.formula is None):
-            ET.SubElement(cols, "column", datatype=f.datatype, name=f.name, ordinal=str(i))
+        for i, f in enumerate(t.fields):
+            ET.SubElement(cols, "column", datatype=f.datatype, name=f.remote, ordinal=str(i))
+        return rel
+
+    def relation(self, parent: ET.Element) -> None:
+        if len(self.tables) == 1:
+            parent.append(self.table_relation(self.tables[0]))
+        elif self.links:
+            coll = ET.SubElement(parent, "relation", type="collection")
+            for t in self.tables:
+                coll.append(self.table_relation(t))
+        else:
+            tree = self.table_relation(self.tables[0])
+            for j in self.joins:
+                left, right = self.table(j["left"], "join"), self.table(j["right"], "join")
+                lcol, rcol = j["on"][0]
+                node = ET.Element("relation", join=j.get("type", "inner"), type="join")
+                expr = ET.SubElement(ET.SubElement(node, "clause", type="join"), "expression", op="=")
+                ET.SubElement(expr, "expression", op=f"[{left.name}].{bracket(left.column(lcol).remote)}")
+                ET.SubElement(expr, "expression", op=f"[{right.name}].{bracket(right.column(rcol).remote)}")
+                node.append(tree)
+                node.append(self.table_relation(right))
+                tree = node
+            parent.append(tree)
 
     def column_element(self, parent: ET.Element, f: Field) -> None:
         attrs = {"datatype": f.datatype, "name": f.internal, "role": f.role, "type": f.type}
@@ -282,6 +418,8 @@ class Compiler:
             attrs["caption"] = f.caption
         if f.default_format:
             attrs["default-format"] = f.default_format
+        if f.semantic_role:
+            attrs["semantic-role"] = f.semantic_role
         col = ET.SubElement(parent, "column", attrs)
         if f.calc_class == "bin":
             size = int(f.bin_size) if f.bin_size == int(f.bin_size) else f.bin_size
@@ -290,32 +428,62 @@ class Compiler:
         elif f.formula is not None:
             ET.SubElement(col, "calculation", {"class": "tableau", "formula": f.formula})
 
-    def datasource(self, parent: ET.Element, directory: str) -> None:
+    def datasource(self, parent: ET.Element, directory: str | None) -> None:
         ds = ET.SubElement(parent, "datasource", caption=self.caption, inline="true", name=self.ds_name, version=VERSION)
         conn = ET.SubElement(ds, "connection", {"class": "federated"})
-        named = ET.SubElement(ET.SubElement(conn, "named-connections"), "named-connection",
-                              caption=self.caption, name=self.conn_name)
-        ET.SubElement(named, "connection", {"class": "textscan", "directory": directory, "filename": self.csv_path.name,
-                                            "server": "", "workgroup-auth-mode": "as-is"})
+        named_conns = ET.SubElement(conn, "named-connections")
+        for t in {t.conn: t for t in self.tables}.values():  # one text connection per CSV directory
+            named = ET.SubElement(named_conns, "named-connection", caption=t.path.stem, name=t.conn)
+            ET.SubElement(named, "connection", {"class": "textscan", "directory": directory or str(t.path.parent),
+                                                "filename": t.name,
+                                                "server": "", "workgroup-auth-mode": "as-is"})
         self.relation(conn)
+        multi = len(self.tables) > 1
+        if multi:
+            cols = ET.SubElement(conn, "cols")
+            for f in sorted((f for t in self.tables for f in t.fields), key=lambda f: f.internal):
+                ET.SubElement(cols, "map", key=f.internal, value=f"[{f.table}].{bracket(f.remote)}")
         ET.SubElement(conn, "refresh", {"increment-key": "", "incremental-updates": "false"})
         records = ET.SubElement(conn, "metadata-records")
-        for i, f in enumerate(x for x in self.fields if x.formula is None):
-            rec = ET.SubElement(records, "metadata-record", {"class": "column"})
-            for tag, text in (("remote-name", f.name), ("remote-type", REMOTE_TYPE[f.datatype]),
-                              ("local-name", f.internal), ("parent-name", f"[{self.csv_path.name}]"),
-                              ("remote-alias", f.name), ("ordinal", str(i)), ("local-type", f.datatype),
-                              ("aggregation", DEFAULT_AGG[f.datatype]), ("contains-null", "true"),
-                              ("object-id", f"[{self.object_id}]")):
-                ET.SubElement(rec, tag).text = text
+        for t in self.tables:
+            object_id = self.tables[0].object_id if self.joins else t.object_id
+            for i, f in enumerate(t.fields):
+                rec = ET.SubElement(records, "metadata-record", {"class": "column"})
+                for tag, text in (("remote-name", f.remote), ("remote-type", REMOTE_TYPE[f.datatype]),
+                                  ("local-name", f.internal), ("parent-name", f"[{t.name}]"),
+                                  ("remote-alias", f.remote), ("ordinal", str(i)), ("local-type", f.datatype),
+                                  ("aggregation", DEFAULT_AGG[f.datatype]), ("contains-null", "true"),
+                                  ("object-id", f"[{object_id}]")):
+                    ET.SubElement(rec, tag).text = text
         ET.SubElement(ds, "aliases", enabled="yes")
+        if self.links:
+            for t in self.tables:
+                ET.SubElement(ds, "column", caption=t.name, datatype="table", role="measure", type="quantitative",
+                              name=f"[__tableau_internal_object_id__].[{t.object_id}]")
         for f in self.fields:
             self.column_element(ds, f)
         ET.SubElement(ds, "layout", {"dim-ordering": "alphabetic", "measure-ordering": "alphabetic",
                                      "show-structure": "true"})
-        obj = ET.SubElement(ET.SubElement(ET.SubElement(ds, "object-graph"), "objects"), "object",
-                            caption=self.csv_path.name, id=self.object_id)
-        self.relation(ET.SubElement(obj, "properties", context=""))
+        graph = ET.SubElement(ds, "object-graph")
+        objects = ET.SubElement(graph, "objects")
+        if self.links:
+            for t in self.tables:
+                obj = ET.SubElement(objects, "object", caption=t.name, id=t.object_id)
+                ET.SubElement(obj, "properties", context="").append(self.table_relation(t))
+            rels = ET.SubElement(graph, "relationships")
+            for link in self.links:
+                left, right = self.table(link["left"], "relationship"), self.table(link["right"], "relationship")
+                lcol, rcol = link["on"][0]
+                rel = ET.SubElement(rels, "relationship")
+                expr = ET.SubElement(rel, "expression", op="=")
+                ET.SubElement(expr, "expression", op=left.column(lcol).internal)
+                ET.SubElement(expr, "expression", op=right.column(rcol).internal)
+                ET.SubElement(rel, "first-end-point", {"object-id": left.object_id})
+                ET.SubElement(rel, "second-end-point", {"object-id": right.object_id})
+        else:
+            first = self.tables[0]
+            obj = ET.SubElement(objects, "object", caption=first.name, id=first.object_id)
+            self.relation(ET.SubElement(obj, "properties", context=""))
 
     # ------------------------------------------------------------- worksheets
     def filters(self, view: ET.Element, ws: dict, used: list[Instance]) -> list[str]:
@@ -541,7 +709,7 @@ class Compiler:
         ET.SubElement(el, "simple-id", uuid=stable_uuid("db", db["name"]))
 
     # ------------------------------------------------------------------ build
-    def build(self, directory: str) -> ET.ElementTree:
+    def build(self, directory: str | None) -> ET.ElementTree:
         ET.register_namespace("user", USER_NS)
         wb = ET.Element("workbook", {"original-version": VERSION, "source-build": "0.0.0 (0000.0.0.0)",
                                      "source-platform": "mac", "version": VERSION})
@@ -608,9 +776,10 @@ def compile_spec(spec_path: Path, out: Path) -> Path:
         twb_name = out.with_suffix(".twb").name
         with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as z:
             z.writestr(twb_name, ET.tostring(tree.getroot(), encoding="utf-8", xml_declaration=True))
-            z.write(comp.csv_path, f"Data/{comp.csv_path.name}")
+            for t in comp.tables:
+                z.write(t.path, f"Data/{t.name}")
     else:
-        comp.build(directory=str(comp.csv_path.parent)).write(out, encoding="utf-8", xml_declaration=True)
+        comp.build(directory=None).write(out, encoding="utf-8", xml_declaration=True)
     return out
 
 

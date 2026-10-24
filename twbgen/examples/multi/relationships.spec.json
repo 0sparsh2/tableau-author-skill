@@ -1,0 +1,12 @@
+{
+  "name": "Orders and Customers (relationships)",
+  "datasource": { "caption": "Orders + Customers", "tables": ["orders.csv", "customers.csv"],
+                  "relationships": [ { "left": "orders.csv", "right": "customers.csv", "type": "inner", "on": [["Customer ID", "Customer ID"]] } ] },
+  "formats": { "Sales": "currency" },
+  "worksheets": [
+    { "name": "Sales by Segment", "mark": "Bar", "rows": ["Segment"], "cols": ["SUM(Sales)"],
+      "sort": { "field": "Segment", "by": "SUM(Sales)", "direction": "desc" } },
+    { "name": "Customers by Region", "mark": "Bar", "rows": ["Region"], "cols": ["COUNTD(Customer Name)"] },
+    { "name": "Monthly Sales by Category", "mark": "Line", "cols": ["MONTH_TRUNC(Order Date)"], "rows": ["SUM(Sales)"], "color": "Category" }
+  ]
+}
