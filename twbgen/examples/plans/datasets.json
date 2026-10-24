@@ -1,0 +1,33 @@
+{
+ "area_quarterly": [
+  "sales.csv"
+ ],
+ "customer_geography": [
+  "multi/orders.csv",
+  "multi/customers.csv"
+ ],
+ "feature_tour": [
+  "sales.csv"
+ ],
+ "kpi_text": [
+  "sales.csv"
+ ],
+ "regional_overview": [
+  "sales.csv"
+ ],
+ "scatter_orders": [
+  "sales.csv"
+ ],
+ "share_pie": [
+  "sales.csv"
+ ],
+ "stacked_by_segment": [
+  "sales.csv"
+ ],
+ "store_points": [
+  "multi/stores.csv"
+ ],
+ "treemap_region": [
+  "sales.csv"
+ ]
+}

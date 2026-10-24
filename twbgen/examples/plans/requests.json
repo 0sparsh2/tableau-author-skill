@@ -6,5 +6,7 @@
  "share_pie": "What share of quantity does each category have?",
  "treemap_region": "Show profit by region and segment as a treemap",
  "area_quarterly": "Quarterly quantity trend by category",
- "feature_tour": "Build a sales performance dashboard: sales and profit over time, which regions beat the average, how big orders are, with region and category filters. Show money as dollars and margin as percent."
+ "feature_tour": "Build a sales performance dashboard: sales and profit over time, which regions beat the average, how big orders are, with region and category filters. Show money as dollars and margin as percent.",
+ "customer_geography": "Using orders and customers, map where sales are strongest and which cities buy the most, show the top N customers with a slider, let me click a state on the map to filter customers, and highlight segments on hover.",
+ "store_points": "Map our stores by location, sized by annual sales and colored by staff."
 }

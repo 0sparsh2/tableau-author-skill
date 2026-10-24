@@ -1,0 +1,243 @@
+{
+ "name": "Customer Geography",
+ "data_model": {
+  "links": [
+   {
+    "kind": "relationship",
+    "left": "orders.csv",
+    "right": "customers.csv",
+    "left_field": "Customer ID",
+    "right_field": "Customer ID (customers.csv)",
+    "join_type": null
+   }
+  ]
+ },
+ "parameters": [
+  {
+   "name": "Top N",
+   "datatype": "integer",
+   "value": 10,
+   "allowed": null,
+   "min": 3,
+   "max": 25,
+   "step": 1
+  },
+  {
+   "name": "Selected State",
+   "datatype": "string",
+   "value": "California",
+   "allowed": null,
+   "min": null,
+   "max": null,
+   "step": null
+  }
+ ],
+ "calculations": [
+  {
+   "name": "Profit Ratio",
+   "formula": "SUM([Profit]) / SUM([Sales])",
+   "datatype": "real"
+  },
+  {
+   "name": "Is Selected State",
+   "formula": "IF [State] = [Selected State] THEN \"Selected\" ELSE \"Other\" END",
+   "datatype": "string"
+  }
+ ],
+ "formats": [
+  {
+   "field": "Sales",
+   "format": "currency"
+  },
+  {
+   "field": "Profit",
+   "format": "currency"
+  },
+  {
+   "field": "Profit Ratio",
+   "format": "percent"
+  }
+ ],
+ "charts": [
+  {
+   "title": "Where are sales strongest?",
+   "chart": "filledmap",
+   "fields": [
+    {
+     "field": "State",
+     "agg": "auto",
+     "continuous_date": null,
+     "role": "geo"
+    },
+    {
+     "field": "Sales",
+     "agg": "sum",
+     "continuous_date": null,
+     "role": "color"
+    },
+    {
+     "field": "Profit Ratio",
+     "agg": "auto",
+     "continuous_date": null,
+     "role": "tooltip"
+    }
+   ],
+   "filters": [],
+   "sort": null,
+   "reference_lines": []
+  },
+  {
+   "title": "Which cities buy the most?",
+   "chart": "symbolmap",
+   "fields": [
+    {
+     "field": "State",
+     "agg": "auto",
+     "continuous_date": null,
+     "role": "geo"
+    },
+    {
+     "field": "City",
+     "agg": "auto",
+     "continuous_date": null,
+     "role": "geo"
+    },
+    {
+     "field": "Sales",
+     "agg": "sum",
+     "continuous_date": null,
+     "role": "size"
+    },
+    {
+     "field": "Profit",
+     "agg": "sum",
+     "continuous_date": null,
+     "role": "color"
+    }
+   ],
+   "filters": [],
+   "sort": null,
+   "reference_lines": []
+  },
+  {
+   "title": "Top customers by sales",
+   "chart": "bar",
+   "fields": [
+    {
+     "field": "Customer Name",
+     "agg": "auto",
+     "continuous_date": null,
+     "role": "y"
+    },
+    {
+     "field": "Sales",
+     "agg": "sum",
+     "continuous_date": null,
+     "role": "x"
+    },
+    {
+     "field": "Segment",
+     "agg": "auto",
+     "continuous_date": null,
+     "role": "color"
+    }
+   ],
+   "filters": [
+    {
+     "field": "Customer Name",
+     "agg": "auto",
+     "include": null,
+     "exclude": null,
+     "min": null,
+     "max": null,
+     "top": "Top N",
+     "by_field": "Sales",
+     "by_agg": "sum"
+    }
+   ],
+   "sort": {
+    "field": "Customer Name",
+    "by_field": "Sales",
+    "by_agg": "sum",
+    "direction": "desc"
+   },
+   "reference_lines": []
+  },
+  {
+   "title": "Sales by state",
+   "chart": "bar",
+   "fields": [
+    {
+     "field": "State",
+     "agg": "auto",
+     "continuous_date": null,
+     "role": "y"
+    },
+    {
+     "field": "Sales",
+     "agg": "sum",
+     "continuous_date": null,
+     "role": "x"
+    },
+    {
+     "field": "Is Selected State",
+     "agg": "auto",
+     "continuous_date": null,
+     "role": "color"
+    }
+   ],
+   "filters": [],
+   "sort": {
+    "field": "State",
+    "by_field": "Sales",
+    "by_agg": "sum",
+    "direction": "desc"
+   },
+   "reference_lines": []
+  }
+ ],
+ "dashboard": {
+  "name": "Geography",
+  "title": "Customer Geography",
+  "charts": [
+   "Where are sales strongest?",
+   "Top customers by sales",
+   "Sales by state"
+  ],
+  "filters": [
+   "Segment"
+  ],
+  "parameters": [
+   "Top N"
+  ],
+  "actions": [
+   {
+    "type": "filter",
+    "source": "Where are sales strongest?",
+    "targets": [
+     "Top customers by sales"
+    ],
+    "field": "State",
+    "parameter": null,
+    "on": null
+   },
+   {
+    "type": "highlight",
+    "source": "Top customers by sales",
+    "targets": null,
+    "field": "Segment",
+    "parameter": null,
+    "on": "hover"
+   },
+   {
+    "type": "parameter",
+    "source": "Sales by state",
+    "targets": null,
+    "field": "State",
+    "parameter": "Selected State",
+    "on": null
+   }
+  ],
+  "orientation": "horizontal"
+ }
+}

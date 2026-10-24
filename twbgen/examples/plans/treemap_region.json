@@ -1,5 +1,7 @@
 {
  "name": "Profit Treemap",
+ "data_model": null,
+ "parameters": [],
  "calculations": [],
  "charts": [
   {

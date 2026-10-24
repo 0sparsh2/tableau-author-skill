@@ -1,5 +1,7 @@
 {
  "name": "Sales Performance",
+ "data_model": null,
+ "parameters": [],
  "calculations": [
   {
    "name": "Profit Ratio",
@@ -142,6 +144,8 @@
    "Region",
    "Category"
   ],
-  "orientation": "vertical"
+  "orientation": "vertical",
+  "parameters": [],
+  "actions": []
  }
 }

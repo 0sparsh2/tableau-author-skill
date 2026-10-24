@@ -1,5 +1,7 @@
 {
  "name": "Category Mix",
+ "data_model": null,
+ "parameters": [],
  "calculations": [],
  "charts": [
   {
@@ -35,7 +37,10 @@
      ],
      "exclude": null,
      "min": null,
-     "max": null
+     "max": null,
+     "top": null,
+     "by_field": null,
+     "by_agg": null
     }
    ],
    "sort": {

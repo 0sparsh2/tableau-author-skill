@@ -26,5 +26,17 @@
 | `dashboard: unknown chart titles` | Use exact chart titles from `charts`. |
 | `filter 'X' must be a dimension` (dashboard) | Dashboard dropdowns take dimensions only. |
 | `'X' is a dimension; number formats apply to measures` | Remove that format entry. |
+| `data_model ...: unknown table` / `isn't a column of` | Use the CSV file names and PROFILE field names for that table. |
+| `tables [...] need links` / `aren't linked` | Add a link per extra table, each from a table already in the model. |
+| `use only relationships or only joins` | Pick one kind for every link. |
+| `geo fields must have a geographic role` | Use a field PROFILE marks with `geo` (country/state/county/city/zip). |
+| `a pointmap chart needs a longitude field on x and a latitude field on y` | Use the PROFILE fields with `geo: longitude/latitude`. |
+| `role 'geo' is only for filledmap and symbolmap` | Move the field to detail/color, or change the chart type. |
+| `unknown parameter [X]` / `isn't declared in 'parameters'` | Declare the parameter, or fix its name. |
+| `a min/max range needs an integer, real or date parameter` | Use `allowed` values for string parameters. |
+| `top-N count 'X' must be a number or an integer parameter` | Give a number or an integer parameter's name. |
+| `top-N filter ...: give by_field` | Name the measure to rank by. |
+| `action ...: field 'X' must be a non-date dimension shown on` | Pick a dimension that is on the source chart, or add it there (detail works). |
+| `parameter 'P' is string but 'F' is integer` | Make the parameter's datatype match the field. |
 | `compiler: ...` | Usually a plan inconsistency the planner missed; read it, adjust the plan. |
 | `integrity: ...` or `tableau-desktop-schema: ...` | Generator bug, not a plan mistake. Stop and report it with the plan file. |

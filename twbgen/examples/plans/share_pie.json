@@ -1,5 +1,7 @@
 {
  "name": "Category Share",
+ "data_model": null,
+ "parameters": [],
  "calculations": [],
  "charts": [
   {

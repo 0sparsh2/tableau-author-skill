@@ -1,0 +1,54 @@
+{
+ "name": "Store Network",
+ "data_model": null,
+ "parameters": [],
+ "calculations": [],
+ "formats": [
+  {
+   "field": "Annual Sales",
+   "format": "currency"
+  }
+ ],
+ "charts": [
+  {
+   "title": "Where are the biggest stores?",
+   "chart": "pointmap",
+   "fields": [
+    {
+     "field": "Longitude",
+     "agg": "auto",
+     "continuous_date": null,
+     "role": "x"
+    },
+    {
+     "field": "Latitude",
+     "agg": "auto",
+     "continuous_date": null,
+     "role": "y"
+    },
+    {
+     "field": "Store",
+     "agg": "auto",
+     "continuous_date": null,
+     "role": "detail"
+    },
+    {
+     "field": "Annual Sales",
+     "agg": "sum",
+     "continuous_date": null,
+     "role": "size"
+    },
+    {
+     "field": "Staff",
+     "agg": "sum",
+     "continuous_date": null,
+     "role": "color"
+    }
+   ],
+   "filters": [],
+   "sort": null,
+   "reference_lines": []
+  }
+ ],
+ "dashboard": null
+}

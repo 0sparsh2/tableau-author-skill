@@ -67,16 +67,20 @@ and `ANTHROPIC_API_KEY`.
    [tableau/tableau-document-schemas](https://github.com/tableau/tableau-document-schemas)
    (Apache-2.0, in `twbgen/xsd/`) is used by `validate.py` for analysis.
 
-Output is checked by eye in Tableau Desktop 2026.3 for every chart type below.
+Output is checked by eye in Tableau Desktop 2026.3.
 
 ## Supported
 
 - Charts: bar, stacked bar, line, area, combo (bars + line, dual axis), dual line,
   scatter, histogram, text/KPI table, highlight table, pie, treemap.
-- Calculations, categorical and range filters, sorts, reference lines,
+- Maps: filled (country/state/county/zip), symbol (state/city), and point maps
+  from latitude/longitude.
+- Several CSVs, linked by relationships or by inner/left joins.
+- Parameters (dropdown, slider, type-in) used in calculations and Top-N filters.
+- Calculations, categorical, range and Top-N filters, sorts, reference lines,
   currency/percent/number formats.
-- One dashboard per workbook with a title and dropdown filters applied to every chart.
-- In progress: maps, parameters, dashboard actions, multi-table (joined/related) data.
+- One dashboard per workbook: title, dropdown filters applied to every chart,
+  parameter controls, and filter / highlight / parameter actions.
 
 ## Acknowledgements
 

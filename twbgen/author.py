@@ -2,6 +2,7 @@
 
     python3 author.py --csv examples/sales.csv --request "How are sales trending by region?" -o out/answer.twbx
     python3 author.py --csv examples/sales.csv --plan plan.json -o out/answer.twbx   # offline, no model call
+    python3 author.py --csv orders.csv --csv customers.csv --plan plan.json -o out/answer.twbx  # two tables
 
 Pipeline: profile the CSV -> Claude writes a ChartSpec plan (JSON-schema
 structured output) -> chartspec.py places fields (our "Show Me") ->
@@ -35,9 +36,10 @@ class ModelError(RuntimeError):
     pass
 
 
-def build_and_check(plan: dict, csv: Path, out: Path) -> tuple[list[str], dict]:
+def build_and_check(plan: dict, csv: Path | list[Path], out: Path) -> tuple[list[str], dict]:
     """Compile a plan to `out` (.twb or .twbx). Returns (errors, vizspec)."""
-    spec, errors = plan_to_vizspec(plan, csv, str(csv.resolve()))
+    csvs = [csv] if isinstance(csv, Path) else list(csv)
+    spec, errors = plan_to_vizspec(plan, csvs, [str(c.resolve()) for c in csvs])
     if errors:
         return errors, spec
     with tempfile.TemporaryDirectory() as tmp:
@@ -110,7 +112,8 @@ class Author:
 
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    p.add_argument("--csv", required=True, type=Path)
+    p.add_argument("--csv", required=True, type=Path, action="append",
+                   help="a CSV; repeat for several tables of one data model")
     p.add_argument("--request", help="what the user wants to see")
     p.add_argument("--plan", type=Path, help="offline: use this ChartSpec plan instead of calling the model")
     p.add_argument("-o", "--out", required=True, type=Path, help=".twb or .twbx")

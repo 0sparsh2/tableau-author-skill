@@ -1,5 +1,7 @@
 {
  "name": "Order Economics",
+ "data_model": null,
+ "parameters": [],
  "calculations": [],
  "charts": [
   {
@@ -38,7 +40,10 @@
      "include": null,
      "exclude": null,
      "min": 50,
-     "max": null
+     "max": null,
+     "top": null,
+     "by_field": null,
+     "by_agg": null
     }
    ],
    "sort": null,

@@ -1,5 +1,7 @@
 {
  "name": "Quarterly Volume",
+ "data_model": null,
+ "parameters": [],
  "calculations": [],
  "charts": [
   {

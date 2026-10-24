@@ -25,8 +25,10 @@ python3 twbgen/desktop_check.py --extract-from "$(ls -d /Applications/Tableau*.a
 ## Create a workbook
 
 1. **Profile the data.** `python3 twbgen/profile.py path/to/data.csv` gives exact
-   field names, types, roles, sample values and ranges. Only CSV sources are
-   supported; ask for a CSV export otherwise.
+   field names, types, roles, sample values, ranges and geographic roles. For
+   several related CSVs, pass them all (`profile.py orders.csv customers.csv`);
+   the plan then links them in `data_model`. Only CSV sources are supported; ask
+   for CSV exports otherwise.
 2. **Clarify only what changes the chart:** which date or measure when
    several fit, or the time grain. Otherwise decide and say what you chose.
 3. **Write the plan** to `<out-dir>/<name>.plan.json`, following
@@ -36,6 +38,7 @@ python3 twbgen/desktop_check.py --extract-from "$(ls -d /Applications/Tableau*.a
    ```bash
    python3 twbgen/author.py --csv path/to/data.csv --plan <out-dir>/<name>.plan.json -o <out-dir>/<name>.twbx
    ```
+   Repeat `--csv` for each table, in the order the plan's `data_model` expects.
    This places fields on shelves, compiles, runs `integrity.py` and Desktop's
    schema check. It prints the output path on success, or `FAILED:` with every
    problem.
@@ -61,14 +64,17 @@ the workbook is CSV-backed.
 ## What the generator supports
 
 - Charts: bar, stackedbar, line, area, combo (bars + line, dual axis), dualline,
-  scatter, histogram, text/KPI table, highlight table, pie, treemap.
-- Calculations (Tableau syntax), categorical and range filters, sorts,
+  scatter, histogram, text/KPI table, highlight table, pie, treemap, and maps:
+  filledmap, symbolmap (geographic fields) and pointmap (latitude/longitude).
+- Several CSVs linked by relationships (default) or inner/left joins.
+- Parameters (dropdown, slider or type-in), used in calculations and Top-N filters.
+- Calculations (Tableau syntax), categorical, range and Top-N filters, sorts,
   reference lines (average/median/min/max), currency/percent/number formats.
-- One dashboard per workbook, with a title and dropdown filters that apply to
-  every chart on it.
-- Not yet: maps, parameters, dashboard actions, LOD-specific UI, table
-  calculations on shelves, multi-table data, formatting beyond number formats.
-  Say so instead of approximating.
+- One dashboard per workbook: title, dropdown filters for every chart,
+  parameter controls, and filter / highlight / parameter actions.
+- Not yet: LOD-specific UI, table calculations on shelves, date-range filters,
+  multi-key links, actions on more than one field, formatting beyond number
+  formats. Say so instead of approximating.
 
 ## Example
 

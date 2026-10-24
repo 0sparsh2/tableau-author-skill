@@ -1,5 +1,7 @@
 {
  "name": "Regional Sales Overview",
+ "data_model": null,
+ "parameters": [],
  "calculations": [
   {
    "name": "Profit Ratio",
@@ -116,7 +118,9 @@
   ],
   "orientation": "vertical",
   "title": null,
-  "filters": []
+  "filters": [],
+  "parameters": [],
+  "actions": []
  },
  "formats": []
 }

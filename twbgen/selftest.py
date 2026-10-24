@@ -82,11 +82,22 @@ def main(extra: list[str]) -> int:
         results.append(check("integrity catches a shelf reference to an undeclared field",
                              any("Regoin" in i for i in found)))
 
-        plans = sorted(p for p in (HERE / "examples" / "plans").glob("*.json") if p.name != "requests.json")
+        for spec_name in ("multi/relationships", "multi/joins", "multi/maps", "multi/points", "multi/parameters",
+                          "actions"):
+            built = compile_spec(HERE / "examples" / f"{spec_name}.spec.json", tmp / f"{spec_name.replace('/', '_')}.twb")
+            issues = integrity.check(ET.parse(built).getroot())
+            if (desktop_check.CACHE / f"{desktop_check.SCHEMAS['twb']}.xsd").exists():
+                ok, more, _ = desktop_check.check(built)
+                issues += [] if ok else more
+            results.append(check(f"{spec_name} spec passes integrity and Desktop schema", not issues,
+                                 "; ".join(issues[:3])))
+
+        datasets = json.loads((HERE / "examples" / "plans" / "datasets.json").read_text())
+        plans = sorted(p for p in (HERE / "examples" / "plans").glob("*.json") if p.stem in datasets)
         failed_plans = []
         for plan in plans:
-            errors, _ = build_and_check(json.loads(plan.read_text()), HERE / "examples" / "sales.csv",
-                                        tmp / f"{plan.stem}.twbx")
+            csvs = [HERE / "examples" / c for c in datasets[plan.stem]]
+            errors, _ = build_and_check(json.loads(plan.read_text()), csvs, tmp / f"{plan.stem}.twbx")
             if errors:
                 failed_plans.append(f"{plan.stem}: {errors[0]}")
         results.append(check(f"all {len(plans)} example ChartSpec plans build and pass every check",
